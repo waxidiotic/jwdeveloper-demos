@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=960, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>JW Developer | {{title}}</title>
+    <link rel="icon" type="image/png" href="/static/img/favicon.ico">
+
+   	<!-- Responsive and mobile friendly stuff -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/static/css/html5reset.css" media="all">
+	<link rel="stylesheet" href="/static/css/col.css" media="all">
+	<link rel="stylesheet" href="/static/css/2cols.css" media="all">
+	<link rel="stylesheet" href="/static/css/prettify.css"></link>
+	<link rel="stylesheet" href="/static/css/demos.css">
+
+	<!-- JS -->
+	<script src="//content.jwplatform.com/libraries/VZOhu4w3.js"></script>
+  <script src="/static/js/prettify.js"></script>
+
+  <style>
+  .jw-dock-image {
+    background-size: 45%;
+    opacity: 1;
+  }
+  </style>
+
+</head>
+	<body onload="parseCode()">
+	<nav>
+		<a href="//developer.jwplayer.com"><img src="//developer.jwplayer.com.s3.amazonaws.com/img/jw-logo.svg"/></a><p>developer</p>
+	</nav>
+
+	<header>
+		<h2>Example: Using on('meta')</h2>
+    	<p>When curious about how the player handles certain streams and/or decides which chunk to display, the use of our on('meta') API call can help demystify things.</p>
+	</header>
+
+
+	<div class="metadata">
+	    <ul>
+	      <li><span>License:</span>Ads</li>
+	      <li><span>Player Version:</span>7.1.4</li>
+	      <li><a href="http://support.jwplayer.com/customer/en/portal/articles/1459607-example-using-on-meta-">Documentation</a></li>
+	    </ul>
+	</div>
+
+
+	<div class="disclaimer">
+		<p>Please Note: This player implementation is a Proof of Concept only provided to show the possibilities of the JW Player and Platform and should not be taken as an offer to create, edit or maintain custom integration or development.</p>
+	</div>
+
+	<div id="demo-content">
+
+
+		<!-- LEFT COLUMN - VIDEO PLAYER HERE -->
+		<div class="col span_1_of_2">
+			<div id="container"></div>
+			<h4>METADATA LOGS</h4>
+			<div id="logs"></div>
+		</div>
+		<!-- -->
+
+
+		<!-- RIGHT COLUMN - CODE SNIPPET HERE -->
+		<div class="col span_1_of_2">
+			<div class="placeCode"></div>
+		</div>
+		<!-- -->
+	</div>
+
+		<!-- JS SCRIPTS -->
+<script type="text/javascript" class="prettify">
+var playerInstance = jwplayer('container')
+playerInstance.setup({ 
+  playlist: "//content.jwplatform.com/jw6/Qlh3p9ly.xml"
+});
+var metadataEntries = 1;
+jwplayer().onMeta( function( e ){
+  document.getElementById('logs').innerHTML += "<br />Metadata Entry #" + metadataEntries.toString() + "<br />";
+  for ( var key in e.metadata ){
+    document.getElementById('logs').innerHTML += key.toUpperCase() + ": " + e.metadata[ key ] + "<br />"
+  }
+  // console.log(e.metadata)
+  metadataEntries++
+})
+
+</script>
+	</body>
+</html>
