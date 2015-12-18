@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset='UTF-8'/>
+	<meta name='robots' content='index'/>
+
+	<!-- Responsive and mobile friendly stuff -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Metatags -->
+  <meta name='description' content='Here is an example of a setup where the video controls are hidden.'/>
+  <link rel="canonical" href="http://developer.jwplayer.com/" />
+  <link rel="icon" type="image/png" href="/img/favicon.ico"> 
+	<title>JW Developer | Demo - Chromeless Player</title>
+ 
+  <meta class='swiftype' name='title' data-type='string' content='Developers' />
+  <meta class='swiftype' name='type' data-type='enum' content='developers' />
+  <meta class='swiftype' name='info' data-type='string' content='site' />
+
+  <meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+  
+  <meta name='twitter:site' content='@jwplayer' />
+  <meta property='og:site_name' content='JW Developers' />
+  <meta name='twitter:url' content='http://developer.jwplayer.com/' />
+  <meta property='og:url' content='http://developer.jwplayer.com/' />
+  <meta name='twitter:title' content='Chromeless Player' />
+  <meta property='og:title' content='Chromeless Player' />
+  <meta name='twitter:description' content='Here is an example of a setup where the video controls are hidden.' />
+  <meta property='og:description' content='Here is an example of a setup where the video controls are hidden.' />
+  
+  <meta name='twitter:image' content='https://www.jwplayer.com/wp-content/themes/jwplayer-20/assets/images/logo.png' />
+  <meta property='og:image' content='https://www.jwplayer.com/wp-content/themes/jwplayer-20/assets/images/logo.png' />
+  <meta name='twitter:card' content='summary_large_image' />
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="../../css/html5reset.css" media="all">
+	<link rel="stylesheet" href="../../css/col.css" media="all">
+	<link rel="stylesheet" href="../../css/2cols.css" media="all">
+	<link rel="stylesheet" href="../../css/prettify.css"></link>
+	<link rel="stylesheet" href="../../css/demos.css">
+
+	<!-- JS -->
+	<script src="//content.jwplatform.com/libraries/VZOhu4w3.js"></script>
+    <script src="../../js/prettify.js"></script>
+
+
+</head>
+
+<body onload="parseCode()">
+
+	<nav>
+		<img src="//icons.jwplayer.com/social/jw-logo-white.svg" width="104"/><p>developer</p>
+	</nav>
+
+	<header>
+		<h2>Chromeless Player</h2>
+    	<p>Here is an example of a setup where the video controls are hidden.</p> 
+	</header>
+
+
+	<div class="metadata">
+	    <ul>
+	      <li><span>License:</span> Ads</li>
+	      <li><span>Player Version:</span> 7.1.4</li>
+	      <li><a href="//support.jwplayer.com/customer/en/portal/articles/1439411-example-a-chromeless-player">Documentation</a></li>
+	    </ul>
+	</div>
+
+
+	<div class="disclaimer">
+			<p>Please Note: This player implementation is a Proof of Concept only provided to show the possibilities of the JW Player and Platform and should not be taken as an offer to create, edit or maintain custom integration or development.</p>
+		</div>
+
+
+	<div class="demo">
+		<div class="section group">
+
+		<!-- LEFT COLUMN - VIDEO PLAYER HERE -->
+		<div class="col span_1_of_2">
+			<div id="player1"></div>
+			<a id="play" class="button" href="javascript:playerInstance.play();">Play Video</a>
+			<a id="pause" class="button" href="javascript:playerInstance.pause();">Pause Video</a>
+		</div>
+		<!-- -->
+
+
+		<!-- RIGHT COLUMN - CODE SNIPPET HERE -->
+		<div class="col span_1_of_2">
+			<div class="placeCode"></div>
+		</div>
+		<!-- -->
+		</div>
+	</div>
+
+		<!-- JS SCRIPTS -->
+		<script type="text/javascript" class="prettify">
+var playerInstance = jwplayer("player1");
+	playerInstance.setup({
+		playlist: "//content.jwplatform.com/jw6/Qlh3p9ly.xml",
+		width: "100%",
+		displaytitle: false,
+		controls: false,
+});
+
+</script>
+
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MBF9PW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MBF9PW');</script>
+
+
+</body>
+
+</html>
