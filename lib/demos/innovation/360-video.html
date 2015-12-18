@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=960, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>JW Developer | 360 Video</title>
+    <link rel="icon" type="image/png" href="/img/favicon.ico">
+
+   	<!-- Responsive and mobile friendly stuff -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Stylesheets -->
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="../../css/prettify.css"></link>
+	<link rel="stylesheet" href="../../css/demos.css">
+
+	<!-- JS -->
+    <script src="//jwpsrv.com/library/5V3tOP97EeK2SxIxOUCPzg.js"></script>
+
+</head>
+
+<body>
+
+	<nav>
+		<img src="//icons.jwplayer.com/social/jw-logo-white.svg" width="104"/><p>developer</p>
+	</nav>
+
+	<header>
+		<h2>360 Video</h2>
+    	<p>Click and drag with the mouse to look around or use the arrow-keys on your keyboard.</p> 
+	</header>
+
+  <div class="metadata">
+    <ul>
+      <li><span>License:</span> Enterprise</li>
+      <li><span>Player Version:</span>6.12.4956</li>
+      <li><a href="#">Github</a></li>
+    </ul>
+  </div>
+
+
+	<div class="demo">
+
+
+		<!-- COLUMN - VIDEO PLAYER HERE -->
+			<div id="player1">
+		
+			</div>
+
+			<p>Load another video: <a href="javascript:play(0);">clouds</a> | <a href="javascript:play(1);">congress</a> | <a href="javascript:play(2);">helicopter</a></p>
+
+      <p>We partnered with Surround Definition to provide this demo with SHD technology, the standard for playback of 360° videos. User directed movement gives directors and producers new possibilities to communicate with their audience. Upcoming technologies like the Oculus Rift or Google Glass will make SHD content even more compelling.
+The SHD integration into JW Player brings 360° video into a rich and reliable playback platform. Being Flash-only now, next steps are to release the SHD engine to HTML5 and mobile. For more information or questions, please visit surrounddefinition.com.</p>
+		<!-- -->
+
+	</div>
+
+		<!-- JAVASCRIPT HERE -->
+	<script type="text/javascript">
+    	jwplayer("player1").setup({
+      wmode:'direct',
+      repeat:'true',
+      playlist: [{
+        file: 'http://demo.jwplayer.com/360-video/helicopter.mp4',
+        provider: 'http://demo.jwplayer.com/360-video/PanframeSHDProvider.swf',
+        type: 'flv'
+      }],
+      width: 720,
+      height: 406
+    });
+
+   	function play(i) {
+      var vids = ['http://demo.jwplayer.com/360-video/clouds.mp4','http://demo.jwplayer.com/360-video/congress.mp4','http://demo.jwplayer.com/360-video/helicopter.mp4'];
+      jwplayer().load([{
+        file: vids[i],
+        provider: 'http://demo.jwplayer.com/360-video/PanframeSHDProvider.swf',
+        type: 'flv'
+      }]);
+      jwplayer().play();
+    };
+
+</script>
+
+
+</body>
+
+</html>
