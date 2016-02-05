@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=960, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>JW Developer | Closed Captions</title>
+    <link rel="icon" type="image/png" href="/img/favicon.ico">
+
+   	<!-- Responsive and mobile friendly stuff -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Stylesheets -->
+ 	<link rel="stylesheet" href="/assets/css/style.css">
+
+	<!-- JS -->
+     <script type="text/javascript" src="http://content.jwplatform.com/libraries/nWvdqK5e.js"></script>
+
+</head>
+
+<body>
+
+	<nav>
+		<img src="//icons.jwplayer.com/social/jw-logo-white.svg" width="104"/><p>developer</p>
+	</nav>
+
+	<header>
+	<h2>Closed Captions</h2>
+    <p>Rendering closed captions or subtitles in video display</p> 
+	</header>
+
+  <div class="metadata">
+    <ul>
+      <li><span>License:</span> Ads</li>
+      <li><span>Player Version:</span> 7.2.4</li>
+      <li><a href="#">Github</a></li>
+    </ul>
+  </div>
+
+
+	<div class="demo">
+
+		<!-- COLUMN - VIDEO PLAYER HERE -->
+			<div id="player1"></div>
+		<!-- -->
+		<p>Features include:</p>
+
+		<p>1. CEA-608 captions</p>
+		<p>2. WebVTT captions on all devices</p>
+		<p>3. Multiple language support</p>
+		<p>4. Can be styled any way</p>
+		<p>5. Toggle with visual interface or API</p>
+
+	</div>
+
+
+		<!-- JAVASCRIPT HERE -->
+<script>
+jwplayer("player1").setup({
+      file: 'http://wowzaec2demo.streamlock.net/vod-multitrack/_definst_/smil:ElephantsDream/elephantsdream2.smil/playlist.m3u8',
+
+      type: 'hls',
+      width: 640,
+      height: 360,
+              hlslabels: {
+            "415": "128p",
+            "515": "160p",
+            "650": "208p",
+            "881":"252p",
+            "1200":"332p",
+            "1600": "432p",
+            "2300": "560p",
+            "3200":"720p"
+        }
+    });
+   
+</script>
+
+
+</body>
+
+</html>
