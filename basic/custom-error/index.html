@@ -1,92 +1,53 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=960, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>JW Developer | {{title}}</title>
-    <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
-
-   	<!-- Responsive and mobile friendly stuff -->
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<!-- DEMO BUILDER METADATA -->
-	<meta name="jwdeveloper:title" content="A Custom Error Message">
-    <meta name="jwdeveloper:description" content="Here is an example of how users can control player behavior when an error occurs.">
-    <meta name="jwdeveloper:keywords" content="customization">   
-    <meta name="jwdeveloper:type" content="basic">
-
+ 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="/assets/css/col.css" media="all">
-	<link rel="stylesheet" href="/assets/css/prettify.css"></link>
-	<link rel="stylesheet" href="/assets/css/style.css">
-
-	<!-- JS -->
-	<script src="//content.jwplatform.com/libraries/VZOhu4w3.js"></script>
-  <script src="/assets/js/prettify.js"></script>
-
+  	<link rel="stylesheet" href="http://developer.jwplayer.com/css/developer.min.css?v=pWiTjPCb">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="http://content.jwplatform.com/libraries/DbXZPMBQ.js"></script>
+	
 </head>
-	<body onload="parseCode()">
-	<nav>
-		<a href="//developer.jwplayer.com"><img src="//developer.jwplayer.com.s3.amazonaws.com/img/jw-logo.svg"/></a><p>developer</p>
-	</nav>
 
-	<header>
-		<h2>A Custom Error Message</h2>
-    	<p>Here is an example of how users can control player behavior when an error occurs.</p>
-	</header>
+<body>
 
+<div class="hero">
+    <div class="container">
+        <h1>A Custom Error Message</h1>
+        <p>Here is an example of how users can control player behavior when an error occurs.</p>
+    </div>
+</div>
 
-	<div class="metadata">
-	    <ul>
-	      <li><span>License:</span>Ads</li>
-	      <li><span>Player Version:</span>7.1.4</li>
-	      <li><a href="http://support.jwplayer.com/customer/en/portal/articles/1442607-example-a-custom-error-message">Documentation</a></li>
-	    </ul>
-	</div>
+<div class="metadata">
+    <ul>
+        <li><span>License:</span>Ads</li>
+        <li><span>Player Version:</span>7.1.4</li>
+        <li><a href="//support.jwplayer.com/customer/en/portal/articles/1442607-example-a-custom-error-message">Documentation</a></li>
+    </ul>
+</div>
 
-	<div id="demo-content">
+<div class="container">
 
+    <div class="disclaimer">
+        <p>Please Note: This player implementation is a Proof of Concept only provided to show the possibilities of the JW Player and Platform and should not be taken as an offer to create, edit or maintain custom integration or development.</p>
+    </div>
 
-		<!-- LEFT COLUMN - VIDEO PLAYER HERE -->
-		<div class="col span_1_of_2">
-			<div id="container"></div>
-		</div>
-		<!-- -->
+    <div class="demo">
+        <div class="row">
+            <div class="column sm-12 lg-6">
+                <div id="player"></div>
+            </div>
+            <div class="column sm-12 lg-6">
+                <div id="my-demo-code" class="lang-html"></div>
+            </div>
+        </div>
+    </div>
 
+</div>
 
-		<!-- RIGHT COLUMN - CODE SNIPPET HERE -->
-		<div class="col span_1_of_2">
-			<div class="placeCode"></div>
-		</div>
-		<!-- -->
-	</div>
+	<script type="text/javascript" src="js/main.js" data-prettify="#my-demo-code"></script>
+    <script src="http://developer.jwplayer.com/js/developer.min.js?v=pWiTjPCb"></script>
 
-		<!-- JS SCRIPTS -->
-<script type="text/javascript" class="prettify">
-var playerInstance = jwplayer("container");
-playerInstance.setup({
-	file: "rtmp://fms.12E5.edgecastcdn.net/0012E5/videos/Qvxp3Jnv-68183.flv",
-	image: "http://s.jwpcdn.com/thumbs/RxiqSWej-640.jpg"
-});
-playerInstance.on('error', function(){
-	playerInstance.load({file:"http://content.jwplatform.com/videos/7RtXk3vl-52qL9xLP.mp4",image:"http://content.jwplatform.com/thumbs/7RtXk3vl-480.jpg"});
-	playerInstance.play();
-});
-playerInstance.on('complete', function(){
-	window.location = window.location.href;
-});
-playerInstance.on('buffer', function(){
-	theTimeout = setTimeout(function(){
-		playerInstance.load({file:"http://content.jwplatform.com/videos/7RtXk3vl-52qL9xLP.mp4",image:"http://content.jwplatform.com/thumbs/7RtXk3vl-480.jpg"});
-		playerInstance.play();
-	},5000);
-});
-playerInstance.on('play', function(){
-	clearTimeout(theTimeout);
-});
-</script>
 	</body>
 </html>
