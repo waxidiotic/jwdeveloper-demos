@@ -1,95 +1,53 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=960, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>JW Developer | {{title}}</title>
-    <link rel="icon" type="image/png" href="/static/img/favicon.ico">
-
-   	<!-- Responsive and mobile friendly stuff -->
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+ 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="/assets/css/col.css" media="all">
-	<link rel="stylesheet" href="/assets/css/prettify.css"></link>
-	<link rel="stylesheet" href="/assets/css/style.css">
-
-	<!-- JS -->
-	<script src="//content.jwplatform.com/libraries/VZOhu4w3.js"></script>
-  <script src="/static/js/prettify.js"></script>
-
-  <style>
-  .jw-dock-image {
-    background-size: 45%;
-    opacity: 1;
-  }
-  </style>
-
+  	<link rel="stylesheet" href="http://developer.jwplayer.com/css/developer.min.css?v=pWiTjPCb">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="http://content.jwplatform.com/libraries/DbXZPMBQ.js"></script>
+	
 </head>
-	<body onload="parseCode()">
-	<nav>
-		<a href="//developer.jwplayer.com"><img src="//developer.jwplayer.com.s3.amazonaws.com/img/jw-logo.svg"/></a><p>developer</p>
-	</nav>
 
-	<header>
-		<h2>Mutually Exclusive Playback</h2>
-    	<p>Here is an example of a setup with multiple players. When one of them starts, the others are automatically paused</p> 
-	</header>
+<body>
 
+	<div class="hero">
+    <div class="container">
+        <h1>Mutually Exclusive Playback</h1>
+        <p>Here is an example of a setup with multiple players. When one of them starts, the others are automatically paused</p>
+    </div>
+</div>
 
-	<div class="metadata">
-	    <ul>
-	      <li><span>License:</span>Ads</li>
-	      <li><span>Player Version:</span>7.1.4</li>
-	      <li><a href="http://support.jwplayer.com/customer/en/portal/articles/1439797-example-mutually-exclusive-playback">Documentation</a></li>
-	    </ul>
-	</div>
+<div class="metadata">
+    <ul>
+        <li><span>License:</span>Ads</li>
+        <li><span>Player Version:</span>7.1.4</li>
+        <li><a href="//support.jwplayer.com/customer/en/portal/articles/1439797-example-mutually-exclusive-playback">Documentation</a></li>
+    </ul>
+</div>
 
+<div class="container">
 
-	<div class="disclaimer">
-		<p>Please Note: This player implementation is a Proof of Concept only provided to show the possibilities of the JW Player and Platform and should not be taken as an offer to create, edit or maintain custom integration or development.</p>
-	</div>
+    <div class="disclaimer">
+        <p>Please Note: This player implementation is a Proof of Concept only provided to show the possibilities of the JW Player and Platform and should not be taken as an offer to create, edit or maintain custom integration or development.</p>
+    </div>
 
-	<div id="demo-content">
+    <div class="row">
+        <div class="column sm-12 lg-6">
+            <div id="player1"></div>
+            <div id="player2"></div>
+            <div id="player3"></div>
+        </div>
+        <div class="column sm-12 lg-6">
+            <div id="my-demo-code" class="lang-html"></div>
+        </div>
+    </div>
 
+</div>
 
-		<!-- LEFT COLUMN - VIDEO PLAYER HERE -->
-		<div class="col span_1_of_2">
-			<div id="player1"></div>
-			<div id="player2"></div>
-			<div id="player3"></div>
-		</div>
-		<!-- -->
+	<script type="text/javascript" src="js/main.js" data-prettify="#my-demo-code"></script>
+	<script src="http://developer.jwplayer.com/js/developer.min.js?v=pWiTjPCb"></script>
 
-
-		<!-- RIGHT COLUMN - CODE SNIPPET HERE -->
-		<div class="col span_1_of_2">
-			<div class="placeCode"></div>
-		</div>
-		<!-- -->
-	</div>
-
-		<!-- JS SCRIPTS -->
-<script type="text/javascript" class="prettify">
-	var playerInstance1 = jwplayer("player1");
-	var playerInstance2 = jwplayer("player2");
-	var playerInstance3 = jwplayer("player3");
-	playerInstance1.setup({ file: "http://content.jwplatform.com/videos/bkaovAYt-I3ZmuSFT.m4a", height: 40, width: 480 });
-	playerInstance2.setup({ file: "http://content.jwplatform.com/videos/bkaovAYt-I3ZmuSFT.m4a", height: 40, width: 480 });
-	playerInstance3.setup({ file: "http://content.jwplatform.com/videos/bkaovAYt-I3ZmuSFT.m4a", height: 40, width: 480 });
-
-	playerInstance1.on('play',function(){ pausePlayers(1); });
-  playerInstance2.on('play',function(){ pausePlayers(2); });
-  playerInstance3.on('play',function(){ pausePlayers(3); });
-
-  function pausePlayers(playing) { 
-    for (var i=1; i<4; i++) {
-       if(i != playing) { jwplayer("player"+i).pause(true); }
-    }
-  };
-</script>
 	</body>
 </html>
