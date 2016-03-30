@@ -1,25 +1,26 @@
-    var playerInstance = jwplayer("player");
+var playerInstance = jwplayer("my-demo-player");
 
-    playerInstance.setup({
-        playlist: "//content.jwplatform.com/jw6/QlfSn2u6.xml",
-        width: "100%",
-        displaytitle: false
-    });
+playerInstance.setup({
+  playlist: "//content.jwplatform.com/jw6/QlfSn2u6.xml",
+  width: "100%",
+  displaytitle: false
+});
 
-    playerInstance.addButton(
+playerInstance.addButton(
 
-        //This portion is what designates the graphic used for the button
-        "http://icons.jwplayer.com/icons/white/download.svg",
+  //This portion is what designates the graphic used for the button
+  "http://icons.jwplayer.com/icons/white/download.svg",
 
-        //This portion determines the text that appears as a tooltip
-        "Download Video",
+  //This portion determines the text that appears as a tooltip
+  "Download Video",
 
-        //This portion designates the functionality of the button itself
-        function() {
-            //With the below code, we're grabbing the file that's currently playing
-            window.location.href = playerInstance.getPlaylistItem()['file'];
-        },
+  //This portion designates the functionality of the button itself
+  function() {
+      //With the below code, we're grabbing the file that's currently playing
+      window.location.href = playerInstance.getPlaylistItem()['file'];
+  },
 
-        //And finally, here we set the unique ID of the button itself.
-        "download"
-    );
+  //And finally, here we set the unique ID of the button itself.
+  "download"
+
+);

@@ -1,4 +1,4 @@
-var playerInstance = jwplayer("player");
+var playerInstance = jwplayer("my-demo-player");
 
 playerInstance.setup({
     playlist: "//content.jwplatform.com/jw6/xJ7Wcodt.xml",
