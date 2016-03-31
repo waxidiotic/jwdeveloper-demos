@@ -1,0 +1,5 @@
+{
+  "title": "Autostart Only Once",
+  "description": "An example of a setup of JW Player that autostarts the video - but only for the first time a user visits the page.",
+  "license": "Ads"
+}
