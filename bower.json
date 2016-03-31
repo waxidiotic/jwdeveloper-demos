@@ -1,9 +1,3 @@
 {
-  "name": "jwdeveloper-demos",
-  "devDependencies": {
-    "jwdesign": "git@github.com:jwplayer/jwdesign.git",
-    "jwdeveloper": "git@github.com:jwplayer/jwdeveloper.git",
-    "normalize.css": "git@github.com:necolas/normalize.css.git",
-    "code-prettify": "git@github.com:google/code-prettify.git"
-  }
+  "name": "jwdeveloper-demos"
 }
