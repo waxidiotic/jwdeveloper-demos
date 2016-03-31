@@ -5,7 +5,7 @@ module.exports = function (grunt) {
   var config = {};
 
   config.pkg = grunt.file.readJSON('package.json');
-  config.demos = grunt.file.readJSON('demos.json');
+  config.config = grunt.file.readJSON('config.json');
 
   config.clean = {
       build: 'build/*'
@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 
   config['http-server'] = {
     dev: {
-      root: 'build',
+      root: 'build/demos',
       port: 8000,
       host: '127.0.0.1',
       openBrowser : true
@@ -43,19 +43,22 @@ module.exports = function (grunt) {
     var _concat = {};
     var _replace = {};
 
-    var demos = grunt.config('demos');
+    var categories = grunt.config('config.categories');
 
-    for (var i = 0; i < demos.length; i++) {
-      var dirs = demos[i];
-      for (var ii in dirs) {
-        var dir = dirs[ii];
-        for (var iii in dir) {
-          var demo = dir[iii];
+    for (var i = 0; i < categories.length; i++) {
+      var cat = categories[i];
 
-          var _src = ii + '/' + demo.directory + '/';
+      grunt.file.recurse('demos/' + cat,
+          function callback(abspath, rootdir, subdir, filename) {
+
+        if (filename == 'config.json') {
+
+          var _src = 'demos/' + cat + '/' + subdir + '/';
           var _build = 'build/' + _src + '/';
           var _tmp = 'tmp/' + _src + '/';
-          var _tmpl = 'bower_components/jwdeveloper/src/demos/';
+          var _tmpl = '_templates/';
+
+          var config = grunt.file.readJSON(_src + filename);
 
           _concat[_tmp + 'js/build.js'] = _src + 'js/*.js';
           if (!grunt.file.exists(_tmp + 'js/build.js')) {
@@ -67,7 +70,7 @@ module.exports = function (grunt) {
             grunt.file.write(_build + 'css/build.css', '');
           }
 
-          _replace['default-' + demo.directory] = {
+          _replace['default-' + subdir] = {
             options: {
               patterns: [
                 {
@@ -80,8 +83,9 @@ module.exports = function (grunt) {
                 }
               ],
               variables: {
-                'title': demo.title,
-                'desc': demo.description
+                'title': config.title,
+                'desc': config.description,
+                'license' : config.license
               }
             },
             files: [
@@ -97,17 +101,14 @@ module.exports = function (grunt) {
             ]
           };
 
-          _replace['detail-' + demo.directory] = {
+          _replace['detail-' + subdir] = {
             options: {
               patterns: [
                 {
                   match: 'content',
                   replacement: '<%= grunt.file.read("' + _src + 'index.html") %>'
                 }
-              ],
-              variables: {
-                'test-var' : 'test-var-value'
-              }
+              ]
             },
             files: [
               {
@@ -120,7 +121,8 @@ module.exports = function (grunt) {
           };
 
         }
-      }
+      });
+
     }
 
     grunt.config.set('concat', {
