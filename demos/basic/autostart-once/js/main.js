@@ -1,9 +1,9 @@
-var playerInstance = jwplayer("my-demo-player");
+var playerInstance = jwplayer("botr_xJ7Wcodt_DbXZPMBQ_div");
 
 playerInstance.setup({
-    playlist: "//content.jwplatform.com/jw6/xJ7Wcodt.xml",
-    width: "100%",
-    displaytitle: false
+  playlist: "//content.jwplatform.com/jw6/Qlh3p9ly.xml",
+  width: "100%",
+  displaytitle: false
 });
 
 playerInstance.on('ready', function(){

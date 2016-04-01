@@ -3,5 +3,3 @@
 	<allow-access-from domain="*" />
 	<allow-access-from domain="*.jwplayer.com" />
 </cross-domain-policy>
-
-
