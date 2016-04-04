@@ -216,7 +216,7 @@ module.exports = function (grunt) {
   // build and serve locally
   grunt.registerTask('serve', '', function() {
     grunt.task.run('default');
-    grunt.task.run('http-server:dev');
+    grunt.task.run('http-server');
   });
 
 };
