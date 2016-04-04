@@ -1,12 +1,12 @@
-var playerInstance = jwplayer("botr_xJ7Wcodt_DbXZPMBQ_div");
+var player = jwplayer("botr_xJ7Wcodt_DbXZPMBQ_div");
 
-playerInstance.setup({
+player.setup({
   playlist: "//content.jwplatform.com/jw6/QlfSn2u6.xml",
   width: "100%",
   displaytitle: false
 });
 
-playerInstance.addButton(
+player.addButton(
   //This portion is what designates the graphic used for the button
   "http://icons.jwplayer.com/icons/white/download.svg",
   //This portion determines the text that appears as a tooltip
