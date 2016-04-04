@@ -7,7 +7,7 @@ module.exports = function (grunt) {
     'pkg': grunt.file.readJSON('package.json'),
     'config': grunt.file.readJSON('config.json'),
     'clean': {
-      build: 'build/*'
+      build: ['build/*']
     },
     'http-server': {
       dev: {
@@ -23,106 +23,105 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-http-server');
-  grunt.loadNpmTasks('grunt-replace');
-
-  // delete `tmp` directory that is created during build process
-  grunt.registerTask('delete-tmp-dir', '', function() {
-    grunt.file.delete('tmp');
-  });
+  grunt.loadNpmTasks('grunt-preprocess');
 
   // grunt default task
   grunt.registerTask('default', '', function() {
 
-    var demos = [],
-      concatConfig = {},
-      replaceConfig = {},
-      categories = grunt.config('config.categories');
+    if (grunt.file.isDir('tmp')) grunt.file.delete('tmp');
+
+    const SRC = 'demos/';
+    const BUILD = 'build/';
+    const TMP = 'tmp/';
+    const TMPL = '_templates/';
+
+    var categories = grunt.config('config.categories'),
+      demos = [],
+      concatJS = {},
+      concatCSS = {},
+      concatIndexes = {},
+      preprocess = {},
+      tasks = [
+        'clean',
+        'concat:js',
+        'concat:css'
+      ];
 
     for (var i = 0; i < categories.length; i++) {
 
       var cat = categories[i];
 
+      // if directory does not exist even despite being in category list
+      if (!grunt.file.isDir('demos/' + cat)) continue;
+
       grunt.file.recurse('demos/' + cat,
           function callback(abspath, rootdir, subdir, filename) {
 
+        // we are looking for a config file, which is require per demo
+        // when we find the config file, we process that directory as a demo
         if (filename == 'config.json') {
 
-          var srcDir = 'demos/' + cat + '/' + subdir + '/';
-          var buildDir = 'build/' + srcDir + '/';
-          var tmpDir = 'tmp/' + srcDir + '/';
-          var tmplDir = '_templates/';
+          // define demo-specific directory shortcuts
+          var srcDir = SRC + cat + '/' + subdir + '/';
+          var buildDir = BUILD + srcDir;
+          var tmpDir = TMP + srcDir;
 
-          var demoConfig = grunt.file.readJSON(srcDir + filename);
+          // get demo config json
+          var demo = grunt.file.readJSON(srcDir + filename);
 
-          demoConfig['category'] = cat;
-          demoConfig['directory'] = subdir;
-          demos.push(demoConfig);
+          // append demo obj with demo category and directory
+          // then push demo to demos list to iterate over later
+          demo['category'] = cat;
+          demo['directory'] = subdir;
+          demos.push(demo);
 
-          concatConfig[tmpDir + 'js/build.js'] = srcDir + 'js/*.js';
-          if (!grunt.file.exists(tmpDir + 'js/build.js')) {
-            grunt.file.write(tmpDir + 'js/build.js', '');
-          }
+          // concat config for demo js
+          grunt.file.write(tmpDir + 'js/build.js', '');
+          concatJS[tmpDir + 'js/build.js'] = srcDir + 'js/*.js'
 
-          concatConfig[buildDir + 'css/build.css'] = srcDir + 'css/*.css';
-          if (!grunt.file.exists(buildDir + 'css/build.css')) {
-            grunt.file.write(buildDir + 'css/build.css', '');
-          }
+          // concat config for demo css
+          grunt.file.write(buildDir + 'css/build.css', '');
+          concatCSS[buildDir + 'css/build.css'] = srcDir + 'css/*.css';
 
-          replaceConfig['default-' + subdir] = {
+          // preprocess config fir demo detail page
+          preprocess['detail-' + subdir] = {
             options: {
-              patterns: [
-                {
-                  match: 'content',
-                  replacement: '<%= grunt.file.read("' + tmplDir + 'single.html") %>'
-                },
-                {
-                  match: 'js',
-                  replacement: '\r\r<%= grunt.file.read("' + tmpDir + 'js/build.js") %>\r'
-                }
-              ],
-              variables: {
-                'title': demoConfig.title,
-                'desc': demoConfig.description,
-                'license' : demoConfig.license
+              context: {
+                default: '<%= grunt.file.read("' + TMPL + 'single.html") %>',
+                single: '<%= grunt.file.read("' + srcDir + 'index.html") %>',
+                js: '\r\r<%= grunt.file.read("' + tmpDir + 'js/build.js") %>\r',
+                category: demo.category,
+                directory: demo.directory,
+                title: demo.title,
+                desc: demo.description,
+                license: demo.license
               }
             },
             files: [
               {
-                expand: true,
-                flatten: true,
-                src: tmplDir + 'default.html',
-                dest: buildDir,
-                rename: function(dest, src) {
-                  return dest + src.replace('default', 'index');
-                }
-              }
-            ]
-          };
-
-          replaceConfig['detail-' + subdir] = {
-            options: {
-              patterns: [
-                {
-                  match: 'content',
-                  replacement: '<%= grunt.file.read("' + srcDir + 'index.html") %>'
-                }
-              ]
-            },
-            files: [
+                src: TMPL + 'card.html',
+                dest: tmpDir + 'card.html'
+              },
               {
-                expand: true,
-                flatten: true,
+                src: TMPL + 'default.html',
+                dest: buildDir + 'index.html'
+              },
+              {
                 src: buildDir + 'index.html',
-                dest: buildDir
+                dest: buildDir + 'index.html'
               }
             ]
           };
+
+          tasks.push('preprocess:detail-' + subdir);
 
         }
+
       });
 
     }
 
+    // sort all demos alphabetically
     demos.sort(function (a, b) {
       var prop = 'directory';
       var sortStatus = 0;
@@ -134,108 +133,89 @@ module.exports = function (grunt) {
       return sortStatus;
     });
 
-    var buildDir = 'build/demos/';
-    var tmplDir = '_templates/';
-
-    concatConfig['build/demos/index.html'] = [];
-
+    // add concat config namespaces for index pages
+    grunt.file.write(TMP + SRC + 'index.html', '');
+    concatIndexes[TMP + SRC + 'index.html'] = [];
     for (var i = 0; i < categories.length; i++) {
-      var cat = categories[i];
-      concatConfig['build/demos/' + cat + '/index.html'] = [];
+      grunt.file.write(TMP + SRC + categories[i] + '/index.html', '');
+      concatIndexes[TMP + SRC + categories[i] + '/index.html'] = [];
     }
 
+    // loop demos and add them to concat src file list config for full index
+    // and category index it belongs to
     for (var i = 0; i < demos.length; i++) {
-
       var demo = demos[i];
-
-      var srcDir = 'demos/' + demo.category + '/' + demo.directory + '/';
-      var tmpDir = 'tmp/' + srcDir + '/';
-
-      replaceConfig['card-' + demo.directory] = {
-        options: {
-          variables: {
-            'category' : demo.category,
-            'title': demo.title,
-            'desc': demo.description
-          }
-        },
-        files: [
-          {
-            expand: true,
-            flatten: true,
-            src: tmplDir + 'card.html',
-            dest: tmpDir
-          }
-        ]
-      };
-
-      concatConfig['build/demos/index.html'].push(tmpDir + 'card.html');
-      concatConfig['build/demos/' + demo.category + '/index.html'].push(tmpDir + 'card.html');
-
+      concatIndexes[TMP + SRC + 'index.html'].push(
+        TMP + SRC + demo.category + '/' + demo.directory + '/card.html');
+      concatIndexes[TMP + SRC + demo.category + '/index.html'].push(
+        TMP + SRC + demo.category + '/' + demo.directory + '/card.html');
     }
 
-    replaceConfig['index-all'] = {
+    // add to task list
+    tasks.push('concat:indexes');
+
+    // preprocess config for full index page
+    preprocess['index-all'] = {
       options: {
-        variables: {
-          'content' : '<%= grunt.file.read("' + buildDir + 'index.html") %>'
+        context: {
+          indexContent: '<%= grunt.file.read("' + TMP + SRC + 'index.html") %>',
         }
       },
-      files: [
-        {
-          expand: true,
-          flatten: true,
-          src: tmplDir + 'default.html',
-          dest: buildDir,
-          rename: function(dest, src) {
-            return dest + src.replace('default', 'index');
-          }
-        }
-      ]
+      files: [{
+        src: TMPL + 'index.html',
+        dest: BUILD + SRC + 'index.html'
+      }]
     };
 
+    // add task to list
+    tasks.push('preprocess:index-all');
+
+    // preprocess config for each category index page
     for (var i = 0; i < categories.length; i++) {
 
-      var cat = categories[i];
-
-      replaceConfig['index-' + cat] = {
+      // define preprocess config
+      preprocess['index-' + categories[i]] = {
         options: {
-          variables: {
-            'content' : '<%= grunt.file.read("' + buildDir + '/' + cat + '/index.html") %>'
+          context: {
+            indexContent: '<%= grunt.file.read("' + TMP + SRC + categories[i] + '/index.html") %>',
+            selected: categories[i]
           }
         },
-        files: [
-          {
-            expand: true,
-            flatten: true,
-            src: tmplDir + 'default.html',
-            dest: buildDir + '/' + cat + '/',
-            rename: function(dest, src) {
-              return dest + src.replace('default', 'index');
-            }
-          }
-        ]
+        files: [{
+          src: TMPL + 'index.html',
+          dest: BUILD + SRC + categories[i] + '/index.html'
+        }]
       };
+
+      // add task to list
+      tasks.push('preprocess:index-' + categories[i]);
 
     }
 
+    // set concat config
     grunt.config.set('concat', {
-      build: {
-        files: concatConfig
+      js: {
+        files: concatJS
+      },
+      css: {
+        files: concatCSS
+      },
+      indexes: {
+        files: concatIndexes
       }
     });
 
-    grunt.config.set('replace', replaceConfig);
+    // set preprocess config
+    grunt.config.set('preprocess', preprocess);
 
-    grunt.task.run([
-      'clean',
-      'concat',
-      'replace',
-      'delete-tmp-dir'
-    ]);
+    // run the task list
+    grunt.task.run(tasks);
 
   });
 
+  // build and serve locally
   grunt.registerTask('serve', '', function() {
+    grunt.task.run('default');
     grunt.task.run('http-server:dev');
   });
 

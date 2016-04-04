@@ -1,10 +1,5 @@
 {
   "title": "3D Cube",
   "description": "This experiment renders 6 videos simultaneously in a 3D rotating cube.",
-  "license": "Enterprise",
-  "external_js": [
-    "//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js",
-    "http://s3.amazonaws.com/demo.jwplayer.com/iframes/3d-cube/modernizr.js",
-    "http://s3.amazonaws.com/demo.jwplayer.com/iframes/3d-cube/cube.js"
-  ]
+  "license": "Enterprise"
 }
