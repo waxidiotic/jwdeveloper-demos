@@ -119,7 +119,7 @@ module.exports = function (grunt) {
               description: demo.description,
               license: demo.license,
               showCode: function() {
-                return typeof demo.showCode !== 'undefined') ? demo.showCode : true;
+                return typeof demo.showCode !== 'undefined' ? demo.showCode : true;
               },
               horizontal: function() {
                 return typeof demo.layout === 'undefined' || demo.layout == 'horizontal';
