@@ -7,7 +7,7 @@ function forceRefresh(){
 
 playerContainer.innerHTML = '<a href="' + timeIntervalUrl + '" onclick="forceRefresh()">Click here</a> to reload the page with a time offset of 30 seconds. The link simply appends #t=30 to the URL.'
 
-var player = jwplayer('botr_xJ7Wcodt_DbXZPMBQ_div');
+var player = jwplayer();
 
 player.setup({
   image: '//content.jwplatform.com/thumbs/1b02B03R-720.jpg',
