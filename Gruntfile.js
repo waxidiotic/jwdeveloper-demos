@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     'http-server': {
       dev: {
         root: 'build/demos',
-        port: 8000,
+        port: 9001,
         host: '127.0.0.1',
         openBrowser : true
       }
