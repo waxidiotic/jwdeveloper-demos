@@ -1,5 +1,6 @@
 {
   "title": "3D Cube",
   "description": "This experiment renders 6 videos simultaneously in a 3D rotating cube.",
-  "license": "Enterprise"
+  "license": "Enterprise",
+  "showCode": false
 }
