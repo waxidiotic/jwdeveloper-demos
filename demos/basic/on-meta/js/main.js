@@ -1,24 +1,18 @@
-var playerInstance = jwplayer("player");
-
-playerInstance.setup({
-    playlist: "//content.jwplatform.com/jw6/xJ7Wcodt.xml"
-});
+var player = jwplayer();
 
 var metadataEntries = 1;
 
-jwplayer().onMeta(function(e) {
+player.onMeta(function(e) {
 
-    document.getElementById('logs').innerHTML += "<br />Metadata Entry #"
+    document.getElementById('logs').innerHTML += "<br /><strong>Metadata Entry #"
         + metadataEntries.toString()
-        + "<br />";
+        + "</strong><br />";
 
     for (var key in e.metadata) {
         document.getElementById('logs').innerHTML += key.toUpperCase() + ": "
             + e.metadata[ key ]
             + "<br />"
     }
-
-    // console.log(e.metadata)
 
     metadataEntries++
 
