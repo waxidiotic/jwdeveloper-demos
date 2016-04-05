@@ -1,6 +1,21 @@
 {
   "ATTENTION": "THIS FILE IS MANAGED BY JW PLAYER. PLEASE DO NOT MODIFY!",
   "categories": [
-    "basic", "developer-showcase", "innovation", "toolbox"
+    {
+      "name": "Basic",
+      "directory": "basic"
+    },
+    {
+      "name": "Developer Showcase",
+      "directory": "developer-showcase"
+    },
+    {
+      "name": "Innovation",
+      "directory": "innovation"
+    },
+    {
+      "name": "Toolbox",
+      "directory": "toolbox"
+    }
   ]
 }
