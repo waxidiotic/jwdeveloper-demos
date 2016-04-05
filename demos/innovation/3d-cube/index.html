@@ -1,15 +1,10 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-<script src="http://s3.amazonaws.com/demo.jwplayer.com/iframes/3d-cube/modernizr.js"></script>
-<script src="http://s3.amazonaws.com/demo.jwplayer.com/iframes/3d-cube/cube.js"></script>
-<script src="content.jwplatform.com/players/xJ7Wcodt-DbXZPMBQ.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/cube.js"></script>
+<script src="//content.jwplatform.com/libraries/DbXZPMBQ.js"></script>
 
-<!-- <div class="botr_xJ7Wcodt_DbXZPMBQ_div"></div> -->
-
-<p>Each face of this cube is a fully functional JW Player. This demo uses CSS 3D Transforms for the Cube’s animations, and leverages the JW Player JavaScript API for the Cube’s interaction.</p>
-<p>A special thank you goes out to Wilfred (Willie) Meier, for the inspiration for this experiment, as he created the original 3D Cube using JW Player 5.</p>
-
-<div class="wrap" id="foo">
-  <div class="cube" id="foo2">
+<div class="wrap" id="container">
+  <div class="cube" id="container2">
 		<div class="front" id="front">
 		  <div id="player1"></div>
 		</div>
@@ -30,7 +25,5 @@
 		</div>
   </div>
 </div>
-<div style="position:absolute;bottom:10px;right:10px;" id="btns">
-	<button onclick="launchFullscreen(document.documentElement);">Launch Fullscreen</button>
-	<button onclick="exitFullscreen();">Hide Fullscreen</button>
-</div>
+
+<p>Each face of this cube is a fully functional JW Player. This demo uses CSS 3D Transforms for the Cube’s animations, and leverages the JW Player JavaScript API for the Cube’s interaction.</p>
