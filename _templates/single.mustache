@@ -1,0 +1,52 @@
+{{> document-top}}
+
+<div class="demo-single">
+
+  <div class="hero">
+    <div class="container">
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
+    </div>
+  </div>
+  <div class="metadata">
+    <ul>
+      <li><span>License:</span> {{ license }}</li>
+      <li><span>Player Version:</span> 7.1.4</li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="disclaimer">
+      <p>Please Note: This player implementation is a Proof of Concept only provided to show the possibilities of the JW Player and Platform and should not be taken as an offer to create, edit or maintain custom integration or development.</p>
+    </div>
+    <div class="row">
+      {{#horizontal}}
+        {{#showCode}}
+          <div class="column sm-12 lg-6">
+            {{{ html }}}
+          </div>
+          <div class="column sm-12 lg-6">
+            <div id="demo-code" class="lang-html"></div>
+          </div>
+        {{/showCode}}
+        {{^showCode}}
+        <div class="column sm-12 lg-12">
+          {{{ html }}}
+        </div>
+        {{/showCode}}
+      {{/horizontal}}
+      {{#vertical}}
+        <div class="column sm-12 lg-12">
+          {{{ html }}}
+        </div>
+        {{#showCode}}
+          <div class="column sm-12 lg-12">
+            <div id="demo-code" class="lang-html"></div>
+          </div>
+        {{/showCode}}
+      {{/vertical}}
+    </div>
+  </div>
+
+</div>
+
+{{> document-bottom}}

@@ -1,0 +1,16 @@
+{{> document-top}}
+
+<div class="demo-index">
+
+  <ul>
+    {{#demos}}
+      <li>
+        <a href="{{&paths.root}}{{category}}/{{directory}}">{{title}}</a><br>
+        {{description}}
+      </li>
+    {{/demos}}
+  </ul>
+
+</div>
+
+{{> document-bottom}}
