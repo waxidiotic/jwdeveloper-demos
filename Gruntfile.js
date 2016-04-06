@@ -46,10 +46,10 @@ module.exports = function (grunt) {
     // require a `local-config.json` file, otherwise it does nothing
     if (grunt.option('dev-mode') && grunt.file.exists('local-config.json')) {
       var local = grunt.file.readJSON('local-config.json');
-      paths.root = local.paths.root ? local.paths.root : paths.root;
-      paths.css = local.paths.css ? local.paths.css : paths.css;
-      paths.js = local.paths.js ? local.paths.js : paths.js;
-      paths.img = local.paths.img ? local.paths.img : paths.img;
+      paths.root = local.paths.root || paths.root;
+      paths.css = local.paths.css || paths.css;
+      paths.js = local.paths.js || paths.js;
+      paths.img = local.paths.img || paths.img;
       var openBrowser = grunt.config('http-server.dev.openBrowser');
       if (typeof local.server.openBrowser !== 'undefined') {
         openBrowser = local.server.openBrowser;
