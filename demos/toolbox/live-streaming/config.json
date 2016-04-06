@@ -1,6 +1,6 @@
 {
 	"title": "Live Streaming",
-	"description": "",
+	"description": "Stream live events, works with Wowza, Azure, Unified Streaming, and more, supports adaptive bitrate, provides sliding window DVR.",
 	"license": "Enterprise",
 	"showCode" : false
 }
