@@ -1,0 +1,7 @@
+{
+	"title": "HLS-AES-Token",
+	"description": "Able to pass a token with key request, more secure, works on all desktop browsers, integrates with key servers, can use current authorization.",
+	"category": "Toolbox",
+	"license": "Enterprise",
+	"showCode": false
+}
