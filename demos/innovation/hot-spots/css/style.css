@@ -5,6 +5,7 @@
     z-index: 99;
     pointer-events: none;
 }
+
 #hotspots span {
     position: absolute;
     width: 40px;

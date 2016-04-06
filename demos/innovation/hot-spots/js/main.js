@@ -7,6 +7,8 @@ var seeking = false;
 // Setup JW Player
 jwplayer("player").setup({
     playlist: '//content.jwplatform.com/jw6/3p683El7.xml',
+    width: 720,
+    height: 405,
     sharing: {}
 });
 jwplayer().addButton(

@@ -1,5 +1,6 @@
 {
   "title": "Adaptive Streaming",
   "description": "This demo shows JW Player loading fragments by comparing your bandwidth to the available video bitrates. Note you can disable adaptive streaming by clicking a bitrate below. Click it again to resume adaptive streaming.",
-  "license": "Enterprise"
+  "license": "Enterprise",
+  "showCode" : false
 }

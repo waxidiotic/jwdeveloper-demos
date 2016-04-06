@@ -21,12 +21,14 @@ var current = 0;
 
 
 /** Setup JW Player. **/
-jwplayer("player1").setup({
+jwplayer("player").setup({
   file: '//content.jwplatform.com/manifests/'+file+'.m3u8',
   tracks: [{
     kind: "thumbnails", file: '//content.jwplatform.com/strips/'+file+'-120.vtt' 
   }],
     autostart: true,
+    width: 860,
+    height: 484
 });
 
 grid.addEventListener("click",function(event) {
@@ -104,7 +106,7 @@ function render() {
       var c = r.insertCell();
       c.innerHTML = Math.round(levels[i].bitrate/1024)+' kbps';
       if(current > 0 && i != current-1) {
-        c.style.backgroundColor = "#ddd";
+        c.style.backgroundColor = "#aab4c8";
       }
     }
   }
@@ -126,7 +128,7 @@ jwplayer().onMeta(function(event) {
       fragments.push(l);
       var c = grid.rows[l-1].cells[fragments.length-1];
       c.innerHTML = "";
-      c.style.backgroundColor = "#000";
+      c.style.backgroundColor = "#FFF";
       if(thumbnails.length) {
         var t = find((fragments.length-1)*10+1);
         c.style.backgroundImage = 'url(//content.jwplatform.com/strips/'+file+'-120.jpg)';
@@ -144,7 +146,7 @@ function scroll() {
     var c = grid.rows[i].insertCell(fragments.length);
     c.innerHTML = Math.round(levels[i].bitrate/1024)+' kbps';
     if(current > 0 && i != current-1) {
-      c.style.backgroundColor = "#ddd";
+      c.style.backgroundColor = "#aab4c8";
     }
     grid.rows[i].deleteCell(0);
   }

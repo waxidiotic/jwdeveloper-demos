@@ -1,4 +1,4 @@
-jwplayer("player1").setup({
+jwplayer("player").setup({
     file: 'http://wowzaec2demo.streamlock.net/vod-multitrack/_definst_/smil:ElephantsDream/elephantsdream2.smil/playlist.m3u8',
 
     type: 'hls',
