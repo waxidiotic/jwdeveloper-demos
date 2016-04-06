@@ -1,42 +1,11 @@
 jwplayer("demoplayer").setup({
-  file: "//content.jwplatform.com/videos/q1fx20VZ-640.mp4",
-  image: "//content.jwplatform.com/thumbs/q1fx20VZ-640.jpg",
+  file: "http://content.jwplatform.com/videos/q1fx20VZ-640.mp4",
+  image: "http://content.jwplatform.com/thumbs/q1fx20VZ-640.jpg",
+  primary: "flash",
   advertising: {
     client: "vast",
     companiondiv: { id: "adrectangle", height: 250, width: 300 },
-    schedule: {
-   myAds1: {
-    offset: "pre",
-    tag: "../../static-tag/preroll.xml?pre"
-    },
-	myAds2: {
-    offset: "140",
-    tag: "../../static-tag/overlay.xml",
-	type: "nonlinear"
-    },
-	myAds3: {
-    offset: "300",
-    tag: "../../static-tag/midroll.xml?mr1"
-    },
-	myAds4: {
-    offset: "400",
-    tag: "../../static-tag/overlay.xml",
-	type: "nonlinear"
-    },
-	myAds5: {
-    offset: "600",
-    tag: "../../static-tag/midroll.xml?mr2"
-    },
-	myAds6: {
-    offset: "700",
-    tag: "../../static-tag/overlay.xml",
-	type: "nonlinear"
-    },
-	myAds7: {
-    offset: "post",
-    tag: "../../static-tag/preroll.xml?pst"
-    }
-	}
+    schedule: "assets/vmap.xml"
   },
   width: 592,
   height: 250
@@ -47,7 +16,7 @@ jwplayer().onTime(function(event){
   var w;
   if(p < 300) {
     w = 42 + p/300*124;
-  } else if (p > 301 && p < 600) {
+  } else if (p > 301 && p < 600) { 
     w = 234 + (p-300)/300*124;
   } else if (p > 601) {
     w = 426 + (p-600)/288*124;
@@ -71,14 +40,3 @@ jwplayer().onAdTime(function(event) {
   }
   document.getElementById("highlight").style.width = w + "px";
 });
-
-<script>
-var hasPlayed = false;
-
-jwplayer().onBeforePlay(function(event) {
-	if(hasPlayed == false){
-		ga('send', 'event', 'Video', 'Play');
-		hasPlayed = true;
-	}
-});
-</script>
