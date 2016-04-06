@@ -12,9 +12,9 @@ module.exports = function (grunt) {
     'http-server': {
       dev: {
         root: 'build/demos',
-        port: 9001,
+        port: 8000,
         host: '127.0.0.1',
-        openBrowser : true
+        openBrowser: true
       }
     }
   });
@@ -42,10 +42,19 @@ module.exports = function (grunt) {
         img: 'developer.jwplayer.com/img'
       };
 
-    // if `--dev-mode` option was passed to override configurable data, require
-    // a `local-config.json` file
+    // if `--dev-mode` option was passed to override configurable data,
+    // require a `local-config.json` file, otherwise it does nothing
     if (grunt.option('dev-mode') && grunt.file.exists('local-config.json')) {
-      paths = grunt.file.readJSON('local-config.json').paths;
+      var local = grunt.file.readJSON('local-config.json');
+      paths.root = local.paths.root ? local.paths.root : paths.root;
+      paths.css = local.paths.css ? local.paths.css : paths.css;
+      paths.js = local.paths.js ? local.paths.js : paths.js;
+      paths.img = local.paths.img ? local.paths.img : paths.img;
+      var openBrowser = grunt.config('http-server.dev.openBrowser');
+      if (typeof local.server.openBrowser !== 'undefined') {
+        openBrowser = local.server.openBrowser;
+      }
+      grunt.config('http-server.dev.openBrowser', openBrowser);
     }
 
     // if `--prod` option was passed to specify build type
