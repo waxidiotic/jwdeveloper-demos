@@ -104,7 +104,7 @@ module.exports = function (grunt) {
           var demo = grunt.file.readJSON(srcDir + filename);
 
           // append demo obj with demo category and directory
-          demo['category'] = cat.directory;
+          demo['category'] = cat;
           demo['directory'] = subdir;
 
           // push demo data to both category and master demo list
@@ -155,6 +155,7 @@ module.exports = function (grunt) {
         data: {
           paths: paths,
           name: cat.name,
+          categories: categories,
           directory: cat.directory,
           demos: demos[cat.directory]
         },
@@ -172,6 +173,7 @@ module.exports = function (grunt) {
       data: {
         paths: paths,
         name: 'All',
+        categories: categories,
         directory: '',
         demos: demos.all
       },
