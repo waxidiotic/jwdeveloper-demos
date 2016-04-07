@@ -1,4 +1,9 @@
-var player = jwplayer();
+var player = jwplayer('player');
+
+player.setup({
+  file: "//content.jwplatform.com/videos/xJ7Wcodt-cIp6U8lV.mp4",
+  image: "//content.jwplatform.com/thumbs/xJ7Wcodt-720.jpg"
+});
 
 player.addButton(
   //This portion is what designates the graphic used for the button
