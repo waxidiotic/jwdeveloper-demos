@@ -1,7 +1,6 @@
 {
 	"title": "HLS-AES-Token",
-	"description": "Able to pass a token with key request, more secure, works on all desktop browsers, integrates with key servers, can use current authorization.",
-	"category": "Toolbox",
+	"description": "This demo shows the ability to pass a token with a key request. It is more secure, works on all desktop browsers, integrates with key servers, and can use current authorization.",
 	"license": "Enterprise",
 	"showCode": false
 }

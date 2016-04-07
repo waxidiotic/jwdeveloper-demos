@@ -1,0 +1,6 @@
+{
+  "title": "Interactive Transcripts",
+  "description": "This demo showcases an interactive, searchable transcript for our HTML5 Video Webinar. Closed captions are supported in all editions of JW Player and loaded using WebVTT files.",
+  "license": "Free",
+  "showCode": false
+}

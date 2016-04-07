@@ -1,5 +1,5 @@
 {
   "title": "Resizing the Player",
-  "description": "Here is an example of a basic setup of JW Player, with a link below that resizes it on the fly.",
-  "license": "Free +"
+  "description": "A demo setup of JW Player with an external link that resizes the player on the fly.",
+  "license": "Free"
 }
