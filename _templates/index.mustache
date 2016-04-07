@@ -8,31 +8,33 @@
     </div>
   </div>
 
-  <!-- <div class="demo-index-nav">
+  <div class="demo-index-nav">
     <a href="{{paths.root}}">All Demos</a>
     {{#categories}}
       <a href="{{paths.root}}{{directory}}"></a>
     {{/categories}}
-  </div> -->
-
-  <div class="container">
-    <ul>
-      {{#demos}}
-        <li>
-          <a href="{{&paths.root}}{{category.directory}}/{{directory}}">
-            <div class="header {{category.directory}}">
-              <div class="icon"></div>
-              {{category.name}}
-            </div>
-            <div class="body">
-              <h3>{{title}}</h3>
-              <p>{{description}}</p>
-            </div>
-          </a>
-        </li>
-      {{/demos}}
-    </ul>
   </div>
+
+  <p>Below you can find basic examples of extending feature functionality of
+    the player. Check back as more demos and examples are added to support
+    new features.</p>
+
+  <ul>
+    {{#demos}}
+      <li>
+        <a href="{{&paths.root}}{{category.directory}}/{{directory}}">
+          <div class="header {{category.directory}}">
+            <div class="icon"></div>
+            {{category.name}}
+          </div>
+          <div class="body">
+            <h3>{{title}}</h3>
+            <p>{{description}}</p>
+          </div>
+        </a>
+      </li>
+    {{/demos}}
+  </ul>
 
 </div>
 
