@@ -10,23 +10,25 @@
 
   <div class="demo-index">
 
-    <ul>
-      <li><a href="{{paths.root}}">All Demos</a></li>
+    <ul class="demo-index-nav">
       {{#categories}}
-        <li><a href="{{paths.root}}{{directory}}">{{name}}</a></li>
+        <li><a href="{{paths.root}}{{#directory}}{{directory}}{{/directory}}"{{#current}} class="selected"{{/current}}>{{name}}</a></li>
       {{/categories}}
     </ul>
 
-    <p>Below you can find basic examples of extending feature functionality of the player.<br>
+    <p class="demo-index-desc">Below you can find basic examples of extending feature functionality of the player.<br>
       Check back as more demos and examples are added to support new features.</p>
 
-    <ul>
+    <ul class="demo-index-list">
       {{#demos}}
         <li>
           <a href="{{&paths.root}}{{category.directory}}/{{directory}}">
             <div class="header {{category.directory}}">
               <div class="icon">
-                <img src="//icons.jwplayer.com/icons/black/hexagon.svg">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="86.9px" height="100px" viewBox="0 0 86.9 100" enable-background="new 0 0 86.9 100" xml:space="preserve">
+                  <path d="M0,28.2c0-2,1.4-4.6,3.2-5.6l37-21.8c1.8-1,4.6-1,6.4,0l37,21.8c1.8,1,3.2,3.6,3.2,5.6v43.7c0,2-1.4,4.6-3.2,5.6l-37,21.8
+                	c-1.8,1-4.6,1-6.4,0l-37-21.8c-1.8-1-3.2-3.6-3.2-5.6V28.2z"/>
+                </svg>
               </div>
               {{category.name}}
             </div>
