@@ -65,13 +65,13 @@ module.exports = function (grunt) {
     if (grunt.option('deploy-production') || grunt.option('deploy-staging')) {
       paths.root = '/jw-player/demos/';
       if (grunt.option('deploy-production')) {
-        paths.css = '//developer.jwplayer.com/css';
-        paths.js = '//developer.jwplayer.com/js';
-        paths.img = '//developer.jwplayer.com/img';
+        paths.css = 'developer.jwplayer.com/css';
+        paths.js = 'developer.jwplayer.com/js';
+        paths.img = 'developer.jwplayer.com/img';
       } else {
-        paths.css = '//staging-developer.jwplayer.com/css';
-        paths.js = '//staging-developer.jwplayer.com/js';
-        paths.img = '//staging-developer.jwplayer.com/img';
+        paths.css = 'staging-developer.jwplayer.com/css';
+        paths.js = 'staging-developer.jwplayer.com/js';
+        paths.img = 'staging-developer.jwplayer.com/img';
       }
 
     }
