@@ -12,7 +12,7 @@ var match = document.getElementById('match');
 
 
 // Setup JW Player
-jwplayer("container").setup({
+jwplayer("player").setup({
     file: '//content.jwplatform.com/manifests/3p683El7.m3u8',
     image: '//content.jwplatform.com/thumbs/3p683El7-640.jpg',
     tracks: [
@@ -22,6 +22,8 @@ jwplayer("container").setup({
 
     ],
     displaytitle: false,
+    width: 640,
+    height: 360
 });
 jwplayer().addButton(
   "//s3.amazonaws.com/demo.jwplayer.com/interactive-transcript/download.png",
@@ -49,7 +51,7 @@ jwplayer().onReady(function(){
       loadCaptions();
     }
   };
-  r.open('GET','/chapters.vtt',true);
+  r.open('GET','//s3.amazonaws.com/demo.jwplayer.com/interactive-transcript/chapters.vtt',true);
   r.send();
 });
 function loadCaptions(){
