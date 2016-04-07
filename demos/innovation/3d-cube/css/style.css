@@ -1,7 +1,7 @@
 .wrap {
   perspective: 1000px;
   perspective-origin: 50% 50%;
-  margin: 200px 0;
+  margin: 100px 0 125px;
 }
 
 .cube {
@@ -89,5 +89,5 @@
 }
 
 .cube > div {
-  transition: transform 0.2s ease-in;
+  transition: transform 0.5s ease;
 }

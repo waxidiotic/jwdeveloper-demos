@@ -1,5 +1,6 @@
 {
   "title": "Mutually Exclusive Playback",
   "description": "Here is an example of a setup with multiple players. When one of them starts, the others are automatically paused",
-  "license": "Ads"
+  "license": "Ads",
+  "layout": "vertical"
 }
