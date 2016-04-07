@@ -2,14 +2,37 @@
 
 <div class="demo-index">
 
-  <ul>
-    {{#demos}}
-      <li>
-        <a href="{{&paths.root}}{{category}}/{{directory}}">{{title}}</a><br>
-        {{description}}
-      </li>
-    {{/demos}}
-  </ul>
+  <div class="hero">
+    <div class="container">
+      <h1>JW Player Demos &amp; Code Examples</h1>
+    </div>
+  </div>
+
+  <!-- <div class="demo-index-nav">
+    <a href="{{paths.root}}">All Demos</a>
+    {{#categories}}
+      <a href="{{paths.root}}{{directory}}"></a>
+    {{/categories}}
+  </div> -->
+
+  <div class="container">
+    <ul>
+      {{#demos}}
+        <li>
+          <a href="{{&paths.root}}{{category.directory}}/{{directory}}">
+            <div class="header {{category.directory}}">
+              <div class="icon"></div>
+              {{category.name}}
+            </div>
+            <div class="body">
+              <h3>{{title}}</h3>
+              <p>{{description}}</p>
+            </div>
+          </a>
+        </li>
+      {{/demos}}
+    </ul>
+  </div>
 
 </div>
 
