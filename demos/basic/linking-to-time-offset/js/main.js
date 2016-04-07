@@ -10,9 +10,10 @@ playerContainer.innerHTML = '<a href="' + timeIntervalUrl + '" onclick="forceRef
 var player = jwplayer();
 
 player.setup({
-  image: '//content.jwplatform.com/thumbs/1b02B03R-720.jpg',
-  file: '//content.jwplatform.com/videos/1b02B03R-cIp6U8lV.mp4'
+    image: "//content.jwplatform.com/thumbs/q1fx20VZ-640.jpg",
+    file: "//content.jwplatform.com/videos/q1fx20VZ-640.mp4"
 });
+
 
 player.on('ready', function() {
   if (window.location.hash) {

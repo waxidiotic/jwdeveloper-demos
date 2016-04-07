@@ -1,10 +1,4 @@
-var player = jwplayer("botr_xJ7Wcodt_DbXZPMBQ_div");
-
-player.setup({
-  playlist: "//content.jwplatform.com/jw6/QlfSn2u6.xml",
-  width: "100%",
-  displaytitle: false
-});
+var player = jwplayer();
 
 player.addButton(
   //This portion is what designates the graphic used for the button

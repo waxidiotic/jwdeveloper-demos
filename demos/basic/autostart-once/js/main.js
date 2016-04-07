@@ -1,4 +1,4 @@
-player = jwplayer();
+var player = jwplayer();
 
 player.on('ready', function() {
   if(document.cookie.indexOf('jwplayerAutoStart') == -1) {
