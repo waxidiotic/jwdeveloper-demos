@@ -12,7 +12,6 @@ module.exports = function (grunt) {
     'http-server': {
       dev: {
         root: 'build/demos',
-        port: 8000,
         host: '127.0.0.1',
         openBrowser: true
       }
@@ -46,19 +45,18 @@ module.exports = function (grunt) {
     // require a `local-config.json` file, otherwise it does nothing
     if (grunt.option('dev-mode') && grunt.file.exists('local-config.json')) {
       var local = grunt.file.readJSON('local-config.json');
-      paths.root = local.paths.root || paths.root;
-      paths.css = local.paths.css || paths.css;
-      paths.js = local.paths.js || paths.js;
-      paths.img = local.paths.img || paths.img;
-      var openBrowser = grunt.config('http-server.dev.openBrowser');
-      if (typeof local.server.openBrowser !== 'undefined') {
-        openBrowser = local.server.openBrowser;
-      }
-      grunt.config('http-server.dev.openBrowser', openBrowser);
+      paths.root = local.paths.root;
+      paths.css = local.paths.css;
+      paths.js = local.paths.js;
+      paths.img = local.paths.img;
+      grunt.config('http-server.dev.port', local.server.port);
+      grunt.config('http-server.dev.openBrowser', local.server.openBrowser);
     }
 
-    // if `--prod` option was passed to specify build type
-    if (grunt.option('prod')) paths.root = '/jw-player/demos/'
+    // if a `--deploy-*` option was passed to specify build type
+    if (grunt.option('deploy-production') || grunt.option('deploy-staging')) {
+      paths.root = '/jw-player/demos/';
+    }
 
     // sort array/object alphabetically on the `directory` property
     function sortABC(a, b) {
