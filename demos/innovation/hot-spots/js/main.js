@@ -12,7 +12,7 @@ jwplayer("player").setup({
     sharing: {}
 });
 jwplayer().addButton(
-  "http://s3.amazonaws.com/demo.jwplayer.com/hot-spots/toc.png",
+  "assets/toc.png",
   "Table of Contents",
   function(){jwplayer().seek(20);},
   "contents"
@@ -35,7 +35,7 @@ jwplayer().onReady(function(){
       }
     }
   };
-  r.open('GET','http://s3.amazonaws.com/demo.jwplayer.com/hot-spots/hotspots.vtt',true);
+  r.open('GET','assets/hotspots.vtt',true);
   r.send();
 });
 function parse(d) {
