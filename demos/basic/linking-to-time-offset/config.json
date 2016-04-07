@@ -1,5 +1,5 @@
 {
   "title": "Linking to a Time Offset",
-  "description": "A demo setup presenting a single RTMP stream.",
+  "description": "A demo setup presenting a single RTMP stream. By default, the video starts from the beginning. However, if there is a time offset hash in the URL, the video will start from that time.",
   "license": "Free"
 }

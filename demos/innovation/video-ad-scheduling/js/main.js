@@ -1,11 +1,10 @@
-jwplayer("demoplayer").setup({
-  file: "http://content.jwplatform.com/videos/q1fx20VZ-640.mp4",
-  image: "http://content.jwplatform.com/thumbs/q1fx20VZ-640.jpg",
-  primary: "flash",
+jwplayer("player").setup({
+  file: "//content.jwplatform.com/videos/q1fx20VZ-640.mp4",
+  image: "//content.jwplatform.com/thumbs/q1fx20VZ-640.jpg",
   advertising: {
     client: "vast",
     companiondiv: { id: "adrectangle", height: 250, width: 300 },
-    schedule: "assets/vmap.xml"
+    schedule: "/assets/vmap.xml"
   },
   width: 592,
   height: 250
