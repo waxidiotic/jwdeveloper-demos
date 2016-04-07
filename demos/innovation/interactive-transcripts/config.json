@@ -1,0 +1,6 @@
+{
+  "title": "Interactive Transcripts",
+  "description": "Closed captions are great for making video accessible to non-native speakers or when audio is not available. They are supported in all editions of JW Player and loaded using WebVTT files.",
+  "license": "Free +",
+  "showCode": false
+}
