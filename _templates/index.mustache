@@ -1,40 +1,45 @@
 {{> document-top}}
 
-<div class="demo-index">
+<div class="demos">
 
   <div class="hero">
     <div class="container">
-      <h1>JW Player Demos &amp; Code Examples</h1>
+      <h1><img src="//icons.jwplayer.com/dev-portal/demos.svg"> JW Player Demos &amp; Code Examples</h1>
     </div>
   </div>
 
-  <div class="demo-index-nav">
-    <a href="{{paths.root}}">All Demos</a>
-    {{#categories}}
-      <a href="{{paths.root}}{{directory}}"></a>
-    {{/categories}}
+  <div class="demo-index">
+
+    <ul>
+      <li><a href="{{paths.root}}">All Demos</a></li>
+      {{#categories}}
+        <li><a href="{{paths.root}}{{directory}}">{{name}}</a></li>
+      {{/categories}}
+    </ul>
+
+    <p>Below you can find basic examples of extending feature functionality of the player.<br>
+      Check back as more demos and examples are added to support new features.</p>
+
+    <ul>
+      {{#demos}}
+        <li>
+          <a href="{{&paths.root}}{{category.directory}}/{{directory}}">
+            <div class="header {{category.directory}}">
+              <div class="icon">
+                <img src="//icons.jwplayer.com/icons/black/hexagon.svg">
+              </div>
+              {{category.name}}
+            </div>
+            <div class="body">
+              <h3>{{title}}</h3>
+              <p>{{description}}</p>
+            </div>
+          </a>
+        </li>
+      {{/demos}}
+    </ul>
+
   </div>
-
-  <p>Below you can find basic examples of extending feature functionality of
-    the player. Check back as more demos and examples are added to support
-    new features.</p>
-
-  <ul>
-    {{#demos}}
-      <li>
-        <a href="{{&paths.root}}{{category.directory}}/{{directory}}">
-          <div class="header {{category.directory}}">
-            <div class="icon"></div>
-            {{category.name}}
-          </div>
-          <div class="body">
-            <h3>{{title}}</h3>
-            <p>{{description}}</p>
-          </div>
-        </a>
-      </li>
-    {{/demos}}
-  </ul>
 
 </div>
 
