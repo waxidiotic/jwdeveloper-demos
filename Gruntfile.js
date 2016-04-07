@@ -130,11 +130,9 @@ module.exports = function (grunt) {
               showCode: function() {
                 return typeof demo.showCode !== 'undefined' ? demo.showCode : true;
               },
-              horizontal: function() {
-                return typeof demo.layout === 'undefined' || demo.layout == 'horizontal';
-              },
-              vertical: function() {
-                return typeof demo.layout !== 'undefined' && demo.layout == 'vertical';
+              layout: function() {
+                if (!this.showCode()) return 'vertical';
+                return demo.layout || 'horizontal';
               }
             },
             template: '_templates/single.mustache',
