@@ -19,6 +19,7 @@ module.exports = function (grunt) {
   });
 
   // load npm tasks
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-http-server');
@@ -32,13 +33,14 @@ module.exports = function (grunt) {
       demos = {
         'all': []
       },
+      copy = [],
       concat = {},
       mustacheRender = [],
       paths = {
         root: '/',
-        css: 'developer.jwplayer.com/css',
-        js: 'developer.jwplayer.com/js',
-        img: 'developer.jwplayer.com/img'
+        css: 'staging-developer.jwplayer.com/css',
+        js: 'staging-developer.jwplayer.com/js',
+        img: 'staging-developer.jwplayer.com/img'
       };
 
     // if `--dev-mode` option was passed to override configurable data,
@@ -62,6 +64,16 @@ module.exports = function (grunt) {
     // if a `--deploy-*` option was passed to specify build type
     if (grunt.option('deploy-production') || grunt.option('deploy-staging')) {
       paths.root = '/jw-player/demos/';
+      if (grunt.option('deploy-production')) {
+        paths.css = '//developer.jwplayer.com/css';
+        paths.js = '//developer.jwplayer.com/js';
+        paths.img = '//developer.jwplayer.com/img';
+      } else {
+        paths.css = '//staging-developer.jwplayer.com/css';
+        paths.js = '//staging-developer.jwplayer.com/js';
+        paths.img = '//staging-developer.jwplayer.com/img';
+      }
+
     }
 
     // sort array/object alphabetically on the `directory` property
@@ -90,14 +102,14 @@ module.exports = function (grunt) {
 
       // scan category sub-directories to locate valid demos
       grunt.file.recurse('demos/' + cat.directory,
-          function callback(abspath, rootdir, subdir, filename) {
+          function callback(absPath, rootDir, subDir, filename) {
 
         // we are looking for a config file, which is require per demo
         // when we find the config file, we process that directory as a demo
         if (filename == 'config.json') {
 
           // define demo-specific directory shortcuts
-          var srcDir = 'demos/' + cat.directory + '/' + subdir + '/';
+          var srcDir = 'demos/' + cat.directory + '/' + subDir + '/';
           var buildDir = 'build/' + srcDir;
 
           // get demo config json
@@ -105,11 +117,18 @@ module.exports = function (grunt) {
 
           // append demo obj with demo category and directory
           demo['category'] = cat;
-          demo['directory'] = subdir;
+          demo['directory'] = subDir;
 
           // push demo data to both category and master demo list
           demos[cat.directory].push(demo);
           demos['all'].push(demo);
+
+          copy.push({
+            expand: true,
+            cwd: srcDir,
+            src: ['js/*'],
+            dest: buildDir
+          });
 
           // concat config for demo js
           grunt.file.write(buildDir + 'js/build.js', '');
@@ -154,8 +173,23 @@ module.exports = function (grunt) {
       mustacheRender.push({
         data: {
           paths: paths,
-          name: cat.name,
-          categories: categories,
+          categories: function() {
+            var cats = [];
+            for (var i = 0; i < categories.length; i++) {
+              cats.push(categories[i]);
+              if (categories[i].directory == this.directory) {
+                cats[i]['current'] = true;
+              } else {
+                cats[i]['current'] = null;
+              }
+            }
+            cats.unshift({
+              name: 'All Demos',
+              directory: '',
+              current: false
+            });
+            return cats;
+          },
           directory: cat.directory,
           demos: demos[cat.directory]
         },
@@ -172,13 +206,34 @@ module.exports = function (grunt) {
     mustacheRender.push({
       data: {
         paths: paths,
-        name: 'All',
-        categories: categories,
-        directory: '',
+        categories: function() {
+          var cats = [];
+          for (var i = 0; i < categories.length; i++) {
+            cats.push(categories[i]);
+            if (categories[i].directory == this.directory) {
+              cats[i]['current'] = true;
+            } else {
+              cats[i]['current'] = null;
+            }
+          }
+          cats.unshift({
+            name: 'All Demos',
+            directory: '',
+            current: true
+          });
+          return cats;
+        },
         demos: demos.all
       },
       template: '_templates/index.mustache',
       dest: 'build/demos/index.html'
+    });
+
+    // set copy config
+    grunt.config('copy', {
+      build: {
+        files: copy
+      }
     });
 
     // set concat config
@@ -201,6 +256,7 @@ module.exports = function (grunt) {
     // run the task list
     grunt.task.run([
       'clean',
+      'copy',
       'concat',
       'mustache_render'
     ]);

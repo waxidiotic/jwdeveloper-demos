@@ -1,42 +1,46 @@
 {{> document-top}}
 
-<div class="demo-single">
+<div class="demos">
 
-  <div class="hero">
-    <div class="container">
-      <h1>{{title}}</h1>
-      <p>{{description}}</p>
-    </div>
-  </div>
+  <div class="demo-single">
 
-  <ul class="demo-nav">
-    <li>
-      <a href="{{paths.root}}">Back to Demos</a>
-    </li>
-    <li>
-      <span>License:<strong>{{license}}</strong></span>
-      <span>Player Version:<strong>7.1.4</strong></span>
-    </li>
-    <li>
-      <a href="#">Source Code</a>
-    </li>
-  </ul>
-
-  <div class="container">
-
-    <div class="demo-layout-{{layout}}">
-      <div class="demo-layout-content">
-        {{{html}}}
+    <div class="hero">
+      <div class="container">
+        <h1>{{title}}</h1>
+        <p>{{description}}</p>
       </div>
-      {{#showCode}}
-        <div class="demo-layout-code">
-          <div id="demo-code" class="lang-html"></div>
-        </div>
-      {{/showCode}}
     </div>
 
-    <div class="disclaimer">
-      Please Note: This player implementation is a Proof of Concept only provided to show the possibilities of the JW Player and Platform and should not be taken as an offer to create, edit or maintain custom integration or development.
+    <ul class="demo-nav">
+      <li>
+        <a href="{{paths.root}}">Back to Demos</a>
+      </li>
+      <li>
+        <span>License:<strong>{{license}}</strong></span>
+        <span>Player Version:<strong id="demo-player-version"></strong></span>
+      </li>
+      <li>
+        <a href="//github.com/jwplayer/jwdeveloper-demos/tree/master/demos/{{category.directory}}/{{directory}}">Source Code</a>
+      </li>
+    </ul>
+
+    <div class="container">
+
+      <div class="demo-layout-{{layout}}">
+        <div class="demo-layout-content">
+          {{{html}}}
+        </div>
+        {{#showCode}}
+          <div class="demo-layout-code">
+            <div id="demo-code" class="lang-html"></div>
+          </div>
+        {{/showCode}}
+      </div>
+
+      <div class="disclaimer">
+        Please Note: This player implementation is a Proof of Concept only provided to show the possibilities of the JW Player and Platform and should not be taken as an offer to create, edit or maintain custom integration or development.
+      </div>
+
     </div>
 
   </div>
