@@ -7,17 +7,21 @@ function forceRefresh(){
 
 playerContainer.innerHTML = '<a href="' + timeIntervalUrl + '" onclick="forceRefresh()">Click here</a> to reload the page with a time offset of 30 seconds. The link simply appends #t=30 to the URL.'
 
-var player = jwplayer();
+var offset;
+var shouldPlay;
 
-player.setup({
-    image: "//content.jwplatform.com/thumbs/q1fx20VZ-640.jpg",
-    file: "//content.jwplatform.com/videos/q1fx20VZ-640.mp4"
+
+if(window.location.hash) {
+     offset = window.location.hash.substr(3);
+     shouldPlay = true;
+}
+
+jwplayer().on('ready', function(event){
+ if(shouldPlay === true){
+   jwplayer().play();
+ }
 });
 
-
-player.on('ready', function() {
-  if (window.location.hash) {
-    var offset = window.location.hash.substr(3);
-    player.seek(offset);
-  }
+jwplayer().on('firstFrame', function() { 
+jwplayer().seek(offset)
 });
