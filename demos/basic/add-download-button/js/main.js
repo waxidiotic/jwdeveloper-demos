@@ -14,7 +14,7 @@ player.addButton(
   //This portion designates the functionality of the button itself
   function() {
     //With the below code, we're grabbing the file that's currently playing
-    window.location.href = playerInstance.getPlaylistItem()['file'];
+    window.location.href = player.getPlaylistItem()['file'];
   },
   //And finally, here we set the unique ID of the button itself.
   "download"
