@@ -53,6 +53,7 @@ Our developer community continues to amaze us with unique implementations of our
 ### Submissions
 
 Submitting a demo for consideration for the [JW Developer Showcase](developer.jwplayer.com/jw-player/demos/developer-showcase/) is easy.
+
 1. Fork this repository
 2. Duplicate the demo starter kit and build your demo
 3. Update your config file (see instructions below)
