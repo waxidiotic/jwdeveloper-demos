@@ -1,117 +1,18 @@
-html, body, div, span, object, iframe, h2, h3, p, a, img, strong, ul, li,{
-		margin: 0;
-		padding: 0;
-		border: 0;
-		outline: 0;
-	}
-	:focus {
-		outline: 0;
-	}
-	body {
-		color: black;
-	}
-	ul {
-		list-style: none;
-	}
-	body {
-		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-		font-size: 62.5%;
-	}
-	.DemoWidget {
-		height: 200px;
-		width: 240px;
-		margin: 0 0 20px 0;
-		background: #fff;
-		box-shadow: 0 0 5px rgba(0,0,0,0.5);
-		color: #000;
-		position: relative;
-	}
-	#Twitter {
-	  background: transparent;
-	}
-	#Flickr span {
-		position: absolute;
-		width: 255px;
-		text-align: right;
-		font-size: 1.1em;
-		line-height: 1.75em;
-		font-weight: bold;
-		color: #000;
-		display: none;
-		top: 25px; left: 22px;
-	}
-	.FlickrSearch {
-		display:none;
-	}
-	#Flickr ul {
-		position: absolute;
-		bottom: 5px; left: 12px;
-	}
-	#Flickr ul li {
-		float: left;
-		display: block;
-		margin-left:2px;
-		margin-right:2px;
-	}
-	.Loading {
-		height: 265px; width: 220px;
-		position: absolute;
-		left: 0px; top: 0px;
-		z-index: 100;
-	}
-      body {
-        width: 960px;
-        margin-top: 10px;
-		margin-left: 10px;
-        position: relative;
-      }
-      #container {
-		box-shadow: 0 0 5px rgba(0,0,0,0.5);
-        background: #222;
-      }
-	  #map {
-		box-shadow: 0 0 5px rgba(0,0,0,0.5);
-		position: absolute;
-		width:390px;
-		height:550px;
-		left: 570px;
-		top: 0;
-	  }
-      #Twitter, #Flickr {
-        display: block;
-		box-shadow: 0 0 5px rgba(0,0,0,0.5);
-		overflow: hidden;
-        float: left;
-        background-color: #444;
-        width: 240px;
-        height: 200px;
-        margin: 20px 20px 0 0;
-        padding: 8px 10px 12px 15px;
-        background: transparent url(/assets/cards.png);
-      }
-      #Flickr p {
-        margin: 0;
-        font-weight: bold;
-        font-size: 14px;
-        font-family: "Arial";
-        display: block;
-        margin: 12px 0;
-        background: transparent url(/assets/flickr.png) 210px 0 no-repeat;
-      }
-	  #FlickrImages {
-		width: 240px;
-		height: 200px;
-		position:absolute;
-		top:48px;
-		margin-left:-38px;
-	  }
-      #Flickr p a {
-        color: #CCC;
-        text-decoration: none;
-      }
-      #Flickr p a:hover {
-        text-decoration: underline;
-      }
-	  #statue, #central, #wtc, #rock, #times, #ch {
-		display: none;
-	  }
+#left, #right {
+	width: 49%;
+	padding: 0;
+	display: inline-flex;
+	vertical-align: top;
+	margin-bottom: 30px;
+}
+
+#map {
+	position: relative;
+	width:100%;
+	height:550px;
+	top: 0;
+}
+
+#statue, #central, #wtc, #rock, #times, #ch {
+display: none;
+}
