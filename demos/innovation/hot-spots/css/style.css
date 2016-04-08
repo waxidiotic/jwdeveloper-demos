@@ -1,9 +1,12 @@
+
 #hotspots {
     width: 720px;
     height: 405px;
     position: absolute;
     z-index: 99;
     pointer-events: none;
+    margin: 0 auto;
+    left: 24%;
 }
 
 #hotspots span {
