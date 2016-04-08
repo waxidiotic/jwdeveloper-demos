@@ -81,7 +81,7 @@ The `config.json` file provides metadata about your demo. It will be used to pop
 ```
 
 Key | Type | Value Description
--- | -- | --
+--- | --- | ---
 `title` | string | Demo title
 `description` | string | A brief description of your demo
 `license` | string | The license type necessary to recreate your demo
