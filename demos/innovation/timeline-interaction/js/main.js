@@ -1,53 +1,8 @@
-$(document).ready(function() {
-  setupFlickr();
-  setupTwitter();
-});
-function setupFlickr() {
-  $("#FlickrSearch").hide();
-  $("#FlickrImages").hide();
-  $(".FlikrLogo").hide();
-}
-function setupTwitter() {
-  $("#TwitterContent").hide();
-}
-function updateTwitter() {
-  if ($("#Twitter .Loading").is(":visible")) {
-    $("#Twitter .Loading").fadeOut();
-  } else {
-    $("#TwitterContent").fadeOut();
-  }
-  $("#TwitterContent").fadeIn();
-}
-function updateFlickr(search) {
-  if ($("#Flickr .Loading").is(":visible")) {
-    $("#Flickr .Loading").fadeOut(function() {
-    });
-  } else {
-    $("#FlickrImages").fadeOut();
-  }
-  $.getJSON("//api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
-  {
-    tags: search,
-    tagmode: "any",
-    format: "json"
-  },
-  function(data) {
-    var html = "";
-    $.each(data.items, function(i,item){
-      var imageURL = item.media.m;
-      html += "<li><a href='" + imageURL + "' target='_blank'><img src='" + imageURL + "' height='75' width='75' border='0'></a></li>";
-      if (i == 5) return false;
-    });
-    $("#FlickrImages").html(html);
-    $("#FlickrImages").fadeIn();
-  });
-  $(".FlickrSearch").html(search);
-}
-jwplayer("container").setup({
+
+jwplayer("player").setup({
     file: "//content.jwplatform.com/videos/lWMJeVvV-52qL9xLP.mp4",
     image: '//content.jwplatform.com/thumbs/lWMJeVvV-480.jpg',
-    width: 550,
-    height: 310,
+    autostart: false,
 	tracks: [{
 		file:'assets/chapters.txt',
 		kind:'chapters'
