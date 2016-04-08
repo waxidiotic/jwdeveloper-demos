@@ -172,7 +172,10 @@ module.exports = function (grunt) {
       // mustache config for category demo index
       mustacheRender.push({
         data: {
+          title: 'JW Player Demos &amp; Code Examples',
+          description: 'Explore demos and code examples extending JW Player feature functionality.',
           paths: paths,
+          directory: cat.directory,
           categories: function() {
             var cats = [];
             for (var i = 0; i < categories.length; i++) {
@@ -190,7 +193,6 @@ module.exports = function (grunt) {
             });
             return cats;
           },
-          directory: cat.directory,
           demos: function() {
             var catDemos = demos[this.directory];
             for (var i = 0; i < catDemos.length; i++) {
@@ -217,6 +219,8 @@ module.exports = function (grunt) {
     // mustache config for complete demo index
     mustacheRender.push({
       data: {
+        title: 'JW Player Demos &amp; Code Examples',
+        description: 'Explore demos and code examples extending JW Player feature functionality.',
         paths: paths,
         categories: function() {
           var cats = [];
