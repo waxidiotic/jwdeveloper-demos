@@ -1,4 +1,4 @@
-jwplayer('demoPlayer').setup({
+jwplayer('player').setup({
   playlist:[{
     file:"http://wowzaec2demo.streamlock.net/vod-multitrack/_definst_/smil:ElephantsDream/ElephantsDream.smil/manifest.mpd",
     title:"Sintel",
