@@ -191,7 +191,19 @@ module.exports = function (grunt) {
             return cats;
           },
           directory: cat.directory,
-          demos: demos[cat.directory]
+          demos: function() {
+            var catDemos = demos[cat.directory];
+            for (var i = 0; i < catDemos.length; i++) {
+              var descLength = catDemos[i].description.length;
+              if (descLength > 70) {
+                catDemos[i].description = catDemos[i].description.substring(0, 65);
+                catDemos[i].description = catDemos[i].description.trim();
+                catDemos[i].description = catDemos[i].description.slice(-1) == '.' ?
+                  catDemos[i].description + '..' : catDemos[i].description + '...';
+              }
+            }
+            return catDemos;
+          }
         },
         template: '_templates/index.mustache',
         dest: 'build/demos/' + cat.directory + '/index.html'
@@ -223,7 +235,19 @@ module.exports = function (grunt) {
           });
           return cats;
         },
-        demos: demos.all
+        demos: function() {
+          var allDemos = demos['all'];
+          for (var i = 0; i < allDemos.length; i++) {
+            var descLength = allDemos[i].description.length;
+            if (descLength > 70) {
+              allDemos[i].description = allDemos[i].description.substring(0, 65);
+              allDemos[i].description = allDemos[i].description.trim();
+              allDemos[i].description = allDemos[i].description.slice(-1) == '.' ?
+                allDemos[i].description + '..' : allDemos[i].description + '...';
+            }
+          }
+          return allDemos;
+        }
       },
       template: '_templates/index.mustache',
       dest: 'build/demos/index.html'
