@@ -1,5 +1,5 @@
 {
 	"title": "HLSV4 Audio Tracks",
-	"description": "This demo shows built in HLSV4 Audio Track functionality, which is useful for director's commentary, multiple language support, or different audio perspectives. Smaller file sizes, alternate audio qualities, and toggle with visual interface or API are all supported.",
+	"description": "This demo shows built in HLSV4 Audio Track functionality.",
 	"license": "Premium"
 }

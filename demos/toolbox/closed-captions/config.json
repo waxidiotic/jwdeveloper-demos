@@ -1,5 +1,5 @@
 {
 	"title": "Closed Captions",
-	"description": "This demo shows a player rendering closed captions in video display. JW Player supports CEA-608 captions, WebVTT captions, multiple language support, styling, and toggling with the visual interface or API.",
+	"description": "This demo shows a player rendering closed captions in video display.",
 	"license": "Enterprise"
 }
