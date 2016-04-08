@@ -6,9 +6,5 @@ jwplayer('player').setup({
     type:"dash"
 }],
     dash: 'shaka',
-    skin:{
-      name:"seven",
-      background:"#2c364f",
-    },
     autostart: true
 });
