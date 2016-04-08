@@ -16,8 +16,8 @@ jwplayer("player").setup({
     file: '//content.jwplatform.com/manifests/3p683El7.m3u8',
     image: '//content.jwplatform.com/thumbs/3p683El7-640.jpg',
     tracks: [
-      { file: "//s3.amazonaws.com/demo.jwplayer.com/interactive-transcript/chapters.vtt", kind: "chapters" },
-      { file: "//s3.amazonaws.com/demo.jwplayer.com/interactive-transcript/captions.vtt", kind: "captions" },
+      { file: "assets/chapters.vtt", kind: "chapters" },
+      { file: "assets/captions.vtt", kind: "captions" },
       { file: "//content.jwplatform.com/strips/3p683El7-120.vtt", kind: "thumbnails" }
 
     ],
@@ -26,10 +26,10 @@ jwplayer("player").setup({
     height: 360
 });
 jwplayer().addButton(
-  "//s3.amazonaws.com/demo.jwplayer.com/interactive-transcript/download.png",
+  "assets/download.png",
   "Download Slides",
   function() {
-    window.location.href = "//s3.amazonaws.com/demo.jwplayer.com/interactive-transcript/state-html5-video.pdf";
+    window.location.href = "assets/state-html5-video.pdf";
   },
   "download"
 );
@@ -51,7 +51,7 @@ jwplayer().onReady(function(){
       loadCaptions();
     }
   };
-  r.open('GET','//s3.amazonaws.com/demo.jwplayer.com/interactive-transcript/chapters.vtt',true);
+  r.open('GET','assets/chapters.vtt',true);
   r.send();
 });
 function loadCaptions(){
@@ -74,7 +74,7 @@ function loadCaptions(){
       transcript.innerHTML = h + "</p>";
     }
   };
-  r.open('GET','//s3.amazonaws.com/demo.jwplayer.com/interactive-transcript/captions.vtt',true);
+  r.open('GET','assets/captions.vtt',true);
   r.send();
 };
 function parse(d) {
