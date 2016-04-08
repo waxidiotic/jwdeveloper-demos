@@ -4,7 +4,7 @@ jwplayer("player").setup({
   advertising: {
     client: "vast",
     companiondiv: { id: "adrectangle", height: 250, width: 300 },
-    schedule: "../assets/vmap.xml"
+    schedule: "assets/vmap.xml"
   },
   width: 592,
   height: 250
