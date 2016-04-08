@@ -1,4 +1,3 @@
-
 jwplayer("player").setup({
     file: "//content.jwplatform.com/videos/lWMJeVvV-52qL9xLP.mp4",
     image: '//content.jwplatform.com/thumbs/lWMJeVvV-480.jpg',
@@ -27,8 +26,6 @@ var theTimes2 = false;
 var theCh2 = false;
 jwplayer().onTime(function(event){
 	if (event.position >= 12 && event.position < 29 && theStatue == false) {
-		updateFlickr('statue of liberty');
-		updateTwitter();
 		document.getElementById('statue').style.display = "inline";
 		document.getElementById('central').style.display = "none";
 		document.getElementById('wtc').style.display = "none";
@@ -43,8 +40,6 @@ jwplayer().onTime(function(event){
 		theCh = false;
 	}
 	if (event.position >= 30 && event.position < 54 && thePark == false) {
-		updateFlickr('central park');
-		updateTwitter();
 		document.getElementById('statue').style.display = "none";
 		document.getElementById('central').style.display = "inline";
 		document.getElementById('wtc').style.display = "none";
@@ -59,8 +54,6 @@ jwplayer().onTime(function(event){
 		theCh = false;
 	}
 	if (event.position >= 55 && event.position < 80 && theWtc == false) {
-		updateFlickr('world trade center');
-		updateTwitter();
 		document.getElementById('statue').style.display = "none";
 		document.getElementById('central').style.display = "none";
 		document.getElementById('wtc').style.display = "inline";
@@ -75,8 +68,6 @@ jwplayer().onTime(function(event){
 		theCh = false;
 	}
 	if (event.position >= 81 && event.position < 95 && theRock == false) {
-		updateFlickr('rockefeller center');
-		updateTwitter();
 		document.getElementById('statue').style.display = "none";
 		document.getElementById('central').style.display = "none";
 		document.getElementById('wtc').style.display = "none";
@@ -91,8 +82,6 @@ jwplayer().onTime(function(event){
 		theCh = false;
 	}
 	if (event.position >= 96 && event.position < 119 && theTimes == false) {
-		updateFlickr('times square');
-		updateTwitter();
 		document.getElementById('statue').style.display = "none";
 		document.getElementById('central').style.display = "none";
 		document.getElementById('wtc').style.display = "none";
@@ -107,8 +96,6 @@ jwplayer().onTime(function(event){
 		theCh = false;
 	}
 	if (event.position >= 120 && event.position < 139 && theCh == false) {
-		updateFlickr('chrysler building');
-		updateTwitter();
 		document.getElementById('statue').style.display = "none";
 		document.getElementById('central').style.display = "none";
 		document.getElementById('wtc').style.display = "none";

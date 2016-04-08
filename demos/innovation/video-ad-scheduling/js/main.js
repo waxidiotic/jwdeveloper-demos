@@ -7,7 +7,7 @@ jwplayer("player").setup({
     schedule: "assets/vmap.xml"
   },
   width: 592,
-  height: 250
+  height: 333
 });
 
 jwplayer().onTime(function(event){

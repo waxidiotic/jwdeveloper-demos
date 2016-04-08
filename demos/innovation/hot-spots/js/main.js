@@ -3,16 +3,12 @@ var hotspots = document.getElementById('hotspots');
 var seeking = false;
 var player = jwplayer();
 
-
-
 player.addButton(
   "assets/toc.png",
   "Table of Contents",
   function(){jwplayer().seek(20);},
   "contents"
 );
-
-
 
 // Load chapters / captions
 player.onReady(function(){
