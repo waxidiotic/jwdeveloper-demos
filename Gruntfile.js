@@ -73,7 +73,6 @@ module.exports = function (grunt) {
         paths.js = 'staging-developer.jwplayer.com/js';
         paths.img = 'staging-developer.jwplayer.com/img';
       }
-
     }
 
     // sort array/object alphabetically on the `directory` property
@@ -123,13 +122,6 @@ module.exports = function (grunt) {
           demos[cat.directory].push(demo);
           demos['all'].push(demo);
 
-          copy.push({
-            expand: true,
-            cwd: srcDir,
-            src: ['js/*'],
-            dest: buildDir
-          });
-
           // concat config for demo js
           grunt.file.write(buildDir + 'js/build.js', '');
           concat[buildDir + 'js/build.js'] = srcDir + 'js/*.js'
@@ -137,6 +129,14 @@ module.exports = function (grunt) {
           // concat config for demo css
           grunt.file.write(buildDir + 'css/build.css', '');
           concat[buildDir + 'css/build.css'] = srcDir + 'css/*.css';
+
+          // copy any additional directories developer has included in demo
+          copy.push({
+            expand: true,
+            cwd: srcDir,
+            src: ['**/*', '!js/**/*', '!css/**/*', '!config.json', '!index.html'],
+            dest: buildDir
+          });
 
           // mustache config for demo detail page
           mustacheRender.push({

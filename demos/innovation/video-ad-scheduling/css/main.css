@@ -1,11 +1,11 @@
-#adplayer { 
+#adplayer {
     padding: 0 20px;
   }
-#adrectangle { 
+#adrectangle {
     float: right;
     width: 300px;
     height: 250px;
-    background-image: url('/assets/sintel.jpg');
+    background-image: url('../assets/sintel.jpg');
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
   }
 #demoplayer {
@@ -23,5 +23,5 @@
     top: 0;
     height: 50px;
     width: 0;
-    background: transparent url('/assets/highlight.png') 0 0 no-repeat;
+    background: transparent url('../assets/highlight.png') 0 0 no-repeat;
   }
