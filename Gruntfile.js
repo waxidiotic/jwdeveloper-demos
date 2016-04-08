@@ -192,7 +192,7 @@ module.exports = function (grunt) {
           },
           directory: cat.directory,
           demos: function() {
-            var catDemos = demos[cat.directory];
+            var catDemos = demos[this.directory];
             for (var i = 0; i < catDemos.length; i++) {
               var descLength = catDemos[i].description.length;
               if (descLength > 70) {
@@ -222,11 +222,7 @@ module.exports = function (grunt) {
           var cats = [];
           for (var i = 0; i < categories.length; i++) {
             cats.push(categories[i]);
-            if (categories[i].directory == this.directory) {
-              cats[i]['current'] = true;
-            } else {
-              cats[i]['current'] = null;
-            }
+            cats[i]['current'] = null;
           }
           cats.unshift({
             name: 'All Demos',
