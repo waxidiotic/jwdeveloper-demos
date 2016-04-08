@@ -69,10 +69,7 @@ The `config.json` file provides metadata about your demo. It will be used to pop
   "license": "Free|Premium|Ads|Enterprise",
   "showCode": true|false,
   "layout": "vertical|horizontal",
-  "apiCalls": [
-		".on('ready')",
-		".on('complete')"
-	],
+  "apiCalls": [],
   "author": {
   	"name": "",
   	"githubUsername": ""
@@ -87,7 +84,7 @@ Key | Type | Value Description
 `license` | `string` | *The license type necessary to recreate your demo*
 `showCode` | `boolean` | *Displays code snippet to the right of demo player when `true`*
 `layout` | `string` | *Displays code snippet to right of demo player or under demo player*
-`apiCalls` | `array` | *List of JW Player Javascript API calls used in your demo*
+`apiCalls` | `array` | *List of JW Player Javascript API calls used in your demo. For example: `.on('ready')`*
 `author.name` | `string` | *Your name*
 `author.githubUsername` | `string` | *Your GitHub username*
 
