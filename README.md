@@ -88,8 +88,8 @@ Key | Type | Value Description
 `showCode` | `boolean` | *Displays code snippet to the right of demo player when `true`*
 `layout` | `string` | *Displays code snippet to right of demo player or under demo player*
 `apiCalls` | `array` | *List of JW Player Javascript API calls used in your demo*
-author `name` | `string` | *Your name*
-author `githubUsername` | `string` | *Your GitHub username*
+`author.name` | `string` | *Your name*
+`author.githubUsername` | `string` | *Your GitHub username*
 
 ## JW Developer Community
 
