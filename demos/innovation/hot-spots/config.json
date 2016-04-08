@@ -1,6 +1,6 @@
 {
   "title": "Hot Spots",
-  "description": "This demo shows hyperlink icons popping in and out over the video. Click hyperlinks in the video to navigate to additional information or another point in the video.",
+  "description": "This demo uses hyperlink icons to navigate to additional information or another point in the video.",
   "license": "Free",
   "showCode": false
 }

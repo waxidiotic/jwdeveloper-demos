@@ -1,18 +1,12 @@
 var spots = [];
 var hotspots = document.getElementById('hotspots');
 var seeking = false;
+var player = jwplayer();
 
 
 
-// Setup JW Player
-jwplayer("player").setup({
-    playlist: '//content.jwplatform.com/jw6/3p683El7.xml',
-    width: 720,
-    height: 405,
-    sharing: {}
-});
-jwplayer().addButton(
-  "http://s3.amazonaws.com/demo.jwplayer.com/hot-spots/toc.png",
+player.addButton(
+  "assets/toc.png",
   "Table of Contents",
   function(){jwplayer().seek(20);},
   "contents"
@@ -21,7 +15,7 @@ jwplayer().addButton(
 
 
 // Load chapters / captions
-jwplayer().onReady(function(){
+player.onReady(function(){
   var r = new XMLHttpRequest();
   r.onreadystatechange = function() {
     if (r.readyState == 4 && r.status == 200) {
@@ -35,7 +29,7 @@ jwplayer().onReady(function(){
       }
     }
   };
-  r.open('GET','http://s3.amazonaws.com/demo.jwplayer.com/hot-spots/hotspots.vtt',true);
+  r.open('GET','assets/hotspots.vtt',true);
   r.send();
 });
 function parse(d) {
@@ -63,12 +57,12 @@ function seconds(s) {
 
 
 // Highlight active spots
-jwplayer().onTime(function(e) {
+player.onTime(function(e) {
   if(!seeking) {
     setSpots(e.position);
   }
 });
-jwplayer().onSeek(function(e) {
+player.onSeek(function(e) {
   seeking = true;
   setTimeout(function(){seeking=false;},500);
 });

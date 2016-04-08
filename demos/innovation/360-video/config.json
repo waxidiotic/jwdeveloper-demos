@@ -1,6 +1,6 @@
 {
   "title": "360 Video",
-  "description": "Surround Definition created a plugin that integrates with JW Player to provide this demo with SHD technology, the standard for playback of 360° videos. Click and drag with the mouse to look around.",
+  "description": "This demo uses a Surround Definition plugin to display 360 degree video. Click and drag with the mouse to look around.",
   "license": "Free",
   "showCode": false
 }
