@@ -65,15 +65,14 @@ module.exports = function (grunt) {
     if (grunt.option('deploy-production') || grunt.option('deploy-staging')) {
       paths.root = '/jw-player/demos/';
       if (grunt.option('deploy-production')) {
-        paths.css = '//developer.jwplayer.com/css';
-        paths.js = '//developer.jwplayer.com/js';
-        paths.img = '//developer.jwplayer.com/img';
+        paths.css = 'developer.jwplayer.com/css';
+        paths.js = 'developer.jwplayer.com/js';
+        paths.img = 'developer.jwplayer.com/img';
       } else {
-        paths.css = '//staging-developer.jwplayer.com/css';
-        paths.js = '//staging-developer.jwplayer.com/js';
-        paths.img = '//staging-developer.jwplayer.com/img';
+        paths.css = 'staging-developer.jwplayer.com/css';
+        paths.js = 'staging-developer.jwplayer.com/js';
+        paths.img = 'staging-developer.jwplayer.com/img';
       }
-
     }
 
     // sort array/object alphabetically on the `directory` property
@@ -123,13 +122,6 @@ module.exports = function (grunt) {
           demos[cat.directory].push(demo);
           demos['all'].push(demo);
 
-          copy.push({
-            expand: true,
-            cwd: srcDir,
-            src: ['js/*'],
-            dest: buildDir
-          });
-
           // concat config for demo js
           grunt.file.write(buildDir + 'js/build.js', '');
           concat[buildDir + 'js/build.js'] = srcDir + 'js/*.js'
@@ -137,6 +129,14 @@ module.exports = function (grunt) {
           // concat config for demo css
           grunt.file.write(buildDir + 'css/build.css', '');
           concat[buildDir + 'css/build.css'] = srcDir + 'css/*.css';
+
+          // copy any additional directories developer has included in demo
+          copy.push({
+            expand: true,
+            cwd: srcDir,
+            src: ['**/*', '!js/**/*', '!css/**/*', '!config.json', '!index.html'],
+            dest: buildDir
+          });
 
           // mustache config for demo detail page
           mustacheRender.push({
@@ -191,7 +191,19 @@ module.exports = function (grunt) {
             return cats;
           },
           directory: cat.directory,
-          demos: demos[cat.directory]
+          demos: function() {
+            var catDemos = demos[cat.directory];
+            for (var i = 0; i < catDemos.length; i++) {
+              var descLength = catDemos[i].description.length;
+              if (descLength > 70) {
+                catDemos[i].description = catDemos[i].description.substring(0, 65);
+                catDemos[i].description = catDemos[i].description.trim();
+                catDemos[i].description = catDemos[i].description.slice(-1) == '.' ?
+                  catDemos[i].description + '..' : catDemos[i].description + '...';
+              }
+            }
+            return catDemos;
+          }
         },
         template: '_templates/index.mustache',
         dest: 'build/demos/' + cat.directory + '/index.html'
@@ -223,7 +235,19 @@ module.exports = function (grunt) {
           });
           return cats;
         },
-        demos: demos.all
+        demos: function() {
+          var allDemos = demos['all'];
+          for (var i = 0; i < allDemos.length; i++) {
+            var descLength = allDemos[i].description.length;
+            if (descLength > 70) {
+              allDemos[i].description = allDemos[i].description.substring(0, 65);
+              allDemos[i].description = allDemos[i].description.trim();
+              allDemos[i].description = allDemos[i].description.slice(-1) == '.' ?
+                allDemos[i].description + '..' : allDemos[i].description + '...';
+            }
+          }
+          return allDemos;
+        }
       },
       template: '_templates/index.mustache',
       dest: 'build/demos/index.html'

@@ -4,10 +4,10 @@ jwplayer("player").setup({
   advertising: {
     client: "vast",
     companiondiv: { id: "adrectangle", height: 250, width: 300 },
-    schedule: "/assets/vmap.xml"
+    schedule: "assets/vmap.xml"
   },
   width: 592,
-  height: 250
+  height: 333
 });
 
 jwplayer().onTime(function(event){
@@ -15,7 +15,7 @@ jwplayer().onTime(function(event){
   var w;
   if(p < 300) {
     w = 42 + p/300*124;
-  } else if (p > 301 && p < 600) { 
+  } else if (p > 301 && p < 600) {
     w = 234 + (p-300)/300*124;
   } else if (p > 601) {
     w = 426 + (p-600)/288*124;
