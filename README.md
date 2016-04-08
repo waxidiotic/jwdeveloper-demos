@@ -79,14 +79,14 @@ The `config.json` file provides metadata about your demo. It will be used to pop
 
 Key | Type | Value Description
 :--- | :--- | :---
-`title` | `string` | *Demo title*
-`description` | `string` | *A brief description of your demo*
-`license` | `string` | *The license type necessary to recreate your demo*
-`showCode` | `boolean` | *Displays code snippet to the right of demo player when `true`*
-`layout` | `string` | *Displays code snippet to right of demo player or under demo player*
-`apiCalls` | `array` | *List of JW Player Javascript API calls used in your demo. For example: `.on('ready')`*
-`author.name` | `string` | *Your name*
-`author.githubUsername` | `string` | *Your GitHub username*
+`title` | `string` | Demo title*
+`description` | `string` | A brief description of your demo*
+`license` | `string` | The license type necessary to recreate your demo*
+`showCode` | `boolean` | Displays code snippet to the right of demo player when `true`
+`layout` | `string` | Displays code snippet to right of demo player or under demo player
+`apiCalls` | `array` | List of JW Player Javascript API calls used in your demo. For example: `.on('ready')`
+`author.name` | `string` | Your name
+`author.githubUsername` | `string` | Your GitHub username
 
 ## JW Developer Community
 
