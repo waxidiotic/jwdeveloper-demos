@@ -14,19 +14,19 @@ Then, from the project root directory, `jwdeveloper-demos/`:
 
 1. Install Node modules:
 
-	$ [sudo] npm install
+		$ [sudo] npm install
 
 2. Install Bower components:
 
-	$ [sudo] bower install
+		$ [sudo] bower install
 
 3. Run Grunt to compile changes:
 
-	$ grunt
+		$ grunt
 
 4. Run Grunt to compile changes and serve locally:
 
-	$ grunt serve
+		$ grunt serve
 
 ### Demo Structure
 
