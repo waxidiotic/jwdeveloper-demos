@@ -9,24 +9,25 @@ module.exports = function (grunt) {
     'clean': {
       build: ['build/*']
     },
-    'http-server': {
-      dev: {
-        root: 'build/demos',
-        host: '127.0.0.1',
-        openBrowser: true
+    'connect': {
+      serve: {
+        options: {
+          hostname: '127.0.0.1',
+          port: 8000,
+          base: 'build/demos',
+          useAvailablePort: true,
+          open: true,
+          keepalive: true
+        }
       }
     }
   });
 
-  // load npm tasks
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-http-server');
-  grunt.loadNpmTasks('grunt-mustache-render');
+  // load grunt plugins
+  require('load-grunt-tasks')(grunt);
 
   // grunt default task
-  grunt.registerTask('default', '', function() {
+  grunt.registerTask('default', function() {
 
     // config vars
     var categories = grunt.config('config.categories'),
@@ -51,14 +52,6 @@ module.exports = function (grunt) {
       paths.css = local.paths.css ? local.paths.css : paths.css;
       paths.js = local.paths.js ? local.paths.js : paths.js;
       paths.img = local.paths.img ? local.paths.img : paths.img;
-      if (typeof local.server.port !== 'undefined') {
-        var port = local.server.port;
-        grunt.config('http-server.dev.port', port);
-      }
-      if (typeof local.server.openBrowser !== 'undefined') {
-        var openBrowser = local.server.openBrowser;
-        grunt.config('http-server.dev.openBrowser', openBrowser);
-      }
     }
 
     // if a `--deploy-*` option was passed to specify build type
@@ -172,7 +165,10 @@ module.exports = function (grunt) {
       // mustache config for category demo index
       mustacheRender.push({
         data: {
+          title: 'JW Player Demos &amp; Code Examples',
+          description: 'Explore demos and code examples extending JW Player feature functionality.',
           paths: paths,
+          directory: cat.directory,
           categories: function() {
             var cats = [];
             for (var i = 0; i < categories.length; i++) {
@@ -190,8 +186,19 @@ module.exports = function (grunt) {
             });
             return cats;
           },
-          directory: cat.directory,
-          demos: demos[cat.directory]
+          demos: function() {
+            var catDemos = demos[this.directory];
+            for (var i = 0; i < catDemos.length; i++) {
+              var descLength = catDemos[i].description.length;
+              if (descLength > 70) {
+                catDemos[i].description = catDemos[i].description.substring(0, 65);
+                catDemos[i].description = catDemos[i].description.trim();
+                catDemos[i].description = catDemos[i].description.slice(-1) == '.' ?
+                  catDemos[i].description + '..' : catDemos[i].description + '...';
+              }
+            }
+            return catDemos;
+          }
         },
         template: '_templates/index.mustache',
         dest: 'build/demos/' + cat.directory + '/index.html'
@@ -205,16 +212,14 @@ module.exports = function (grunt) {
     // mustache config for complete demo index
     mustacheRender.push({
       data: {
+        title: 'JW Player Demos &amp; Code Examples',
+        description: 'Explore demos and code examples extending JW Player feature functionality.',
         paths: paths,
         categories: function() {
           var cats = [];
           for (var i = 0; i < categories.length; i++) {
             cats.push(categories[i]);
-            if (categories[i].directory == this.directory) {
-              cats[i]['current'] = true;
-            } else {
-              cats[i]['current'] = null;
-            }
+            cats[i]['current'] = null;
           }
           cats.unshift({
             name: 'All Demos',
@@ -223,7 +228,19 @@ module.exports = function (grunt) {
           });
           return cats;
         },
-        demos: demos.all
+        demos: function() {
+          var allDemos = demos['all'];
+          for (var i = 0; i < allDemos.length; i++) {
+            var descLength = allDemos[i].description.length;
+            if (descLength > 70) {
+              allDemos[i].description = allDemos[i].description.substring(0, 65);
+              allDemos[i].description = allDemos[i].description.trim();
+              allDemos[i].description = allDemos[i].description.slice(-1) == '.' ?
+                allDemos[i].description + '..' : allDemos[i].description + '...';
+            }
+          }
+          return allDemos;
+        }
       },
       template: '_templates/index.mustache',
       dest: 'build/demos/index.html'
@@ -264,9 +281,9 @@ module.exports = function (grunt) {
   });
 
   // build and serve locally
-  grunt.registerTask('serve', '', [
+  grunt.registerTask('serve', [
     'default',
-    'http-server'
+    'connect'
   ]);
 
 };

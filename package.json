@@ -7,8 +7,9 @@
     "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-connect": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-http-server": "^1.16.0",
-    "grunt-mustache-render": "^1.9.0"
+    "grunt-mustache-render": "^1.9.0",
+    "load-grunt-tasks": "^3.5.0"
   }
 }

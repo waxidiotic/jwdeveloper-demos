@@ -4,10 +4,12 @@
 
   <div class="demo-single">
 
-    <div class="hero">
-      <div class="container">
-        <h1>{{title}}</h1>
-        <p>{{description}}</p>
+    <div class="page-hero">
+      <div class="page-hero-container">
+        <div class="page-hero-item">
+          <h1>{{title}}</h1>
+          <p>{{description}}</p>
+        </div>
       </div>
     </div>
 
@@ -44,7 +46,7 @@
         </div>
         {{#showCode}}
           <div class="demo-layout-code">
-            <div id="demo-code" class="lang-html"></div>
+            <pre><code class="html">&lt;script type=&quot;text/javascript&quot;&gt;{{js}}&lt;/script&gt;</code></pre>
           </div>
         {{/showCode}}
       </div>
