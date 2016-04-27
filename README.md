@@ -61,6 +61,9 @@ Submitting a demo for consideration for the [JW Developer Showcase](developer.jw
 
 Our Developer Relations Manager will review all submissions. Please note that we only publish a few, carefully selected apps on the JW Developer Showcase and that we do not reply to submissions personally.
 
+#### Please note
+By submitting you are agreeing to license your demo under the Apache 2.0 license.
+
 ### Config File
 
 The `config.json` file provides metadata about your demo. It will be used to populate information about your demo on the page. Only title, description, and license are required to build the demo, but we ask that you complete all fields for Developer Showcase demo submissions.
