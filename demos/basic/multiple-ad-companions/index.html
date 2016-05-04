@@ -1,0 +1,45 @@
+<script src="//content.jwplatform.com/libraries/yo0beZEB.js"></script>
+
+<div style="width:728px; height:660px; background-color:#333333;">
+<div class="ad" id="topAd" style="width:728px; height: 60px; background-color:#000000;"></div>
+<div class="ad" id="leftAd" style="width:160px; height:600px; float:left; background-color:#000000;"></div>
+<div id="myElement">Loading the player...</div>
+<div class="ad" id="bottomAd" style="width:480px; height:32px; background-color:#000000; margin-left:160px;margin-top:-32px;"></div>
+<div class="ad" id="posterAd" style="width:300px; height:250px; background-color:#000000; margin-left:160px;"></div>
+</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("myElement");
+playerInstance.setup({
+"file":"//content.jwplatform.com/videos/kaUXWqTZ-640.mp4", 
+"image":"//content.jwplatform.com/thumbs/kaUXWqTZ-640.jpg", 
+"title": "Elephant's Dream",
+"width": 567,
+"height": 318,
+"advertising": {
+"tag": "//traffick.jivox.com/jivox/serverAPIs/getCampaignById.php?api=vast&version=2.0&siteId=94d5ae29c87442&campaignId=21411&r=__random-number__",
+"client": "vast",
+}
+});
+
+playerInstance.on('adCompanions', function(event) {
+  for(var i=0; i<event.companions.length; i++) {
+    var entry = event.companions[i];
+    if(entry.width == 728) {
+      insertAd("topAd",entry.resource,entry.click);
+    } else if(entry.width == 160) {
+     insertAd("leftAd",entry.resource,entry.click);
+    } else if(entry.height == 32) {
+     insertAd("bottomAd",entry.resource,entry.click);
+    } else if(entry.height == 250) {
+     insertAd("posterAd",entry.resource,entry.click);
+    }
+   }
+});
+
+function insertAd(element,resource,clickthrough) {
+var div = document.getElementById(element);
+console.log(element + " "+ resource + " " +clickthrough)
+div.innerHTML = "<a href='"+clickthrough+"'><img src='"+resource+"'/></a>";
+}
+
+</script>
