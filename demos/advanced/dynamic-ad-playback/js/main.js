@@ -2,6 +2,15 @@ var btn = document.getElementById("playbutton");
 var ply = false;
 var tag = "assets/preroll.xml"
 
+var playerInstance = jwplayer("myElement");
+playerInstance.setup({
+  file: "//content.jwplatform.com/videos/hWF9vG66-TNpruJId.mp4",
+  image: "//content.jwplatform.com/thumbs/hWF9vG66-480.jpg",
+  advertising: {
+    client: "vast"
+  },
+});
+
 playerInstance.on('play',function() {
   ply = true;
   btn.innerHTML = "<a href='javascript:playMyAd()'>Play an Ad!</a>";
