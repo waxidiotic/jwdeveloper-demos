@@ -1,3 +1,16 @@
+var playerInstance = jwplayer("myElement");
+playerInstance.setup({
+"file":"//content.jwplatform.com/videos/ioyt59Zj-TNpruJId.mp4", 
+"image":"//content.jwplatform.com/thumbs/ioyt59Zj-480.jpg", 
+"title": "Elephant's Dream",
+"width": 567,
+"height": 318,
+"advertising": {
+  "tag": "//traffick.jivox.com/jivox/serverAPIs/getCampaignById.php?api=vast&version=2.0&siteId=94d5ae29c87442&campaignId=21411&r=__random-number__",
+  "client": "vast"
+  }
+});
+
 playerInstance.on('adCompanions', function(event) {
   for(var i=0; i<event.companions.length; i++) {
     var entry = event.companions[i];
@@ -8,7 +21,7 @@ playerInstance.on('adCompanions', function(event) {
     } else if(entry.height == 32) {
      insertAd("bottomAd",entry.resource,entry.click);
     } else if(entry.height == 250) {
-     insertAd("posterAd",entry.resource,entry.click);
+     insertAd("rightAd",entry.resource,entry.click);
     }
    }
 });
