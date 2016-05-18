@@ -44,20 +44,20 @@ module.exports = function (grunt) {
       },
       path = {
         host: 'developer.jwplayer.com',
-        asset: '//developer.jwplayer.com/',
+        file: '//developer.jwplayer.com/',
         href: '/'
       };
 
     // if a `local-config.json` file exists, override configurable data
     if (grunt.file.exists('local-config.json')) {
       var local = grunt.file.readJSON('local-config.json');
-      path.asset = local.path.asset ? local.path.asset : path.asset;
+      path.file = local.path.file ? local.path.file : path.file;
       path.href = local.path.href ? local.path.href : path.href;
     }
 
     // if a `--deploy-*` option was passed to specify build type
     if (grunt.option('deploy-production') || grunt.option('deploy-staging')) {
-      path.asset = '/';
+      path.file = '/';
       path.href = '/jw-player/demos/';
       if (grunt.option('deploy-production')) {
         env.dev = false;

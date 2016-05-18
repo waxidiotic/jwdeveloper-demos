@@ -19,8 +19,8 @@
     <meta name="twitter:description" content="{{description}}">
     <meta name="twitter:image" content="//{{&path.host}}/img/demos-twitter-share.png">
   {{/env.dev}}
-  <link rel="shortcut icon" href="{{&path.asset}}img/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="{{&path.asset}}css/developer.min.css">
+  <link rel="shortcut icon" href="{{&path.file}}img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="{{&path.file}}css/developer.min.css">
   {{#css}}
     <link rel="stylesheet" href="css/build.css">
   {{/css}}
@@ -35,5 +35,5 @@
     })(window,document,'script','dataLayer','GTM-MBF9PW');</script>
   {{/env.prod}}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="{{&path.asset}}js/developer.min.js"></script>
+  <script src="{{&path.file}}js/developer.min.js"></script>
 </head>
