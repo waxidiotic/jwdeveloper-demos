@@ -44,9 +44,8 @@ module.exports = function (grunt) {
         img: 'staging-developer.jwplayer.com/img'
       };
 
-    // if `--dev-mode` option was passed to override configurable data,
-    // require a `local-config.json` file, otherwise it does nothing
-    if (grunt.option('dev-mode') && grunt.file.exists('local-config.json')) {
+    // if a `local-config.json` file exists, override configurable data
+    if (grunt.file.exists('local-config.json')) {
       var local = grunt.file.readJSON('local-config.json');
       paths.root = local.paths.root ? local.paths.root : paths.root;
       paths.css = local.paths.css ? local.paths.css : paths.css;
@@ -143,6 +142,13 @@ module.exports = function (grunt) {
               title: demo.title,
               description: demo.description,
               license: demo.license,
+              author: function() {
+                if (!demo.author || !demo.author.name) return null;
+                return {
+                  name: demo.author.name,
+                  githubUsername: demo.author.githubUsername || null
+                };
+              },
               showCode: function() {
                 return typeof demo.showCode !== 'undefined' ? demo.showCode : true;
               },
