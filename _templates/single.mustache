@@ -24,6 +24,9 @@
       <li>
         <span>License:<strong>{{license}}</strong></span>
         <span>Player Version:<strong id="demo-player-version"></strong></span>
+        {{#author}}
+          <span>Author:{{#githubUsername}}<a href="http://github.com/{{githubUsername}}">{{/githubUsername}}<strong>{{name}}</strong>{{#githubUsername}}</a>{{/githubUsername}}</span>
+        {{/author}}
       </li>
       <li>
         <a href="//github.com/jwplayer/jwdeveloper-demos/tree/master/demos/{{category.directory}}/{{directory}}">Source Code</a>
