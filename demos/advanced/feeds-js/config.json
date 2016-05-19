@@ -2,8 +2,7 @@
 	"title": "Feeds JavaScript",
 	"description": "Example for using feeds with javascript. Uses Bootstrap, jQuery, and UnderscoreJS.",
 	"license": "Ads",
-	"showCode": true,
-	"layout": "vertical",
+	"showCode": false,
 	"author": {
 		"name": "Alex Halter",
 		"githubUsername": "alkupe"
