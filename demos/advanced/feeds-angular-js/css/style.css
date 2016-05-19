@@ -1,0 +1,71 @@
+.col-md-4, .col-md-6, .col-md-8 {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+.jw-main {
+  height: 39vw;
+  display: flex;
+}
+
+.jw-demo {
+  flex: 1;
+  display: flex;
+}
+
+.player-container {
+  background-color: #2d333e;
+  padding: 30px;
+  flex: 2;
+}
+
+.jw-feed {
+  background-color: #475470;
+  overflow-y: scroll;
+  padding: 15px 30px 0 30px;
+  flex: 1;
+}
+
+.jw-feed-title {
+  color: #fff;
+  font-size: 15px;
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.jw-option {
+  border-bottom: 1px solid #2d333e;
+  cursor: pointer;
+}
+
+.jw-option:hover {
+  background-color: rgba(45, 51, 62, .25);
+}
+
+.jw-thumbnail-background {
+    background-color: #000;
+    height: 63px;
+}
+
+.jw-thumbnail {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.jw-media-title {
+  color: #fff;
+  text-align: left;
+  position: relative;
+  left: 15px;
+  top: 10px;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  font-size: 13px;
+}
