@@ -1,0 +1,11 @@
+{
+  "title": "CSS Skin",
+  "description": "Example of customizing the player theme and transitions.",
+  "license": "Free",
+  "showCode": "true",
+  "layout": "vertical",
+  "author": {
+  	"name": "Matthew Martindale",
+  	"githubUsername": "madikarizma"
+  }
+}
