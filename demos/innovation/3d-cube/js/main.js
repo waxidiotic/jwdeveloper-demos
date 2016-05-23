@@ -330,7 +330,7 @@ if (navigator.userAgent.match(/iPhone/i) != null || navigator.userAgent.match(/i
   document.getElementById('btns').innerHTML = '';
 }
 
-history.pushState({ page: 1 }, "title 1", "#_");
-window.onhashchange = function (event) {
-    window.location.hash = "_";
-};
+// history.pushState({ page: 1 }, "title 1", "#_");
+// window.onhashchange = function (event) {
+//     window.location.hash = "_";
+// };

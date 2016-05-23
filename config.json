@@ -6,6 +6,10 @@
       "directory": "basic"
     },
     {
+      "name": "Advanced",
+      "directory": "advanced"
+    },
+    {
       "name": "Developer Showcase",
       "directory": "developer-showcase"
     },

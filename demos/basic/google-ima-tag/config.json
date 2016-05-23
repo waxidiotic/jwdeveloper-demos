@@ -1,0 +1,10 @@
+{
+  "title": "Google IMA Tag",
+  "description": "This demo shows a basic video embed with a preroll Google IMA Ad Tag.",
+  "license": "Ads",
+  "showCode": true,
+  "author": {
+  	"name": "JW Player",
+  	"githubUsername": "jwplayer"
+  	}
+}
