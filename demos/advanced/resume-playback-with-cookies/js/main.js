@@ -71,6 +71,6 @@ player.onReady(function() {
         }        
     }
     else {
-        logMessage('No video resume cookie detected. Play video then refresh page.');
+        logMessage('No video resume cookie detected. Refresh page.');
     }
 });
