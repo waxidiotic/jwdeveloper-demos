@@ -46,7 +46,7 @@ grid.addEventListener("click",function(event) {
   }
 });
 /** Check if player is in Flash mode **/
-jwplayer().onReady(function(event) {
+jwplayer().on('ready', function(event) {
   if(jwplayer().getProvider() == "html5") {
     jwplayer().remove();
     var c = document.getElementById("container-2");
@@ -56,7 +56,7 @@ jwplayer().onReady(function(event) {
 
 
 /** Playlist ready: load VTT thumbnails. **/
-jwplayer().onPlaylist(function(event) {
+jwplayer().on('playlist', function(event) {
   starttime = 0;
   thumbnails = [];
   if(file.length == 8) {
@@ -91,7 +91,7 @@ function seconds(s) {
 
 
 /** Manifest loaded, quality levels broadcasted. **/
-jwplayer().onQualityLevels(function(event) {
+jwplayer().on('levels', function(event) {
   current = event.currentQuality;
   levels = event.levels;
   if(levels.length > 1) { levels.shift(); }
@@ -114,7 +114,7 @@ function render() {
 
 
 /** Fragment loaded: show thumbnail and bandwidth. **/
-jwplayer().onMeta(function(event) {
+jwplayer().on('meta', function(event) {
   if(event.metadata.bandwidth){
     var b = Math.round(event.metadata.bandwidth/1024);
     var l = Number(event.metadata.currentLevel.substr(0,1));
@@ -163,7 +163,7 @@ function find(p) {
 
 
 /** Time updated: set position **/
-jwplayer().onTime(function(event) {
+jwplayer().on('time', function(event) {
   var i = Math.floor((event.position-starttime)/10);
   if(fragments.length) {
     var c = grid.rows[fragments[i]-1].cells[i];
@@ -175,7 +175,7 @@ jwplayer().onTime(function(event) {
 
 
 /** Reload grid when updating quality, seeking or completing. **/
-jwplayer().onSeek(function(event) {
+jwplayer().on('seek', function(event) {
   starttime = Math.floor(event.offset/10)*10;
   render();
 });

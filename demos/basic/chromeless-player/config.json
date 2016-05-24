@@ -1,5 +1,13 @@
 {
   "title": "Chromeless Player",
   "description": "A demo setup where the video controls are hidden.",
-  "license": "Free"
+  "license": "Free", 
+    	"showCode": true,
+	"apiCalls": [
+		"setControls()"
+	],
+	"author": {
+		"name": "JW Player",
+		"githubUsername": "jwplayer"
+	}
 }

@@ -2,5 +2,12 @@
 	"title": "Live Streaming",
 	"description": "This demo shows the JW Player's live streaming capabilities with multiple streams to choose from.",
 	"license": "Premium",
-	"showCode" : false
+	"showCode" : false,
+	"apiCalls": [
+		""
+	],
+	"author": {
+		"name": "JW Player",
+		"githubUsername": "jwplayer"
+	}
 }

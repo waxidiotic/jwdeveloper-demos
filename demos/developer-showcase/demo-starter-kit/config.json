@@ -4,7 +4,9 @@
   "license": "Free",
   "showCode": "true",
   "layout": "horizontal",
-  "apiCalls": "",
+  "apiCalls": [
+    ""
+  ],
   "author": {
   	"name": "JW Player",
   	"githubUsername": "jwplayer"
