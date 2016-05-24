@@ -5,11 +5,11 @@ player.setup({
     image: '//content.jwplatform.com/thumbs/1g8jjku3-720.jpg',
 });
 
-player.onTime(function(e) {
+player.on('time', function(e) {
     $cookie.setItem('resumevideodata', Math.floor(e.position) + ':' + player.getDuration());
 });
 
-player.onReady(function() {    
+player.on('ready', function() {    
     var cookieData = $cookie.getItem('resumevideodata');
     if(cookieData) {
         var resumeAt = cookieData.split(':')[0],
