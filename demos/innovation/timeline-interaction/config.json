@@ -2,5 +2,12 @@
 	"title": "Timeline Interaction",
 	"description": "This demo shows Google Maps markers synced to a video timeline.",
 	"license": "Premium",
-	"showCode": false
+	"showCode": false,
+	"apiCalls": [
+		"on('ready')", "on('complete')", "on('time')", "on('beforePlay')"
+	],
+	"author": {
+		"name": "JW Player",
+		"githubUsername": "jwplayer"
+	}
 }

@@ -3,6 +3,9 @@
 	"description": "Use cookies to remember where the user left off and resume playback at the same time offset when revisiting the page.",
 	"license": "Ads",
 	"showCode": true,
+	"apiCalls": [
+		"on('time')", "on('ready')"
+	],
 	"author": {
 		"name": "JW Player",
 		"githubUsername": "jwplayer"
