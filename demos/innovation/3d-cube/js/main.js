@@ -54,7 +54,7 @@ jwplayer("player6").setup({
   repeat: "true",
 });
 
-jwplayer("player1").onBeforePlay(function() {
+jwplayer("player1").on('beforePlay', function() {
   jwplayer("player1").setMute(false);
   jwplayer("player2").setMute(true);
   jwplayer("player3").setMute(true);
@@ -63,7 +63,7 @@ jwplayer("player1").onBeforePlay(function() {
   jwplayer("player6").setMute(true);
 });
 
-jwplayer("player1").onPlay(function() {
+jwplayer("player1").on('play', function() {
   if (navigator.userAgent.match(/iPad/i) != null || navigator.userAgent.match(/iPhone/i) != null){
     if(jwplayer("player2").getState() == "PLAYING"){
       jwplayer("player2").pause();
@@ -83,7 +83,7 @@ jwplayer("player1").onPlay(function() {
   }
 });
 
-jwplayer("player2").onBeforePlay(function() {
+jwplayer("player2").on('beforePlay', function() {
   jwplayer("player1").setMute(true);
   jwplayer("player2").setMute(false);
   jwplayer("player3").setMute(true);
@@ -92,7 +92,7 @@ jwplayer("player2").onBeforePlay(function() {
   jwplayer("player6").setMute(true);
 });
 
-jwplayer("player2").onPlay(function() {
+jwplayer("player2").on('play', function() {
   if (navigator.userAgent.match(/iPad/i) != null || navigator.userAgent.match(/iPhone/i) != null){
     if(jwplayer("player1").getState() == "PLAYING"){
       jwplayer("player1").pause();
@@ -112,7 +112,7 @@ jwplayer("player2").onPlay(function() {
   }
 });
 
-jwplayer("player3").onBeforePlay(function() {
+jwplayer("player3").on('beforePlay', function() {
   jwplayer("player1").setMute(true);
   jwplayer("player2").setMute(true);
   jwplayer("player3").setMute(false);
@@ -121,7 +121,7 @@ jwplayer("player3").onBeforePlay(function() {
   jwplayer("player6").setMute(true);
 });
 
-jwplayer("player3").onPlay(function() {
+jwplayer("player3").on('play', function() {
   if (navigator.userAgent.match(/iPad/i) != null || navigator.userAgent.match(/iPhone/i) != null){
     if(jwplayer("player1").getState() == "PLAYING"){
       jwplayer("player1").pause();
@@ -141,7 +141,7 @@ jwplayer("player3").onPlay(function() {
   }
 });
 
-jwplayer("player4").onBeforePlay(function() {
+jwplayer("player4").on('beforePlay', function() {
   jwplayer("player1").setMute(true);
   jwplayer("player2").setMute(true);
   jwplayer("player3").setMute(true);
@@ -150,7 +150,7 @@ jwplayer("player4").onBeforePlay(function() {
   jwplayer("player6").setMute(true);
 });
 
-jwplayer("player4").onPlay(function() {
+jwplayer("player4").on('play', function() {
   if (navigator.userAgent.match(/iPad/i) != null || navigator.userAgent.match(/iPhone/i) != null){
     if(jwplayer("player1").getState() == "PLAYING"){
       jwplayer("player1").pause();
@@ -170,7 +170,7 @@ jwplayer("player4").onPlay(function() {
   }
 });
 
-jwplayer("player5").onBeforePlay(function() {
+jwplayer("player5").on('beforePlay', function() {
   jwplayer("player1").setMute(true);
   jwplayer("player2").setMute(true);
   jwplayer("player3").setMute(true);
@@ -179,7 +179,7 @@ jwplayer("player5").onBeforePlay(function() {
   jwplayer("player6").setMute(true);
 });
 
-jwplayer("player5").onPlay(function() {
+jwplayer("player5").on('play', function() {
   if (navigator.userAgent.match(/iPad/i) != null || navigator.userAgent.match(/iPhone/i) != null){
     if(jwplayer("player1").getState() == "PLAYING"){
       jwplayer("player1").pause();
@@ -199,7 +199,7 @@ jwplayer("player5").onPlay(function() {
   }
 });
 
-jwplayer("player6").onBeforePlay(function() {
+jwplayer("player6").on('beforePlay', function() {
   jwplayer("player1").setMute(true);
   jwplayer("player2").setMute(true);
   jwplayer("player3").setMute(true);
@@ -208,7 +208,7 @@ jwplayer("player6").onBeforePlay(function() {
   jwplayer("player6").setMute(false);
 });
 
-jwplayer("player6").onPlay(function() {
+jwplayer("player6").on('play', function() {
   if (navigator.userAgent.match(/iPad/i) != null || navigator.userAgent.match(/iPhone/i) != null){
     if(jwplayer("player1").getState() == "PLAYING"){
       jwplayer("player1").pause();
