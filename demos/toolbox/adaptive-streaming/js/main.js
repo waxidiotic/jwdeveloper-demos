@@ -179,12 +179,12 @@ jwplayer().on('seek', function(event) {
   starttime = Math.floor(event.offset/10)*10;
   render();
 });
-jwplayer().onQualityChange(function(event) {
+jwplayer().on('levelsChanged', function(event) {
   current = event.currentQuality;
   starttime = Math.floor(jwplayer().getPosition()/10)*10;
   render();
 });
-jwplayer().onComplete(function(event) {
+jwplayer().on('complete', function(event) {
   starttime = 0;
   render();
 });
