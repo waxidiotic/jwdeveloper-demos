@@ -11,7 +11,7 @@ angular.module('feedApp.feed', ['ngRoute'])
 .controller('FeedCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
 
   var getFeed = function(id){
-    var url = 'http://content.jwplatform.com/feed.rss?feed_id=Xw0oaD4q&related_video=' + id;
+    var url = '//content.jwplatform.com/feed.rss?feed_id=Xw0oaD4q&related_video=' + id;
     $http.get(url, {responseType:'document'}).then(function successCallback(response){
       $scope.feed = jwplayer.utils.rssparser.parse(response.data.childNodes[0]);
     });
