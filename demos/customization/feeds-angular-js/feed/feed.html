@@ -1,0 +1,11 @@
+<div ng-controller="FeedCtrl">
+        <h2 class="jw-feed-title">My Feed</h2>
+        <div class="row jw-option" ng-repeat="item in feed" ng-click="loadVideo(item.mediaid, item.file, item.image)">
+            <div class="col-md-6 jw-thumbnail-background">
+                <img src="{{item.image}}" class="jw-thumbnail" />
+            </div>
+            <div class="col-md-6 jw-media-title">
+                {{item.title}}
+            </div>
+        </div>
+</div>
