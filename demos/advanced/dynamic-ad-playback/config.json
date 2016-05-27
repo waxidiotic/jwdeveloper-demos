@@ -3,6 +3,9 @@
 	"description": "Trigger an ad to play at any point during a piece of content",
 	"license": "Ads",
 	"showCode": true,
+	"apiCalls": [
+		"on('play')", "on('pause')", "on('idle')", "playAd(tag)"
+	],
 	"author": {
 		"name": "JW Player",
 		"githubUsername": "jwplayer"

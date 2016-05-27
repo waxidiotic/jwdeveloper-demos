@@ -38,7 +38,7 @@ jwplayer().addButton(
 
 
 // Load chapters / captions
-jwplayer().onReady(function(){
+jwplayer().on('ready', function(){
   var r = new XMLHttpRequest();
   r.onreadystatechange = function() {
     if (r.readyState == 4 && r.status == 200) {
@@ -100,7 +100,7 @@ function seconds(s) {
 
 
 // Highlight current caption and chapter
-jwplayer().onTime(function(e){
+jwplayer().on('time', function(e){
   var p = e.position;
   for(var j=0; j<captions.length; j++) {
     if(captions[j].begin < p && captions[j].end > p) {

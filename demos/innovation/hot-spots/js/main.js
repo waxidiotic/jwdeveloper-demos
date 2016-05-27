@@ -11,7 +11,7 @@ player.addButton(
 );
 
 // Load chapters / captions
-player.onReady(function(){
+player.on('ready', function(){
   var r = new XMLHttpRequest();
   r.onreadystatechange = function() {
     if (r.readyState == 4 && r.status == 200) {
@@ -53,12 +53,12 @@ function seconds(s) {
 
 
 // Highlight active spots
-player.onTime(function(e) {
+player.on('time', function(e) {
   if(!seeking) {
     setSpots(e.position);
   }
 });
-player.onSeek(function(e) {
+player.on('seek', function(e) {
   seeking = true;
   setTimeout(function(){seeking=false;},500);
 });

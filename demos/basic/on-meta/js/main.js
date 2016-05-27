@@ -2,7 +2,7 @@ var player = jwplayer();
 
 var metadataEntries = 1;
 
-player.onMeta(function(e) {
+player.on('meta', function(e) {
 
     document.getElementById('logs').innerHTML += "<br /><strong>Metadata Entry #"
         + metadataEntries.toString()

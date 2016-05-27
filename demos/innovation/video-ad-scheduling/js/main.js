@@ -10,7 +10,7 @@ jwplayer("player").setup({
   height: 333
 });
 
-jwplayer().onTime(function(event){
+jwplayer().on('time', function(event){
   var p = event.position;
   var w;
   if(p < 300) {
@@ -23,7 +23,7 @@ jwplayer().onTime(function(event){
   document.getElementById("highlight").style.width = w + "px";
 });
 
-jwplayer().onAdTime(function(event) {
+jwplayer().on('adTime', function(event) {
   var t = event.tag.substr(-3);
   var p = event.position;
   var s = event.sequence;

@@ -2,11 +2,13 @@
   "title": "Loading New Playlists",
   "description": "Click on a button to choose a playlist and load it into the player!",
   "license": "Free",
-  "showCode": "true",
+  "showCode": true,
   "layout": "horizontal",
-  "apiCalls": "load()",
+  "apiCalls": [
+    "load(playlist)"
+  ],
   "author": {
-  	"name": "JW Player",
-  	"githubUsername": "jwplayer"
+    "name": "JW Player",
+    "githubUsername": "jwplayer"
   }
 }
