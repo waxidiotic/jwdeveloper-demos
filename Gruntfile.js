@@ -109,6 +109,13 @@ module.exports = function (grunt) {
           // get demo config json
           var demo = grunt.file.readJSON(srcDir + filename);
 
+          // if demo has apiCalls key, filter empty array values
+          if (demo.apiCalls) {
+            demo.apiCalls = demo.apiCalls.filter(Boolean);
+          } else {
+            demo.apiCalls = [];
+          }
+
           // append demo obj with demo category and directory
           demo['category'] = cat;
           demo['directory'] = subDir;
@@ -146,6 +153,8 @@ module.exports = function (grunt) {
               title: demo.title,
               description: demo.description,
               license: demo.license,
+              isApiCalls: demo.apiCalls.length,
+              apiCalls: demo.apiCalls,
               author: function() {
                 if (!demo.author || !demo.author.name) return null;
                 return {

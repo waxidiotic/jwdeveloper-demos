@@ -41,6 +41,22 @@
       </li>
     </ul>
 
+    {{#isApiCalls}}
+      <div class="demo-api-reference">
+        <div class="demo-api-reference-link">
+          <a href="/jw-player/docs/developer-guide/api/javascript_api_reference/">API Reference</a>
+        </div>
+        <div class="demo-api-calls-label">
+          This demo includes:
+        </div>
+        <ul class="demo-api-calls">
+          {{#apiCalls}}
+            <li><code>{{.}}</code></li>
+          {{/apiCalls}}
+        </ul>
+      </div>
+    {{/isApiCalls}}
+
     <div class="container">
 
       <div class="demo-layout-{{layout}}">
