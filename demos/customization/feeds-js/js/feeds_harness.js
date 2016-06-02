@@ -1,7 +1,12 @@
 var jsWidget = (function(window,$,_,jwplayer,jst) {
 
+  // RSS feed - Default
   var FEED_URL = '//content.jwplatform.com/feed.rss?feed_id=Xw0oaD4q&related_video=';
-  var NUM_TILES = 5;
+
+  // JSON feed - uncomment to use json instead of rss
+  //var FEED_URL = '//content.jwplatform.com/feed.json?feed_id=Xw0oaD4q&related_video=';
+
+
   //set up the page, including checking if there's params
   
     function _setup(playerdiv,tilediv) {
@@ -29,7 +34,7 @@ var jsWidget = (function(window,$,_,jwplayer,jst) {
             });
         });
 
-        //format duration nicely
+        //time formatting for media duration
         function tdur(s1) {
           var h1 = Math.floor(s1/(60 * 60));
           s1 %= 60 * 60;
@@ -50,24 +55,29 @@ var jsWidget = (function(window,$,_,jwplayer,jst) {
 
             parent = $("#" + tilediv);
             parent.empty();
-            _.each(feed,function(item,i) {
-                var id = "item" + i;
-                var data = {
-                  id: id,
-                  title:item.title,
-                  desc:item.description,
-                  dur:tdur(item.duration) || "",
-                  image:item.image
-                };
-                var itemTemplate = jst['templates/item.hbs'];
-                var html = itemTemplate(data);
-                parent.append(html);
-                $("#"+id).click(function() {
-                  jwplayer(playerdiv).load(item);
-                });
-
-
-            });
+            // if feed fails to load, display error message
+            if (_.size(feed) === 0) {
+              addTemplate(jst['templates/error.hbs'], {}, parent);
+            } else {
+              _.each(feed,function(item,i) {
+                  var id = "item" + i;
+                  var templateData = {
+                    id: id,
+                    title:item.title,
+                    desc:item.description,
+                    dur:tdur(item.duration) || "",
+                    image:item.image
+                  };
+                  addTemplate(jst['templates/item.hbs'], templateData, parent);
+                  $("#"+id).click(function() {
+                    jwplayer(playerdiv).load(item);
+                  });
+              });
+            }
+          }
+          function addTemplate(itemTemplate,data,parent) {
+            var html = itemTemplate(data);
+            parent.append(html);
           }
     }
     return {
