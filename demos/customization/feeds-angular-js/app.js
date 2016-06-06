@@ -3,17 +3,16 @@
 // Declare app level module which depends on views, and components
 angular.module('feedApp', [
   'ngRoute',
-  'feedApp.feedExample',
+  'feedApp.landing',
   'feedApp.player',
   'feedApp.feed'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/player', {
+]).config(['$routeProvider', function ($routeProvider) {
+  $routeProvider.when('player', {
     templateUrl: 'player/player.html',
     controller: 'player/player.js'
-  }).when('/feed', {
+  }).when('feed', {
     templateUrl: 'feed/feed.html',
     controller: 'feed/feed.js'
-  }).otherwise({redirectTo: '/feedExample'});
+  }).otherwise({redirectTo: '/landing'});
 
 }]);
