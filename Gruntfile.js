@@ -66,7 +66,7 @@ module.exports = function (grunt) {
       } else {
         env.dev = false;
         env.staging = true;
-        path.host = 'staging.jwplayer.com';
+        path.host = 'staging-developer.jwplayer.com';
       }
     }
 
