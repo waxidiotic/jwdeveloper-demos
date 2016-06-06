@@ -11,11 +11,14 @@ angular.module('feedApp.feed', ['ngRoute'])
   .controller('FeedCtrl', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
 
     // Perform a GET request to the feeds endpoint. The feed ID is set within landing.js along with the mediaid. We can
-    // then use the feed to display recommendations in a sidebar widget.
+    // then use the RR feed to display recommendations in a sidebar widget.
     function getFeed(feedid, mediaid) {
 
       // We are seeding this request with a relate_video, which is the mediaid.
       var url = 'http://content.jwplatform.com/feed.rss?feed_id=' + feedid + '&related_video=' + mediaid;
+
+      //JSON Feed URL - uncomment to use instead of RSS
+      //var url = 'http://content.jwplatform.com/feed.json?feed_id=' + feedid + '&related_video=' + mediaid;
 
       // In this example we are hitting the RSS feed endpoint. To do this we need to change the response type to document
       // which will allow RSS/XML to be returned.
