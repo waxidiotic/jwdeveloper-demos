@@ -26,7 +26,7 @@ angular.module('feedApp.feed', ['ngRoute'])
     function getFeed(feedid, mediaid) {
 
       // We are seeding this request with a relate_video, which is the mediaid.
-      var url = 'http://content.jwplatform.com/feed.rss?feed_id=' + feedid + '&related_video=' + mediaid;
+      var url = '//content.jwplatform.com/feed.rss?feed_id=' + feedid + '&related_video=' + mediaid;
 
       //JSON Feed URL - uncomment to use instead of RSS
       //var url = 'http://content.jwplatform.com/feed.json?feed_id=' + feedid + '&related_video=' + mediaid;
