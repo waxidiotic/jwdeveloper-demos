@@ -1,11 +1,17 @@
 <div ng-controller="FeedCtrl">
-        <h2 class="jw-feed-title">My Feed</h2>
-        <div class="row jw-option" ng-repeat="item in feed" ng-click="loadVideo(item.mediaid, item.file, item.image)">
-            <div class="col-md-6 jw-thumbnail-background">
-                <img src="{{item.image}}" class="jw-thumbnail" />
-            </div>
-            <div class="col-md-6 jw-media-title">
-                {{item.title}}
-            </div>
-        </div>
+  <div ng-show="show_message" class="jw-feed-error">
+      <p>No new recommendations found. Re-using the previous feed.</p>
+  </div>
+  <div class="row jw-option" ng-repeat="item in feed" ng-click="loadVideo(item)">
+      <div class="jw-thumbnail-container">
+        <img src="{{item.image}}" class="jw-thumbnail"/>
+      </div>
+
+      <div class="jw-metadata-container">
+        <h3 class="jw-media-title">{{item.title}}</h3>
+        <!--<p class="jw-media-description">{{item.description}}</p>-->
+        <time class="jw-media-duration">{{item.duration}}</time>
+      </div>
+
+  </div>
 </div>
