@@ -1,7 +1,7 @@
 this["JST"] = this["JST"] || {};
 
 this["JST"]["templates/error.hbs"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div id=\"error\">\n  <p>No Recommendations Found</p>\n</div>";
+    return "<div id=\"error\" class=\"jw-feed-error\">\n  No Recommendations Found\n</div>";
 },"useData":true});
 
 this["JST"]["templates/item.hbs"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
