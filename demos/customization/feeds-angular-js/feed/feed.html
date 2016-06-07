@@ -1,4 +1,7 @@
 <div ng-controller="FeedCtrl">
+  <div ng-show="show_message" class="jw-feed-error">
+      <p>No new recommendations found. Re-using the previous feed.</p>
+  </div>
   <div class="row jw-option" ng-repeat="item in feed" ng-click="loadVideo(item)">
       <div class="jw-thumbnail-container">
         <img src="{{item.image}}" class="jw-thumbnail"/>
