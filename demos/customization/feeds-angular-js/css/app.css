@@ -10,7 +10,7 @@
 
 .player-container {
   background-color: #2d333e;
-  padding: 30px;
+  padding: 1.5em;
   flex: 2;
   max-width: 60%;
 }
@@ -20,7 +20,7 @@
   -webkit-font-smoothing: antialiased;
   background-color: #475470;
   overflow-y: scroll;
-  padding: 15px 30px 0 30px;
+  padding: .75em 2em 0 2em;
   flex: 1;
   width: 40%;
 }
@@ -33,9 +33,9 @@
 
 .jw-feed-title {
   color: #fff;
-  font-size: 15px;
+  font-size: .9em;
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 1em;
   padding: 0;
   text-align: left;
 }
@@ -99,8 +99,10 @@
 
 .jw-feed-error {
   color: rgba(255,255,255,.5);
-  font-size: 1em;
+  font-size: .8em;
   text-align: center;
   position: relative;
-  top: 5em;
+  top: -40px;
+  left: -20px;
+  margin: 1em 0;
 }
