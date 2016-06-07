@@ -4,7 +4,7 @@ var jsWidget = (function(window,$,_,jwplayer,jst) {
   var FEED_URL = '//content.jwplatform.com/feed.rss?feed_id=Xw0oaD4q&related_media_id=';
 
   // JSON feed - uncomment to use json instead of rss
-  //var FEED_URL = '//content.jwplatform.com/feed.json?feed_id=Xw0oaD4q&related_video=';
+  //var FEED_URL = '//content.jwplatform.com/feed.json?feed_id=Xw0oaD4q&related_media_id=';
 
 
   //set up the page, including checking if there's params

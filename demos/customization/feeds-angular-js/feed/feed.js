@@ -29,7 +29,7 @@ angular.module('feedApp.feed', ['ngRoute'])
       var url = '//content.jwplatform.com/feed.rss?feed_id=' + feedid + '&related_media_id=' + mediaid;
 
       //JSON Feed URL - uncomment to use instead of RSS
-      //var url = 'http://content.jwplatform.com/feed.json?feed_id=' + feedid + '&related_video=' + mediaid;
+      //var url = 'http://content.jwplatform.com/feed.json?feed_id=' + feedid + '&related_media_id=' + mediaid;
 
       // In this example we are hitting the RSS feed endpoint. To do this we need to change the response type to document
       // which will allow RSS/XML to be returned.
