@@ -11,11 +11,9 @@ Minify your JS
 grunt
 ```
 Return to the root: jwdeveloper-demos/ and launch the web server to see your demo
-Build
 ```shell
 grunt
 ```
-Run
 ```shell
 grunt serve
 ```
