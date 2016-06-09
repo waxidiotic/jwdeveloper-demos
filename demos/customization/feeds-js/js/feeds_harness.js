@@ -3,6 +3,7 @@ var jsWidget = (function(window,$,_,jwplayer,jst) {
   var JW_API = '//content.jwplatform.com';    
   function _setup(playerdiv,tilediv, titlediv, media_id,feed_id) {
     
+    //start by getting the metadata and sources for the initial item.
     function _init(media_id) {
       $.ajax({
         type: "GET",
@@ -19,6 +20,9 @@ var jsWidget = (function(window,$,_,jwplayer,jst) {
       });
     }
 
+    // then, once we have the metadata and sources,
+    // set up player and add a listener on playlistitem
+    // this will fetch a new feed for each new playlist item when it is loaded
     function _setupPlayer(item) {
       jwplayer(playerdiv).setup(item);
       jwplayer(playerdiv).on('playlistItem', function(evt) {
@@ -49,9 +53,13 @@ var jsWidget = (function(window,$,_,jwplayer,jst) {
           s2 = s1<10 ? '0'+s1 : s1;
       return h2 + m2 + ':' + s2;
     }
+
+    //generate the feed url the feed url
     function _getFeed(media_id) {
-      return [JW_API,"feed.json?"+ _parameterize({feed_id: feed_id,related_video:media_id})].join("/");
+      return [JW_API,"feed.json?" + _parameterize({feed_id: feed_id,related_video:media_id})].join("/");
     }
+
+    // turn a simple object into a parameter string
     function _parameterize(params) {
       return _.reduce(params,function(memo, key, val) { 
           memo.push(val + '=' + encodeURIComponent(key)); 
@@ -60,6 +68,8 @@ var jsWidget = (function(window,$,_,jwplayer,jst) {
         []
         ).join('&');
     }
+
+    // when the feed loads, update the page
     function _updateTiles(data) {
      //to use rss feed:
      //var $xml = $(data);
@@ -88,10 +98,13 @@ var jsWidget = (function(window,$,_,jwplayer,jst) {
         });
       }
     }
+
+    //apply data to a template, then add it to a parent element
     function _addTemplate(itemTemplate,data,parent) {
       var html = itemTemplate(data);
       parent.append(html);
     }
+
     _init(media_id);
   }
 
