@@ -85,6 +85,9 @@ module.exports = function (grunt) {
     // loop categories and compile index and single pages for each child demo
     for (var i = 0; i < categories.length; i++) {
 
+      // // if category is the full index
+      if (!categories[i].directory) continue;
+
       // store category data in namespace
       var cat = categories[i];
 
@@ -197,7 +200,7 @@ module.exports = function (grunt) {
         data: {
           env: env,
           title: 'JW Player Demos &amp; Code Examples',
-          description: 'Explore demos and code examples extending JW Player feature functionality.',
+          description: categories[i].description,
           path: path,
           directory: cat.directory,
           categories: function() {
@@ -206,15 +209,12 @@ module.exports = function (grunt) {
               cats.push(categories[i]);
               if (categories[i].directory == this.directory) {
                 cats[i]['current'] = true;
+                cats[i]['currentDescription'] = categories[i].description;
               } else {
-                cats[i]['current'] = null;
+                cats[i]['current'] = false;
+                cats[i]['currentDescription'] = null;
               }
             }
-            cats.unshift({
-              name: 'All Demos',
-              directory: '',
-              current: false
-            });
             return cats;
           },
           demos: function() {
@@ -245,34 +245,25 @@ module.exports = function (grunt) {
       data: {
         env: env,
         title: 'JW Player Demos &amp; Code Examples',
-        description: 'Explore demos and code examples extending JW Player feature functionality.',
+        description: 'asdasdasd',
         path: path,
+        directory: '',
         categories: function() {
           var cats = [];
           for (var i = 0; i < categories.length; i++) {
+            if (!categories[i].directory) this.description = categories[i].description;
             cats.push(categories[i]);
-            cats[i]['current'] = null;
-          }
-          cats.unshift({
-            name: 'All Demos',
-            directory: '',
-            current: true
-          });
-          return cats;
-        },
-        demos: function() {
-          var allDemos = demos['all'];
-          for (var i = 0; i < allDemos.length; i++) {
-            var descLength = allDemos[i].description.length;
-            if (descLength > 70) {
-              allDemos[i].description = allDemos[i].description.substring(0, 65);
-              allDemos[i].description = allDemos[i].description.trim();
-              allDemos[i].description = allDemos[i].description.slice(-1) == '.' ?
-                allDemos[i].description + '..' : allDemos[i].description + '...';
+            if (categories[i].directory == this.directory) {
+              cats[i]['current'] = true;
+              cats[i]['currentDescription'] = categories[i].description;
+            } else {
+              cats[i]['current'] = false;
+              cats[i]['currentDescription'] = null;
             }
           }
-          return allDemos;
-        }
+          return cats;
+        },
+        demos: demos.all
       },
       template: '_templates/index.mustache',
       dest: 'build/demos/index.html'
