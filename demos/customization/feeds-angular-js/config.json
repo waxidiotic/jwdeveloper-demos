@@ -1,0 +1,10 @@
+{
+	"title": "Feeds AngularJS",
+	"description": "Example for using feeds within AngularJS.",
+	"license": "Enterprise",
+	"showCode": false,
+	"author": {
+		"name": "Lee Morris",
+		"githubUsername": "lmorris"
+	}
+}
