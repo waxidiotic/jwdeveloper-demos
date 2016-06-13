@@ -26,8 +26,9 @@
 }
 
 .jw-feed {
+  padding: 0;
+  margin: 0;
   position: relative;
-  top: 40px;
   left: 30px;
 }
 
@@ -35,9 +36,11 @@
   color: #fff;
   font-size: .9em;
   margin: 0;
-  margin-bottom: 1em;
+  margin-bottom: 3.5em;
   padding: 0;
   text-align: left;
+  position: relative;
+  left: -40px;
 }
 
 .jw-option {
@@ -92,7 +95,7 @@
 }
 
 .jw-media-duration {
-    font-size:.75em;
+    font-size:.75em !important;
     color: white;
     display: block;
 }
