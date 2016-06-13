@@ -26,7 +26,7 @@ angular.module('feedApp.feed', ['ngRoute'])
     function getFeed(feedid, mediaid) {
 
       // We are seeding this request with a relate_video, which is the mediaid.
-      var url = 'http://content.jwplatform.com/feed.json?feed_id=' + feedid + '&related_video=' + mediaid;
+      var url = '//content.jwplatform.com/feed.json?feed_id=' + feedid + '&related_video=' + mediaid;
 
       // In this example we are hitting the RSS feed endpoint. To do this we need to change the response type to document
       // which will allow RSS/XML to be returned.
