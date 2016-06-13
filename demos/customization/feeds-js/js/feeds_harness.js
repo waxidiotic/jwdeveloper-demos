@@ -1,7 +1,7 @@
 var jsWidget = (function(window,$,_,jwplayer,jst) {
 
   var JW_API = '//content.jwplatform.com';    
-  function _setup(playerdiv,tilediv, titlediv, media_id,feed_id) {
+  function _setup(playerdiv, tilediv, titlediv, media_id, feed_id) {
     
     //start by getting the metadata and sources for the initial item.
     function _init(media_id) {
