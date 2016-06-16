@@ -1,4 +1,4 @@
-# Example for using feeds with javascript. Uses bootstrap, JQuery, and UnderscoreJS
+# Example for using feeds with javascript. Uses JQuery, Handlebars and Underscore
 
 # Running the example
 Setup environment
