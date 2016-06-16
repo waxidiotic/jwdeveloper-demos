@@ -1,6 +1,6 @@
 {
 	"title": "Feeds JavaScript",
-	"description": "Example for using feeds with javascript. Uses Bootstrap, jQuery, and UnderscoreJS.",
+	"description": "Example for using feeds with javascript. Uses JQuery, Handlebars and Underscore.",
 	"license": "Enterprise",
 	"showCode": false,
 	"author": {
