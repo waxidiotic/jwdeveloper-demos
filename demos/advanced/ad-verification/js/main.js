@@ -12,9 +12,11 @@ playerInstance.on('adTime',function(event) {
   var remaining = Math.round(event.duration-event.position);
   setElement("progress","The ad completes in "+remaining+" seconds.");
 });
+
 playerInstance.on('adClick',function(event){
   setElement("click","The user clicked the ad.");
 });
+
 playerInstance.on('adComplete',function(event){
   setElement("complete","The ad was completely watched.");
 });

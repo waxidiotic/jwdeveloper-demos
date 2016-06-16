@@ -1,6 +1,6 @@
 {
   "title": "Simulating Live TV",
-  "description": "A demo that simulates live TV. Our playlist item and position is determined by system date/time. In order for this demo to work, duration must be included for each playlist item.",
+  "description": "A demo that simulates live TV. The playlist item and position are determined by system date/time.",
   "license": "Free",
     	"showCode": true,
 	"apiCalls": [
