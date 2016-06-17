@@ -1,6 +1,6 @@
 {
 	"title": "Feeds JavaScript",
-	"description": "Example for using feeds with javascript. Uses Bootstrap, jQuery, and UnderscoreJS.",
+	"description": "Example consuming and displaying data-driven feeds from JW Platform with JavaScript. Uses JQuery, Handlebars, and UnderscoreJS.",
 	"license": "Enterprise",
 	"showCode": false,
 	"author": {

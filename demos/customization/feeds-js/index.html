@@ -7,12 +7,13 @@
     <!-- player -->
     <div class="player-container">
       <div id="player"></div>
+      <p>This demo dynamically loads and displays an external feed of recommended content based on the video in the player. For documentation on data-driven feeds and customizing the widget, see the <a href="//developer.jwplayer.com/jw-platform/docs/developer-guide/building_your_site/widgets/feeds_widgets/">JW Platform Developer Guide</a></p>
     </div>
     <!-- -->
 
     <!-- feed -->
     <div class="jw-feed-container">
-      <h2 class="jw-feed-title">My Feed</h2>
+      <h2 id="feedtitle" class="jw-feed-title"></h2>
       <div id="feed" class="jw-feed"></div>
     </div>
     <!-- -->
@@ -22,9 +23,12 @@
 
 <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
       <script src="dest/templates.js"></script>
       <script src="dest/feeds_harness.js"></script>
       <script>
-      jsWidget.setup("player","feed");
+      var playerDiv = "player", feedDiv = "feed", feedTitleDiv = "feedtitle", media_id = "uNXCVIsW", feed_id = "Xw0oaD4q";
+      jsWidget.setup(playerDiv, feedDiv, feedTitleDiv, media_id, feed_id);
       </script>
+</body>
+</html>
