@@ -9,6 +9,7 @@
 }
 
 .player-container {
+  color: #fff;
   background-color: #2d333e;
   padding: 1.5em;
   flex: 2;

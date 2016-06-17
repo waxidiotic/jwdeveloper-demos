@@ -1,6 +1,6 @@
 {
 	"title": "Feeds AngularJS",
-	"description": "Example for using feeds within AngularJS.",
+	"description": "Example consuming and displaying data-driven feeds from JW Platform within AngularJS.",
 	"license": "Enterprise",
 	"showCode": false,
 	"author": {
