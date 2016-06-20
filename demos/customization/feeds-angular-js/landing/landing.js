@@ -14,9 +14,8 @@ angular.module('feedApp.landing', ['ngRoute'])
     // Initialize the configuration of this angular app. We only need to do this once. The runonce function is called
     // when the template first loads by calling <div ng-init="runonce()"></div>
     $scope.runonce = function () {
-      $rootScope.firstPlaylist = "//content.jwplatform.com/feeds/RltV8MtT.json";
-      $rootScope.feedId = "Xw0oaD4q";
+        $rootScope.feed_id = "Xw0oaD4q";
+        $rootScope.media_id = "RltV8MtT";
     };
-
-
+      
   }]);

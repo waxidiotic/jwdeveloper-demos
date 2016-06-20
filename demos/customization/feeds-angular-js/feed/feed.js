@@ -27,9 +27,7 @@ angular.module('feedApp.feed', ['ngRoute'])
 
       // We are seeding this request with a relate_video, which is the mediaid.
       var url = '//content.jwplatform.com/feed.json?feed_id=' + feedid + '&related_video=' + mediaid;
-
-      // In this example we are hitting the RSS feed endpoint. To do this we need to change the response type to document
-      // which will allow RSS/XML to be returned.
+      
       $http.get(url).then(function successCallback(response) {
 
         // To handle the case where a video returns no recommendations, we will want to preserve the previous feed. This
@@ -56,7 +54,7 @@ angular.module('feedApp.feed', ['ngRoute'])
     // This player event fires when a new playlist item is loaded into the player. This event handler will then request
     // a new feed based on the mediaid loaded into the player.
     $rootScope.player.on('playlistItem', function (event) {
-      getFeed($rootScope.feedId, event.item.mediaid);
+      getFeed($rootScope.feed_id, event.item.mediaid);
     });
 
     // This function will load a new video into the player from the feed. This will then trigger the above event handler

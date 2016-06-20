@@ -11,10 +11,11 @@ angular.module('feedApp.player', ['ngRoute'])
 
   .controller('PlayerCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    // Anchor the player to the DIV within the player.html template, and initialize the player with feed and video found in
-    // app/landing/landing.js
+    //initial playlist
+    var initUrl = '//content.jwplatform.com/feeds/' + $rootScope.media_id + '.json';
+
     $rootScope.player = jwplayer('angular-playonePlayer').setup({
-      playlist: $rootScope.firstPlaylist,
+      playlist: initUrl,
       autostart: true,
       displaytitle: true
     });
