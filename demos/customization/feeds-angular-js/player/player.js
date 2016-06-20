@@ -1,3 +1,5 @@
+// Instantiates the player and sets the initial video.
+
 'use strict';
 
 angular.module('feedApp.player', ['ngRoute'])

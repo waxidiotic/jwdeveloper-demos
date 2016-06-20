@@ -1,3 +1,5 @@
+// Base landing page controller. This controller configures the seed video and sets the feed ID for the feed widget.
+
 'use strict';
 
 angular.module('feedApp.landing', ['ngRoute'])
