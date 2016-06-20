@@ -1,3 +1,6 @@
+// Get the feed from based on what media is loaded into the player. 
+// The contoller will also load a new video in the player if the user clicks on an item in the feed.
+
 'use strict';
 
 angular.module('feedApp.feed', ['ngRoute'])
