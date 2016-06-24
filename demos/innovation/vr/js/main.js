@@ -12,13 +12,6 @@ var player = jwplayer('vr-player').setup({
 			type: 'hls'
 		}, {
 			duration: 41,
-			file: '//content.jwplatform.com/videos/D5X2Trf5-iwVaDqLr.mp4',
-			height: 1440,
-			label: '5120x1440 px',
-			type: 'video/mp4',
-			width: 5120
-		}, {
-			duration: 41,
 			file: '//content.jwplatform.com/videos/D5X2Trf5-O8SBuWVa.mp4',
 			height: 1080,
 			label: '3840x1080 px',
