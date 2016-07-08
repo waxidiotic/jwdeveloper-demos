@@ -39,7 +39,7 @@ var player = jwplayer('vr-player').setup({
 		}]
 	}],
 	plugins: {
-		'//p.jwpcdn.com/player/plugins/vr/vr.js': {}
+		'https://ssl.p.jwpcdn.com/player/plugins/vr/vr.js': {}
 	}
 });
 
