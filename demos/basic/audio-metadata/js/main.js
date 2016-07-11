@@ -15,6 +15,6 @@ if(thisArtist){
 artistHTML.innerHTML= thisArtist;
 }
 if(thisImage){
-imageHTML.innerHTML= '<img height="300" width="300"src="'+thisImage+'"/>';
+imageHTML.innerHTML= '<img src="'+thisImage+'"/>';
 }
 });
