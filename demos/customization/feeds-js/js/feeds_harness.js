@@ -88,7 +88,7 @@ var jsWidget = (function(window,$,_,jwplayer,jst) {
               id: id,
               title:item.title,
               desc:item.description,
-              dur:_tdur(item.sources[0].duration || ""),
+              dur:_tdur(item.duration || item.sources[0].duration || ""),
               image:item.image
             };
             _addTemplate(jst['templates/item.hbs'], templateData, parent);

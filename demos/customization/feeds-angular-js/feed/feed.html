@@ -13,7 +13,7 @@
     <div class="jw-metadata-container">
       <h3 class="jw-media-title">{{item.title}}</h3>
       <!--<p class="jw-media-description">{{item.description}}</p>-->
-      <p class="jw-media-duration">{{toHms(item.sources[0].duration)}}</p>
+      <p class="jw-media-duration">{{toHms(item.duration || item.sources[0].duration)}}</p>
     </div>
 
   </div>
