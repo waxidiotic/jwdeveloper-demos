@@ -3,9 +3,10 @@
 
 <div id="metaData">Loading the player...</div>
 
+<!-- Setting up the player with an HLS stream that includes timed metadata -->
 <script>
-	var playerInstance = jwplayer("metaData");
-	playerInstance.setup({
+var playerInstance = jwplayer("metaData");
+playerInstance.setup({
 	file: 'assets/index.m3u8',
 	hlshtml: true,
 	height:30,
@@ -20,3 +21,5 @@
 <h2>Artist:</h2>
 
 <p id="artist">&nbsp;</p>
+
+<p>*Note that an HLS stream must include timed metadata to achieve this behavior.</p>
