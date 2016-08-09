@@ -7,7 +7,8 @@ module.exports = function (grunt) {
     'pkg': grunt.file.readJSON('package.json'),
     'config': grunt.file.readJSON('config.json'),
     'clean': {
-      build: ['build/*']
+      build: 'build/*',
+      tmp: 'tmp'
     },
     'connect': {
       serve: {
@@ -269,6 +270,17 @@ module.exports = function (grunt) {
       dest: 'build/demos/index.html'
     });
 
+    // create JSON file from demos data
+    grunt.file.write('tmp/demos/data.json', JSON.stringify(demos['all'], null, 2));
+
+    // add demos JSON data file to copy task
+    copy.push({
+      expand: true,
+      cwd: 'tmp/demos',
+      src: 'data.json',
+      dest: 'build/demos'
+    });
+
     // set copy config
     grunt.config('copy', {
       build: {
@@ -295,10 +307,11 @@ module.exports = function (grunt) {
 
     // run the task list
     grunt.task.run([
-      'clean',
+      'clean:build',
       'copy',
       'concat',
-      'mustache_render'
+      'mustache_render',
+      'clean:tmp'
     ]);
 
   });
