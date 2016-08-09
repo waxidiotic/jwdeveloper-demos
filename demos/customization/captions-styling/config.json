@@ -1,0 +1,11 @@
+{
+  "title": "Captions Styling",
+  "description": "placeholder description",
+  "license": "Free",
+  	"showCode": false,
+  	"layout": "horizontal",
+	"author": {
+		"name": "JW Player",
+		"githubUsername": "jwplayer"
+	}
+}
