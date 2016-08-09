@@ -3,6 +3,15 @@
   "description": "This example uses the open source jscolor project and the JW Player setCaptions() API to allow users to choose a caption style.",
   "license": "Free",
   	"showCode": false,
+  	 "apiCalls": [
+	  "setCaptions()",
+	  "seek()",
+	  "play()",
+	  "setCurrentCaptions()",
+	  "pause()",
+	  "on('firstFrame')",
+	  "on('ready')"
+  ],
   	"layout": "horizontal",
 	"author": {
 		"name": "JW Player",
