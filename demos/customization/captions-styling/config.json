@@ -1,6 +1,6 @@
 {
   "title": "Captions Styling",
-  "description": "placeholder description",
+  "description": "This example uses the open source jscolor project and the JW Player setCaptions() API to allow users to choose a caption style.",
   "license": "Free",
   	"showCode": false,
   	"layout": "horizontal",
