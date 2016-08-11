@@ -1,16 +1,12 @@
 {{> document-top}}
 
-<div class="demos">
+<div class="demos demos-search">
 
   <div class="page-hero">
     <div class="page-hero-container">
-      <img src="//icons.jwplayer.com/dev-portal/demos.svg">
+      <a href="{{&path.href}}"><img src="//icons.jwplayer.com/dev-portal/demos.svg"></a>
       <h1>JW Player Demos &amp; Code Examples</h1>
-      <form class="search" action="{{&path.href}}search" method="get" autocomplete="off">
-        <input type="search" name="q" placeholder="Search for demos by keyword or API reference">
-        <a class="search-clear" href="#"></a>
-        <div class="search-suggestions"></div>
-      </form>
+      {{> search-box}}
     </div>
   </div>
 
@@ -26,27 +22,10 @@
       Search results for: <strong></strong>
     </p>
 
-    <ul class="demo-index-list">
-      {{#demos}}
-        <li>
-          <a href="{{&path.href}}{{category.directory}}/{{directory}}">
-            <div class="header {{category.directory}}">
-              <div class="icon">
-                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="86.9px" height="100px" viewBox="0 0 86.9 100" enable-background="new 0 0 86.9 100" xml:space="preserve">
-                  <path d="M0,28.2c0-2,1.4-4.6,3.2-5.6l37-21.8c1.8-1,4.6-1,6.4,0l37,21.8c1.8,1,3.2,3.6,3.2,5.6v43.7c0,2-1.4,4.6-3.2,5.6l-37,21.8
-                	c-1.8,1-4.6,1-6.4,0l-37-21.8c-1.8-1-3.2-3.6-3.2-5.6V28.2z"/>
-                </svg>
-              </div>
-              {{category.name}}
-            </div>
-            <div class="body">
-              <h3>{{title}}</h3>
-              <p>{{description}}</p>
-            </div>
-          </a>
-        </li>
-      {{/demos}}
-    </ul>
+    <ul class="demo-index-list"></ul>
+    <div class="demo-index-list-empty demo-index-list-empty-hidden">
+			No results found. Please try different search.
+		</div>
 
   </div>
 
