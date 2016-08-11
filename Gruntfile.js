@@ -241,12 +241,37 @@ module.exports = function (grunt) {
     // sort complete list of demos
     demos.all.sort(sortABC);
 
+    // mustache config for search index
+    mustacheRender.push({
+      data: {
+        env: env,
+        title: 'JW Player Demos &amp; Code Examples',
+        description: 'Explore demos and code examples extending JW Player feature functionality.',
+        path: path,
+        directory: '',
+        categories: function() {
+          var cats = [];
+          for (var i = 0; i < categories.length; i++) {
+            cats.push(categories[i]);
+            if (categories[i].directory == this.directory) {
+              cats[i]['current'] = true;
+            } else {
+              cats[i]['current'] = false;
+            }
+          }
+          return cats;
+        }
+      },
+      template: '_templates/search.mustache',
+      dest: 'build/demos/search/index.html'
+    });
+
     // mustache config for complete demo index
     mustacheRender.push({
       data: {
         env: env,
         title: 'JW Player Demos &amp; Code Examples',
-        description: 'asdasdasd',
+        description: 'Explore demos and code examples extending JW Player feature functionality.',
         path: path,
         directory: '',
         categories: function() {
