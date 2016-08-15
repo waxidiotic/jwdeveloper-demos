@@ -1,0 +1,14 @@
+{
+  "title": "Visibility + Minimized video",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  "license": "Free",
+  "showCode": true,
+  "layout": "horizontal",
+  "apiCalls": [
+    "getHeight()"
+  ],
+  "author": {
+  	"name": "JW Player",
+  	"githubUsername": "jwplayer"
+  }
+}
