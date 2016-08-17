@@ -7,11 +7,11 @@ function prettify(q, event) {
     return event + ' ('+q.item.counts[event]+') ' + q.item.sums[event];
 }
 
-var player = jwplayer("container");
+var player = jwplayer('container');
 
 player.setup({
     displaytitle: false,
-    preload:"metadata",
+    preload:'metadata',
     file: '//content.jwplatform.com/videos/xJ7Wcodt-FctPAkow.mp4',
     image:'//content.jwplatform.com/thumbs/xJ7Wcodt-1280.jpg'
 });
