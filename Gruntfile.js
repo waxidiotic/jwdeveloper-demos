@@ -245,7 +245,7 @@ module.exports = function (grunt) {
       data: {
         env: env,
         title: 'JW Player Demos &amp; Code Examples',
-        description: 'asdasdasd',
+        description: 'Explore demos and code examples extending JW Player feature functionality.',
         path: path,
         directory: '',
         categories: function() {
