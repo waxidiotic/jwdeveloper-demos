@@ -37,7 +37,7 @@ demo styles
 }
 
 .player-minimize .player-position {
-	animation: minimize 250ms ease forwards;
+	animation: minimize 300ms ease forwards;
 	background-color: #fff;
 	border-radius: 3px;
 	bottom: 0;
