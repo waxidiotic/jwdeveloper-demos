@@ -1,0 +1,96 @@
+/*
+demo styles
+*/
+
+@keyframes minimize {
+	from {
+		opacity: 0;
+		transform: translateY(0);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(-20px);
+	}
+}
+
+@keyframes unminimize {
+	from {
+		transform: translateY(-20px);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+.player-container {
+	float: left;
+	margin: 20px 20px 10px 0;
+	width: 500px;
+}
+
+.player-minimize {
+	/*background-color: black;*/
+}
+
+.player-position {
+	/*transform: translateY(0);*/
+}
+
+.player-minimize .player-position {
+	animation: minimize 300ms ease forwards;
+	background-color: #fff;
+	border-radius: 3px;
+	bottom: 0;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+	left: 20px;
+	padding: 5px;
+	position: fixed;
+	width: 300px;
+	z-index: 1;
+}
+
+.player-unminimize .player-position {
+	animation: unminimize 500ms ease forwards;
+	background-color: none;
+	border-radius: 0;
+	bottom: auto;
+	box-shadow: none;
+	left: auto;
+	padding: 0;
+	position: static;
+	width: auto;
+	z-index: auto;
+}
+
+/*
+overrides for developer site defaults (for presentation only, non-demo styles)
+*/
+
+.demo-single .demo-layout-content .jwplayer {
+	margin: 0;
+}
+
+.demo-layout-content {
+	text-align: left;
+}
+
+.demo-single .demo-layout-content h1 {
+	font-size: 56px;
+	font-weight: 500;
+}
+
+.demo-single .demo-layout-content h2 {
+	font-size: 32px;
+	font-weight: 400;
+	margin-top: 20px;
+}
+
+.demo-single .demo-layout-content p,
+.demo-single .demo-layout-content p + p {
+	margin-top: 20px;
+}
+
+.demo-single .demo-layout-vertical .demo-layout-code {
+	max-width: 900px;
+	width: 100%;
+}
