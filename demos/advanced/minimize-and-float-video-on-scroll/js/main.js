@@ -56,7 +56,6 @@ playerInstance.on('ready', function() {
       playerContainerEl.classList.remove('player-unminimize');
       playerContainerEl.classList.add('player-minimize');
     } else if (playerContainerEl.classList.contains('player-minimize')) {
-      playerContainerEl.classList.remove('player-minimize');
       playerContainerEl.classList.add('player-unminimize');
     }
   };
