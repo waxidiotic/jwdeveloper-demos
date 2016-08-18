@@ -1,6 +1,6 @@
 {
   "title": "Captions Styling",
-  "description": "placeholder description",
+  "description": "Use the JW Player styling API to allow your users to change the appearance of their captions.",
   "license": "Free",
   	"showCode": false,
   	"layout": "horizontal",
