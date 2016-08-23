@@ -1,6 +1,6 @@
 {
   "title": "Captions Styling",
-  "description": "This example uses the open source jscolor project and the JW Player setCaptions() API to allow users to choose a caption style.",
+  "description": "Use the JW Player styling API to allow your users to change the appearance of their captions.",
   "license": "Free",
   	"showCode": false,
   	 "apiCalls": [

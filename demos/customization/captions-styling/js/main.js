@@ -14,4 +14,8 @@ jwplayer().on('firstFrame', function(event){
 jwplayer().seek(1);
 jwplayer().setCurrentCaptions(1)
 jwplayer().pause(true);
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> captions-styling
