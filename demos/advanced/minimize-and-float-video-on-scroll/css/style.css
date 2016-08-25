@@ -2,64 +2,23 @@
 demo styles
 */
 
-@keyframes minimize {
-	from {
-		opacity: 0;
-		transform: translateY(0);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(-20px);
-	}
-}
-
-@keyframes unminimize {
-	from {
-		transform: translateY(-20px);
-	}
-	to {
-		transform: translateY(0);
-	}
-}
-
 .player-container {
+	background-color: black;
 	float: left;
 	margin: 20px 20px 10px 0;
 	width: 500px;
 }
 
-.player-minimize {
-	/*background-color: black;*/
-}
-
-.player-position {
-	/*transform: translateY(0);*/
-}
-
 .player-minimize .player-position {
-	animation: minimize 300ms ease forwards;
-	background-color: #fff;
-	border-radius: 3px;
-	bottom: 0;
+	background-color: white;
+	border-radius: 2px;
+	bottom: 20px;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
 	left: 20px;
-	padding: 5px;
+	padding: 7px;
 	position: fixed;
 	width: 300px;
 	z-index: 1;
-}
-
-.player-unminimize .player-position {
-	animation: unminimize 500ms ease forwards;
-	background-color: none;
-	border-radius: 0;
-	bottom: auto;
-	box-shadow: none;
-	left: auto;
-	padding: 0;
-	position: static;
-	width: auto;
-	z-index: auto;
 }
 
 /*
