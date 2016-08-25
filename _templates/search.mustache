@@ -1,0 +1,34 @@
+{{> document-top}}
+
+<div class="demos demos-search">
+
+  <div class="page-hero">
+    <div class="page-hero-container">
+      <a href="{{&path.href}}"><img src="//icons.jwplayer.com/dev-portal/demos.svg"></a>
+      <h1>JW Player Demos &amp; Code Examples</h1>
+      {{> search-box}}
+    </div>
+  </div>
+
+  <div class="demo-index">
+
+    <ul class="demo-index-nav">
+      {{#categories}}
+        <li><a href="{{&path.href}}{{#directory}}{{directory}}{{/directory}}"{{#current}} class="selected"{{/current}}>{{name}}</a></li>
+      {{/categories}}
+    </ul>
+
+    <p class="demo-index-desc">
+      Search results for: <strong></strong>
+    </p>
+
+    <ul class="demo-index-list"></ul>
+    <div class="demo-index-list-empty demo-index-list-empty-hidden">
+			No results match your search.
+		</div>
+
+  </div>
+
+</div>
+
+{{> document-bottom}}

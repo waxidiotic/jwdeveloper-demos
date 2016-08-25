@@ -3,6 +3,15 @@
   "description": "Use the JW Player styling API to allow your users to change the appearance of their captions.",
   "license": "Free",
   	"showCode": false,
+  	 "apiCalls": [
+	  "setCaptions()",
+	  "seek()",
+	  "play()",
+	  "setCurrentCaptions()",
+	  "pause()",
+	  "on('firstFrame')",
+	  "on('ready')"
+  ],
   	"layout": "horizontal",
 	"author": {
 		"name": "JW Player",
