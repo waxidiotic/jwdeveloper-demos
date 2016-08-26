@@ -54,7 +54,7 @@ playerInstance.on('ready', function() {
 	// player back to inline inline position
   function onScrollViewHandler() {
     var scrollTop = getScrollTop();
-    if (scrollTop >= (playerOffsetTop + playerHeight)) {
+    if (scrollTop >= playerOffsetTop) {
       playerContainerEl.classList.add('player-minimize');
     } else if (playerContainerEl.classList.contains('player-minimize')) {
       playerContainerEl.classList.remove('player-minimize');
