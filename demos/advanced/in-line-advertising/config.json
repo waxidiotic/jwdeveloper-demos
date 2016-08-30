@@ -1,0 +1,17 @@
+{
+	"title": "In-Line Advertising",
+	"description": "Trigger an ad to autoplay once it comes into view and collapse the video player after ad completion.",
+	"license": "Ads",
+	"showCode": true,
+  	"layout": "vertical",
+	"apiCalls": [
+		"on('complete')",
+		"on('adComplete')",
+		"on('adError')",
+		"remove()"
+	],
+	"author": {
+		"name": "JW Player",
+		"githubUsername": "jwplayer"
+	}
+}
