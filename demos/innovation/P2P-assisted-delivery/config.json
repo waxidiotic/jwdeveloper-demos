@@ -1,6 +1,6 @@
 {
-  "title": "Peer-accelerated delivery",
-  "description": "See how Streamroot's hybrid HTTP-P2P streaming in HTML5 can cut bandwidth costs and improve quality of experience.",
+  "title": "Peer-Accelerated Delivery",
+  "description": "A visualization of Streamroot's hybrid HTTP-P2P streaming integrated with JW Player in HTML5.",
   "license": "Free",
   "showCode": false,
   "apiCalls": ["registerProvider()"],
