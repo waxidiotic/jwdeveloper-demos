@@ -22,9 +22,10 @@ function getScrollTop() {
 
 // configure jwplayer instance
 playerInstance.setup({
+	autostart: true,
+	file: '//content.jwplatform.com/manifests/vM7nH0Kl.m3u8',
   primary: 'html5',
-  file: '//content.jwplatform.com/manifests/vM7nH0Kl.m3u8',
-  autostart: true,
+	setFullscreen: true,
   width: '100%'
 });
 
@@ -48,34 +49,35 @@ playerInstance.on('ready', function() {
   // i.e. http://joji.me/en-us/blog/how-to-develop-high-performance-onscroll-event
 
   // determine player display when scroll event is called
-  // if inline player is no longer visible in viewport, minimize and float
-  // otherwise, put player back to inline position if currently floating
-  var scroll = function () {
+  // if inline player is no longer visible in viewport, add class
+	// .player-minimize to minimize and float. otherwise, remove the class to put
+	// player back to inline inline position
+  function onScrollViewHandler() {
     var scrollTop = getScrollTop();
-    if (scrollTop >= (playerOffsetTop + playerHeight)) {
-      playerContainerEl.classList.remove('player-unminimize');
+    if (scrollTop >= playerOffsetTop) {
       playerContainerEl.classList.add('player-minimize');
     } else if (playerContainerEl.classList.contains('player-minimize')) {
-      playerContainerEl.classList.add('player-unminimize');
+      playerContainerEl.classList.remove('player-minimize');
     }
   };
 
   // namespace for whether or not we are waiting for setTimeout() to finish
-  var waiting = false;
+  var isScrollTimeout = false;
 
   // window onscroll event handler
-  // every 100ms, call scroll() to determine ui state
   window.onscroll = function() {
-    // skip if already waiting on setTimeout() to finish
-    if (waiting) return;
-    // otherwise set waiting to true since setTimeout() finished and reset it to false
-    waiting = true;
-    // determine ui state
-    scroll();
-    // set new timeout and reset waiting to false when finished
+    // skip if we're waiting on a scroll update timeout to finish
+    if (isScrollTimeout) return;
+		// flag that a new timeout will begin
+		isScrollTimeout = true;
+		// otherwise, call scroll event view handler
+  	onScrollViewHandler();
+    // set new timeout
     setTimeout(function() {
-      waiting = false;
-    }, 100);
+			// reset timeout flag to false (no longer waiting)
+      isScrollTimeout = false;
+    }, 80);
+
   };
 
 });

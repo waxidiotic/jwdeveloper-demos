@@ -1,25 +1,11 @@
-/*
-demo styles
-*/
-
-.player-container {
-	background-color: black;
-	float: left;
-	margin: 20px 20px 10px 0;
-	width: 500px;
-}
-
-.player-minimize .player-position {
-	background-color: white;
-	border-radius: 2px;
-	bottom: 20px;
-	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
-	left: 20px;
-	padding: 7px;
-	position: fixed;
-	width: 300px;
-	z-index: 1;
-}
+#player-wrapper {
+	width:480px;
+	height:0; 
+	overflow:hidden; 
+	transition: height 2s;
+	-webkit-transition: height 2s;
+	float:left; 
+	margin: 10px 20px 10px 0;}
 
 /*
 overrides for developer site defaults (for presentation only, non-demo styles)
