@@ -1,4 +1,3 @@
-
 jwplayer.key = "dtUZ5gcdkcfq2WnsdIl53C5vp3N0AvC3";
 
  var init = function () {
@@ -18,7 +17,7 @@ jwplayer.key = "dtUZ5gcdkcfq2WnsdIl53C5vp3N0AvC3";
          },
         logo: {
             file: './assets/logo.png',
-            link: 'http://streamroot.io',
+            link: 'https://streamroot.io',
             position :'top-left'
         },
          width: 600,
