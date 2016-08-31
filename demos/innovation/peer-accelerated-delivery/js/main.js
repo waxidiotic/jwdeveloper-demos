@@ -1,11 +1,9 @@
-jwplayer.key = "dtUZ5gcdkcfq2WnsdIl53C5vp3N0AvC3";
-
- var init = function () {
+var init = function () {
 
      jwplayer('streamroot-player')
      .setup({
          playlist : [{
-             file: "//wowza.streamroot.io/liveorigin/stream4/playlist.m3u8"
+             file: "https://wowza.streamroot.io/liveorigin/stream4/playlist.m3u8"
          }],
          p2pConfig:{
              streamrootKey: "sr-ewok",
