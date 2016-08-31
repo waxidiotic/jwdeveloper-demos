@@ -200,6 +200,7 @@ module.exports = function (grunt) {
       mustacheRender.push({
         data: {
           env: env,
+          indexType: 'category',
           title: 'JW Player Demos &amp; Code Examples',
           description: categories[i].description,
           path: path,
@@ -245,6 +246,7 @@ module.exports = function (grunt) {
     mustacheRender.push({
       data: {
         env: env,
+        indexType: 'search-results',
         title: 'JW Player Demos &amp; Code Examples',
         description: 'Explore demos and code examples extending JW Player feature functionality.',
         path: path,
@@ -270,6 +272,7 @@ module.exports = function (grunt) {
     mustacheRender.push({
       data: {
         env: env,
+        indexType: 'all',
         title: 'JW Player Demos &amp; Code Examples',
         description: 'Explore demos and code examples extending JW Player feature functionality.',
         path: path,
