@@ -87,12 +87,12 @@
 }
 
 #legend-p2p {
- background-color: #70c7f3;
+ background-color: #4fbcf2;
 
 }
 
 #legend-cdn {
-    background-color: #e97672;
+    background-color: #e65751;
     margin-left: 30px;
 }
 
@@ -102,7 +102,7 @@
 
 #p2pGraph.rickshaw_graph > svg > g > path.area {
     fill: #e65751;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 #p2pGraph.rickshaw_graph > svg > g:nth-child(2) * {
@@ -111,7 +111,7 @@
 
 #p2pGraph.rickshaw_graph > svg > g:nth-child(2) > path.area {
     fill: #4fbcf2;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .x_ticks_d3, .y_ticks, #p2pGraph.rickshaw_graph > svg > text{
