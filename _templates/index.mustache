@@ -2,18 +2,9 @@
 
 <div class="demos">
 
-  <div class="page-hero">
-    <div class="page-hero-container">
-      <div class="page-hero-item">
-        <img src="//icons.jwplayer.com/dev-portal/demos.svg">
-      </div>
-      <div class="page-hero-item">
-        <h1>JW Player Demos &amp; Code Examples</h1>
-      </div>
-    </div>
-  </div>
+  {{> demos-index-header}}
 
-  <div class="demo-index">
+  <div class="demo-index demo-index-{{indexType}}">
 
     <ul class="demo-index-nav">
       {{#categories}}

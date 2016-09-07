@@ -1,5 +1,5 @@
 .jw-main {
-  height: 39vw;
+  height: 46vw;
   display: flex;
 }
 
@@ -109,4 +109,10 @@
   top: -40px;
   left: -20px;
   margin: 1em 0;
+}
+
+/* -------- */
+
+.widget-description {
+  font-size: 17px !important;
 }

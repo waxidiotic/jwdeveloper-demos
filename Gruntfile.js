@@ -7,7 +7,8 @@ module.exports = function (grunt) {
     'pkg': grunt.file.readJSON('package.json'),
     'config': grunt.file.readJSON('config.json'),
     'clean': {
-      build: ['build/*']
+      build: 'build/*',
+      tmp: 'tmp'
     },
     'connect': {
       serve: {
@@ -199,6 +200,7 @@ module.exports = function (grunt) {
       mustacheRender.push({
         data: {
           env: env,
+          indexType: 'category',
           title: 'JW Player Demos &amp; Code Examples',
           description: categories[i].description,
           path: path,
@@ -240,10 +242,37 @@ module.exports = function (grunt) {
     // sort complete list of demos
     demos.all.sort(sortABC);
 
+    // mustache config for search index
+    mustacheRender.push({
+      data: {
+        env: env,
+        indexType: 'search-results',
+        title: 'JW Player Demos &amp; Code Examples',
+        description: 'Explore demos and code examples extending JW Player feature functionality.',
+        path: path,
+        directory: '',
+        categories: function() {
+          var cats = [];
+          for (var i = 0; i < categories.length; i++) {
+            cats.push(categories[i]);
+            if (categories[i].directory == this.directory) {
+              cats[i]['current'] = true;
+            } else {
+              cats[i]['current'] = false;
+            }
+          }
+          return cats;
+        }
+      },
+      template: '_templates/search.mustache',
+      dest: 'build/demos/search/index.html'
+    });
+
     // mustache config for complete demo index
     mustacheRender.push({
       data: {
         env: env,
+        indexType: 'all',
         title: 'JW Player Demos &amp; Code Examples',
         description: 'Explore demos and code examples extending JW Player feature functionality.',
         path: path,
@@ -267,6 +296,17 @@ module.exports = function (grunt) {
       },
       template: '_templates/index.mustache',
       dest: 'build/demos/index.html'
+    });
+
+    // create JSON file from demos data
+    grunt.file.write('tmp/demos/data.json', JSON.stringify(demos['all'], null, 2));
+
+    // add demos JSON data file to copy task
+    copy.push({
+      expand: true,
+      cwd: 'tmp/demos',
+      src: 'data.json',
+      dest: 'build/demos'
     });
 
     // set copy config
@@ -295,10 +335,11 @@ module.exports = function (grunt) {
 
     // run the task list
     grunt.task.run([
-      'clean',
+      'clean:build',
       'copy',
       'concat',
-      'mustache_render'
+      'mustache_render',
+      'clean:tmp'
     ]);
 
   });
