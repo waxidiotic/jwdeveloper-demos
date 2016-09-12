@@ -1,12 +1,10 @@
 jwplayer("player").setup({
-	file: 'https://wowzaec2demo.streamlock.net/vod-multitrack/_definst_/smil:ElephantsDream/ElephantsDream.smil/playlist.m3u8',
-	title: 'Wowza - Elephants Dream',            
-	androidhls:"true",
-	stagevideo:"false",
-	  hlslabels: {
-	      "350": "Lowest",
-	      "450": "Low",
-	      "900": "Medium",
-	      "2000": "High"
-	  }
+	"file": "https://wowzaec2demo.streamlock.net/vod-multitrack/_definst_/smil:ElephantsDream/ElephantsDream.smil/playlist.m3u8",
+	"title": "Wowza - Elephants Dream",            
+	"hlslabels": {
+        "331": "Lowest",
+        "688": "Low",
+        "1427": "Medium",
+        "2962": "High"
+    }
 });
