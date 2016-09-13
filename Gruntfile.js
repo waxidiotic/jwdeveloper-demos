@@ -7,7 +7,8 @@ module.exports = function (grunt) {
     'pkg': grunt.file.readJSON('package.json'),
     'config': grunt.file.readJSON('config.json'),
     'clean': {
-      build: ['build/*']
+      build: 'build/*',
+      tmp: 'tmp'
     },
     'connect': {
       serve: {
@@ -37,34 +38,36 @@ module.exports = function (grunt) {
       copy = [],
       concat = {},
       mustacheRender = [],
-      paths = {
-        root: '/',
-        css: 'staging-developer.jwplayer.com/css',
-        js: 'staging-developer.jwplayer.com/js',
-        img: 'staging-developer.jwplayer.com/img'
+      env = {
+        dev: true,
+        staging: false,
+        prod: false
+      },
+      path = {
+        host: 'developer.jwplayer.com',
+        file: '//developer.jwplayer.com/',
+        href: '/'
       };
 
-    // if `--dev-mode` option was passed to override configurable data,
-    // require a `local-config.json` file, otherwise it does nothing
-    if (grunt.option('dev-mode') && grunt.file.exists('local-config.json')) {
+    // if a `local-config.json` file exists, override configurable data
+    if (grunt.file.exists('local-config.json')) {
       var local = grunt.file.readJSON('local-config.json');
-      paths.root = local.paths.root ? local.paths.root : paths.root;
-      paths.css = local.paths.css ? local.paths.css : paths.css;
-      paths.js = local.paths.js ? local.paths.js : paths.js;
-      paths.img = local.paths.img ? local.paths.img : paths.img;
+      path.file = local.path.file ? local.path.file : path.file;
+      path.href = local.path.href ? local.path.href : path.href;
     }
 
     // if a `--deploy-*` option was passed to specify build type
     if (grunt.option('deploy-production') || grunt.option('deploy-staging')) {
-      paths.root = '/jw-player/demos/';
+      path.file = '/';
+      path.href = '/jw-player/demos/';
       if (grunt.option('deploy-production')) {
-        paths.css = 'developer.jwplayer.com/css';
-        paths.js = 'developer.jwplayer.com/js';
-        paths.img = 'developer.jwplayer.com/img';
+        env.dev = false;
+        env.prod = true;
+        path.host = 'developer.jwplayer.com';
       } else {
-        paths.css = 'staging-developer.jwplayer.com/css';
-        paths.js = 'staging-developer.jwplayer.com/js';
-        paths.img = 'staging-developer.jwplayer.com/img';
+        env.dev = false;
+        env.staging = true;
+        path.host = 'staging-developer.jwplayer.com';
       }
     }
 
@@ -82,6 +85,9 @@ module.exports = function (grunt) {
 
     // loop categories and compile index and single pages for each child demo
     for (var i = 0; i < categories.length; i++) {
+
+      // // if category is the full index
+      if (!categories[i].directory) continue;
 
       // store category data in namespace
       var cat = categories[i];
@@ -106,6 +112,13 @@ module.exports = function (grunt) {
 
           // get demo config json
           var demo = grunt.file.readJSON(srcDir + filename);
+
+          // if demo has apiCalls key, filter empty array values
+          if (demo.apiCalls) {
+            demo.apiCalls = demo.apiCalls.filter(Boolean);
+          } else {
+            demo.apiCalls = [];
+          }
 
           // append demo obj with demo category and directory
           demo['category'] = cat;
@@ -134,7 +147,8 @@ module.exports = function (grunt) {
           // mustache config for demo detail page
           mustacheRender.push({
             data: {
-              paths: paths,
+              env: env,
+              path: path,
               html: '<%= grunt.file.read("' + srcDir + 'index.html") %>',
               js: '\r\r<%= grunt.file.read("' + buildDir + 'js/build.js") %>\r',
               css: buildDir + 'css/build.css',
@@ -143,6 +157,26 @@ module.exports = function (grunt) {
               title: demo.title,
               description: demo.description,
               license: demo.license,
+              isApiCalls: demo.apiCalls.length,
+              apiCalls: demo.apiCalls,
+              author: function() {
+                if (!demo.author || !demo.author.name) return null;
+                return {
+                  name: demo.author.name,
+                  githubUsername: demo.author.githubUsername || null,
+                  email: function() {
+                    if (demo.author.email) {
+                      var emailParts = demo.author.email.split('@');
+                      return {
+                        leftHandSide: emailParts[0],
+                        rightHandSide: emailParts[1]
+                      };
+                    } else {
+                      return null;
+                    }
+                  }
+                };
+              },
               showCode: function() {
                 return typeof demo.showCode !== 'undefined' ? demo.showCode : true;
               },
@@ -165,9 +199,11 @@ module.exports = function (grunt) {
       // mustache config for category demo index
       mustacheRender.push({
         data: {
+          env: env,
+          indexType: 'category',
           title: 'JW Player Demos &amp; Code Examples',
-          description: 'Explore demos and code examples extending JW Player feature functionality.',
-          paths: paths,
+          description: categories[i].description,
+          path: path,
           directory: cat.directory,
           categories: function() {
             var cats = [];
@@ -175,15 +211,12 @@ module.exports = function (grunt) {
               cats.push(categories[i]);
               if (categories[i].directory == this.directory) {
                 cats[i]['current'] = true;
+                cats[i]['currentDescription'] = categories[i].description;
               } else {
-                cats[i]['current'] = null;
+                cats[i]['current'] = false;
+                cats[i]['currentDescription'] = null;
               }
             }
-            cats.unshift({
-              name: 'All Demos',
-              directory: '',
-              current: false
-            });
             return cats;
           },
           demos: function() {
@@ -209,41 +242,71 @@ module.exports = function (grunt) {
     // sort complete list of demos
     demos.all.sort(sortABC);
 
-    // mustache config for complete demo index
+    // mustache config for search index
     mustacheRender.push({
       data: {
+        env: env,
+        indexType: 'search-results',
         title: 'JW Player Demos &amp; Code Examples',
         description: 'Explore demos and code examples extending JW Player feature functionality.',
-        paths: paths,
+        path: path,
+        directory: '',
         categories: function() {
           var cats = [];
           for (var i = 0; i < categories.length; i++) {
             cats.push(categories[i]);
-            cats[i]['current'] = null;
-          }
-          cats.unshift({
-            name: 'All Demos',
-            directory: '',
-            current: true
-          });
-          return cats;
-        },
-        demos: function() {
-          var allDemos = demos['all'];
-          for (var i = 0; i < allDemos.length; i++) {
-            var descLength = allDemos[i].description.length;
-            if (descLength > 70) {
-              allDemos[i].description = allDemos[i].description.substring(0, 65);
-              allDemos[i].description = allDemos[i].description.trim();
-              allDemos[i].description = allDemos[i].description.slice(-1) == '.' ?
-                allDemos[i].description + '..' : allDemos[i].description + '...';
+            if (categories[i].directory == this.directory) {
+              cats[i]['current'] = true;
+            } else {
+              cats[i]['current'] = false;
             }
           }
-          return allDemos;
+          return cats;
         }
+      },
+      template: '_templates/search.mustache',
+      dest: 'build/demos/search/index.html'
+    });
+
+    // mustache config for complete demo index
+    mustacheRender.push({
+      data: {
+        env: env,
+        indexType: 'all',
+        title: 'JW Player Demos &amp; Code Examples',
+        description: 'Explore demos and code examples extending JW Player feature functionality.',
+        path: path,
+        directory: '',
+        categories: function() {
+          var cats = [];
+          for (var i = 0; i < categories.length; i++) {
+            if (!categories[i].directory) this.description = categories[i].description;
+            cats.push(categories[i]);
+            if (categories[i].directory == this.directory) {
+              cats[i]['current'] = true;
+              cats[i]['currentDescription'] = categories[i].description;
+            } else {
+              cats[i]['current'] = false;
+              cats[i]['currentDescription'] = null;
+            }
+          }
+          return cats;
+        },
+        demos: demos.all
       },
       template: '_templates/index.mustache',
       dest: 'build/demos/index.html'
+    });
+
+    // create JSON file from demos data
+    grunt.file.write('tmp/demos/data.json', JSON.stringify(demos['all'], null, 2));
+
+    // add demos JSON data file to copy task
+    copy.push({
+      expand: true,
+      cwd: 'tmp/demos',
+      src: 'data.json',
+      dest: 'build/demos'
     });
 
     // set copy config
@@ -272,10 +335,11 @@ module.exports = function (grunt) {
 
     // run the task list
     grunt.task.run([
-      'clean',
+      'clean:build',
       'copy',
       'concat',
-      'mustache_render'
+      'mustache_render',
+      'clean:tmp'
     ]);
 
   });

@@ -4,9 +4,11 @@
   "license": "Ads",
   "showCode": false,
   "layout": "vertical",
-  "apiCalls": "adCompanions()",
+  "apiCalls": [
+    "on('adCompanions')"
+  ],
   "author": {
   	"name": "JW Player",
-  	"githubProfile": "jwplayer"
+  	"githubUsername": "jwplayer"
 	}
 }

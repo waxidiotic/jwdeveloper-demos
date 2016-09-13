@@ -1,5 +1,13 @@
 {
   "title": "Adding a Download Button",
   "description": "This demo shows you how to allow users to easily download a video file.",
-  "license": "Free"
+  "license": "Free",
+  	"showCode": true,
+	"apiCalls": [
+		"addButton()"
+	],
+	"author": {
+		"name": "JW Player",
+		"githubUsername": "jwplayer"
+	}
 }

@@ -7,7 +7,7 @@ jwplayer("player").setup({
 		kind:'chapters'
 	}]
 });
-jwplayer().onReady(function(event) {
+jwplayer().on('ready', function(event) {
   if (navigator.userAgent.match(/iPad/i) != null || navigator.userAgent.match(/iPhone/i) != null){
 	document.getElementById('map').style.display = 'none';
   }
@@ -24,7 +24,7 @@ var theWtc2 = false;
 var theRock2 = false;
 var theTimes2 = false;
 var theCh2 = false;
-jwplayer().onTime(function(event){
+jwplayer().on('time', function(event){
 	if (event.position >= 12 && event.position < 29 && theStatue == false) {
 		document.getElementById('statue').style.display = "inline";
 		document.getElementById('central').style.display = "none";
@@ -110,7 +110,7 @@ jwplayer().onTime(function(event){
 		theCh = true;
 	}
 });
-jwplayer().onComplete(function(){
+jwplayer().on('complete', function(){
 	map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
       center: new google.maps.LatLng(40.7390615, -73.999231),
@@ -203,7 +203,7 @@ var locations = [
       })(marker, i));
     }
 
-	jwplayer().onTime(function(event){
+	jwplayer().on('time', function(event){
 		if (event.position >= 12 && event.position < 29 && theStatue2 == false) {
 			infowindow.setContent(locations[0][0]);
 			infowindow.open(map,statueLocation);
@@ -274,7 +274,7 @@ var locations = [
 
 	var hasPlayed = false;
 
-	jwplayer().onBeforePlay(function(event) {
+	jwplayer().on('beforePlay', function(event) {
 		if(hasPlayed === false){
 			ga('send', 'event', 'Video', 'Play');
 			hasPlayed = true;

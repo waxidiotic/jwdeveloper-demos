@@ -1,0 +1,41 @@
+#player-wrapper {
+	width:480px;
+	height:0; 
+	overflow:hidden; 
+	transition: height 2s;
+	-webkit-transition: height 2s;
+	float:left; 
+	margin: 10px 20px 10px 0;}
+
+/*
+overrides for developer site defaults (for presentation only, non-demo styles)
+*/
+
+.demo-single .demo-layout-content .jwplayer {
+	margin: 0;
+}
+
+.demo-layout-content {
+	text-align: left;
+}
+
+.demo-single .demo-layout-content h1 {
+	font-size: 56px;
+	font-weight: 500;
+}
+
+.demo-single .demo-layout-content h2 {
+	font-size: 32px;
+	font-weight: 400;
+	margin-top: 20px;
+}
+
+.demo-single .demo-layout-content p,
+.demo-single .demo-layout-content p + p {
+	margin-top: 20px;
+}
+
+.demo-single .demo-layout-vertical .demo-layout-code {
+	max-width: 900px;
+	width: 100%;
+}
