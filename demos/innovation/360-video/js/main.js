@@ -63,3 +63,14 @@ player.on('error', function(error) {
 	}
 	console.error('Error: ' + error.message);
 });
+
+// Retrieve the vr.js version
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+	if (this.readyState == this.HEADERS_RECEIVED) {
+		var lastModified = xhr.getResponseHeader('Last-Modified');
+		document.querySelector('#version').innerHTML = 'Plugin last updated: ' + lastModified;
+	}
+}
+xhr.open('HEAD', 'https://ssl.p.jwpcdn.com/player/plugins/vr/vr.js');
+xhr.send();
