@@ -14,3 +14,16 @@
 	border-radius: 3px;
 	background-color: #ffffff;
 }
+
+h2 {
+	font-size: 22px;
+	font-weight: 500;
+}
+
+#instructions p {
+	margin: 20px 30px;
+}
+
+#instructions p.subtext {
+	font-size: 17px;
+}
