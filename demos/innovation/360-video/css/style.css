@@ -15,9 +15,10 @@
 	background-color: #ffffff;
 }
 
-h2 {
-	font-size: 22px;
+#instructions h3 {
+	font-size: 17px;
 	font-weight: 500;
+	text-transform: uppercase;
 }
 
 #instructions p {
