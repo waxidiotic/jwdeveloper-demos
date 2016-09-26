@@ -14,3 +14,24 @@
 	border-radius: 3px;
 	background-color: #ffffff;
 }
+
+#instructions h3 {
+	font-size: 17px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+#instructions h4 {
+	font-size: 13px;
+	font-weight: 500;
+	margin-top: 20px;
+}
+
+
+#instructions p {
+	margin: 20px 30px;
+}
+
+#instructions p.subtext {
+	font-size: 17px;
+}
