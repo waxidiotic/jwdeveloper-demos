@@ -21,6 +21,13 @@
 	text-transform: uppercase;
 }
 
+#instructions h4 {
+	font-size: 13px;
+	font-weight: 500;
+	margin-top: 20px;
+}
+
+
 #instructions p {
 	margin: 20px 30px;
 }
