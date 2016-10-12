@@ -1,6 +1,7 @@
 /* Ensure that the player uses all available width */
 .container .demo-layout-vertical .demo-layout-content {
-	width: 1000px;
+	max-width: 100%;
+	min-width: 0;
 }
 
 #error {
@@ -34,4 +35,19 @@
 
 #instructions p.subtext {
 	font-size: 17px;
+}
+
+.vr-download-buttons > a {
+	width: 100%;
+}
+
+.vr-download-buttons > a:nth-child(1n+2) {
+	margin-top: 10px;
+}
+
+@media (min-width: 515px) {
+	.vr-download-buttons > a.btn {
+		width: auto;
+		margin-top: 0;
+	}
 }
