@@ -29,6 +29,10 @@
 	margin-bottom: 20px;
 }
 
+#instructions li {
+	list-style-position: inside;
+}
+
 #instructions p {
 	margin: 20px 30px;
 }

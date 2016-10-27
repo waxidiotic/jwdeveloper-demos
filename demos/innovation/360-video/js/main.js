@@ -74,3 +74,10 @@ xhr.onreadystatechange = function() {
 }
 xhr.open('HEAD', 'https://ssl.p.jwpcdn.com/player/plugins/vr/vr.js');
 xhr.send();
+
+// Insert player version
+if (jwplayer().id) {
+	jwplayer().on('ready', function() {
+		document.getElementById('player-version').innerHTML = jwplayer.version.split('+')[0];
+	});
+}
