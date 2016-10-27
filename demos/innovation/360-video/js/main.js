@@ -34,7 +34,7 @@ if (jwplayer.utils.isIOS()) {
 	// iOS doesn't support CORS.
 	// See: https://bugs.webkit.org/show_bug.cgi?id=135379
 	sources = [{
-		file: '//developer.jwplayer.com/static/AgqYcfAT-8yQ1cYbs.mp4',
+		file: window.location.origin + '/static/AgqYcfAT-8yQ1cYbs.mp4',
 		type: 'video/mp4'
 	}];
 }
