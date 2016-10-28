@@ -1,40 +1,57 @@
+var sources = [
+	{
+    "file": "//vr.jwplayer.com/content/AgqYcfAT/AgqYcfAT-FctPAkow.mp4",
+    "height": 720,
+    "label": "720p",
+    "type": "video/mp4",
+    "width": 1280
+  },
+  {
+    "file": "//vr.jwplayer.com/content/AgqYcfAT/AgqYcfAT-8yQ1cYbs.mp4",
+    "height": 1080,
+    "label": "1080p",
+    "type": "video/mp4",
+    "width": 1920,
+    "default": "true"
+  },
+  {
+    "file": "//vr.jwplayer.com/content/AgqYcfAT/AgqYcfAT-23qU5w1k.mp4",
+    "height": 1440,
+    "label": "1440p",
+    "type": "video/mp4",
+    "width": 2560
+  },
+  {
+    "file": "//vr.jwplayer.com/content/AgqYcfAT/AgqYcfAT-o50QFIC7.mp4",
+    "height": 2048,
+    "label": "2048p",
+    "type": "video/mp4",
+    "width": 3640
+  }
+];
+
+if (jwplayer.utils.isIOS()) {
+	// iOS doesn't support CORS.
+	// See: https://bugs.webkit.org/show_bug.cgi?id=135379
+	sources = [{
+		file: window.location.origin + '/static/AgqYcfAT-8yQ1cYbs.mp4',
+		type: 'video/mp4'
+	}];
+}
+
 var player = jwplayer('vr-player').setup({
 	primary: 'html5',
 	hlshtml: true,
 	width: '100%',
+	aspectratio: '16:9',
 	playlist: [{
 		title: 'Caminandes VR',
-		mediaid: 'D5X2Trf5',
-		image: '//content.jwplatform.com/thumbs/D5X2Trf5-720.jpg',
-		link: '//content.jwplatform.com/previews/D5X2Trf5',
-		sources: [{
-			file: '//content.jwplatform.com/manifests/D5X2Trf5.m3u8',
-			type: 'hls'
-		}, {
-			duration: 41,
-			file: '//content.jwplatform.com/videos/D5X2Trf5-O8SBuWVa.mp4',
-			height: 1080,
-			label: '3840x1080 px',
-			type: 'video/mp4',
-			width: 3840
-		}, {
-			duration: 41,
-			file: '//content.jwplatform.com/videos/D5X2Trf5-Na6BIilo.mp4',
-			height: 720,
-			label: '2560x720 px',
-			type: 'video/mp4',
-			width: 2560,
-      "default": true
-		}, {
-			duration: 41,
-			file: '//content.jwplatform.com/videos/D5X2Trf5-gl5LxSde.mp4',
-			height: 360,
-			label: '640x180 px',
-			type: 'video/mp4',
-			width: 1280
-		}],
+		mediaid: 'AgqYcfAT',
+		image: '//content.jwplatform.com/thumbs/AgqYcfAT-1920.jpg',
+		link: '//content.jwplatform.com/previews/AgqYcfAT',
+		sources: sources,
 		tracks: [{
-			file: '//content.jwplatform.com/strips/D5X2Trf5-120.vtt',
+			file: '//content.jwplatform.com/strips/AgqYcfAT-120.vtt',
 			kind: 'thumbnails'
 		}]
 	}],
