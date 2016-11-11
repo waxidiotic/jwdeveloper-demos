@@ -9,8 +9,8 @@ player.setup({
 		file: '//content.jwplatform.com/strips/' + file + '-120.vtt'
 	}],
 	autostart: true,
-	width: 1024,
-	height: 458.24,
+	width: '100%',
+	aspectRatio: '16:9',
   skin: {
   	name: 'mk',
 		url: '/developer-showcase/css-skin/css/build.css'

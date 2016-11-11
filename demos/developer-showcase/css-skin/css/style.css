@@ -1,23 +1,35 @@
 .jw-skin-mk .jw-background-color {
-	background: transparent !important;
+	background: transparent;
 }
 
 .jw-skin-mk .jw-controlbar {
-	bottom: 20px !important;
-	display: block !important;
-	left: 20px !important;
-	opacity: 0;
-	right: 20px !important;
+	align-items: center;
+	bottom: 20px;
+	box-sizing: border-box;
+	display: flex;
+	left: 0;
+	/*opacity: 0;*/
+	padding: 0 20px;
+	right: 0;
 	transform: translateY(5px);
-	/*visibility: hidden;*/
 	transition: opacity 300ms ease, transform 300ms ease;
-	/*animation: hide-jw-controlbar 300ms ease forwards;*/
 }
 
+.jw-skin-mk .jw-controlbar-center-group {
+	/*padding: 0 10px !important;*/
+	position: absolute;
+	top: -20px;
+}
+
+.jw-skin-mk .jw-controlbar-left-group,
+.jw-skin-mk .jw-controlbar-right-group {
+	flex: 1;
+}
+
+/*
 .jw-skin-mk:hover .jw-controlbar {
 	opacity: 1;
 	transform: translateY(0px);
-	/*animation: show-jw-controlbar 300ms ease forwards;*/
 }
 
 .jw-skin-mk .jw-text-elapsed,
@@ -28,6 +40,8 @@
 
 .jw-skin-mk .jw-controlbar-center-group {
 	padding: 0 10px !important;
+	position: absolute;
+	top: -20px;
 }
 
 .jw-skin-mk .jw-slider-container,
@@ -68,7 +82,6 @@
 }
 
 .jwplayer.jw-flag-user-inactive.jw-state-playing .jw-controlbar {
-	/*animation: hide-jw-controlbar 300ms ease forwards;*/
 	opacity: 0;
 	transform: translateY(5px);
 	display: block !important;
@@ -90,4 +103,4 @@
   to {
     visibility: hidden;
   }
-}
+}*/
