@@ -1,106 +1,62 @@
-.jw-skin-mk .jw-background-color {
-	background: transparent;
-}
-
 .jw-skin-mk .jw-controlbar {
 	align-items: center;
-	bottom: 20px;
+	background: linear-gradient(180deg, transparent, black);
 	box-sizing: border-box;
 	display: flex;
+	height: auto;
 	left: 0;
-	/*opacity: 0;*/
-	padding: 0 20px;
+	padding: 10px 0;
 	right: 0;
-	transform: translateY(5px);
-	transition: opacity 300ms ease, transform 300ms ease;
 }
 
 .jw-skin-mk .jw-controlbar-center-group {
-	/*padding: 0 10px !important;*/
+	padding: 0 20px;
 	position: absolute;
-	top: -20px;
+	top: -10px;
 }
 
 .jw-skin-mk .jw-controlbar-left-group,
 .jw-skin-mk .jw-controlbar-right-group {
 	flex: 1;
+	padding: 0 20px;
 }
 
-/*
-.jw-skin-mk:hover .jw-controlbar {
-	opacity: 1;
-	transform: translateY(0px);
-}
-
-.jw-skin-mk .jw-text-elapsed,
-.jw-skin-mk .jw-text-duration {
-	font-size: 14px !important;
-	font-weight: 600 !important;
-}
-
-.jw-skin-mk .jw-controlbar-center-group {
-	padding: 0 10px !important;
-	position: absolute;
-	top: -20px;
+.jw-skin-mk .jw-controlbar-right-group {
+	text-align: right;
 }
 
 .jw-skin-mk .jw-slider-container,
 .jw-skin-mk .jw-rail,
 .jw-skin-mk .jw-buffer,
 .jw-skin-mk .jw-progress {
-	border-radius: 50px !important;
-	height: 8px !important;
+	border-radius: 50px;
 }
 
 .jw-skin-mk .jw-rail {
-	background-color: rgba(247, 247, 247, 0.6) !important;
+	background-color: rgba(247, 247, 247, 0.6);
 }
 
 .jw-skin-mk .jw-buffer {
-	background-color: rgba(235, 235, 235, 1) !important;
+	background-color: rgba(235, 235, 235, 1);
 }
 
 .jw-skin-mk .jw-progress {
-	background-color: #00C669 !important;
+	background-color: #00C669;
 }
 
 .jw-skin-mk .jw-knob {
-	background-color: #fff !important;
-	border: none !important;
-	border-radius: 100% !important;
+	background-color: #fff;
+	border: none;
+	border-radius: 100%;
 	box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-	display: block !important;
-	height: 16px !important;
-	margin-top: -4px !important;
-	transition: transform 200ms ease !important;
-	width: 16px !important;
-	z-index: 1 !important;
+	display: block;
+	height: 16px;
+	margin-top: -4px;
+	transition: transform 200ms ease-in-out;
+	width: 16px;
+	z-index: 1;
 }
 .jw-skin-mk .jw-knob:hover,
 .jw-skin-mk .jw-knob:active {
-	transform: scale(1.5) !important;
+	transform: scale(1.3);
 }
-
-.jwplayer.jw-flag-user-inactive.jw-state-playing .jw-controlbar {
-	opacity: 0;
-	transform: translateY(5px);
-	display: block !important;
-}
-
-@keyframes show-jw-controlbar {
-  from {
-    visibility: hidden;
-  }
-  to {
-    visibility: visible;
-  }
-}
-
-@keyframes hide-jw-controlbar {
-  from {
-    visibility: visible;
-  }
-  to {
-    visibility: hidden;
-  }
-}*/
