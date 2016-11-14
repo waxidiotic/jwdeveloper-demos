@@ -8,7 +8,7 @@ if (jwplayer().id) {
 {{#author}}
   {{#email}}
     $(document).ready(function() {
-      $('.author-email').attr('href', '{{leftHandSide}}' + '@' + '{{rightHandSide}}');
+      $('.author-email').attr('href', 'mailto:{{leftHandSide}}' + '@' + '{{rightHandSide}}');
     });
   {{/email}}
 {{/author}}
