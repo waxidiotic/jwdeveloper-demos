@@ -1,6 +1,6 @@
 {
   "title": "CSS Skin",
-  "description": "Example of customizing the player theme and transitions.",
+  "description": "Example of customizing the player theme with floating time slider.",
   "license": "Free",
   "showCode": "true",
   "layout": "vertical",
