@@ -12,7 +12,7 @@ player.setup({
 	width: '100%',
 	aspectRatio: '16:9',
   skin: {
-  	name: 'mk',
-		url: '/developer-showcase/css-skin/css/build.css'
+  	name: 'custom',
+		url: '/developer-showcase/css-skin-floating-time-slider/css/build.css'
   }
 });
