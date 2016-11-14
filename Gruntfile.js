@@ -164,17 +164,7 @@ module.exports = function (grunt) {
                 return {
                   name: demo.author.name,
                   githubUsername: demo.author.githubUsername || null,
-                  email: function() {
-                    if (demo.author.email) {
-                      var emailParts = demo.author.email.split('@');
-                      return {
-                        leftHandSide: emailParts[0],
-                        rightHandSide: emailParts[1]
-                      };
-                    } else {
-                      return null;
-                    }
-                  }
+                  email: demo.author.email || null
                 };
               },
               showCode: function() {
