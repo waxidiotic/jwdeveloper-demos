@@ -1,6 +1,6 @@
 var player = jwplayer('player');
 
-var file = 'vM7nH0Kl';
+var file = '1b02B03R';
 
 player.setup({
 	file: '//content.jwplatform.com/manifests/' + file + '.m3u8',
@@ -10,9 +10,8 @@ player.setup({
 	}],
 	autostart: true,
 	width: '100%',
-	aspectRatio: '16:9',
   skin: {
   	name: 'custom',
-		url: '/developer-showcase/css-skin-floating-time-slider/css/build.css'
+		url: 'css/build.css'
   }
 });
