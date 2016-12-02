@@ -5,9 +5,9 @@
 	opacity: 0;
 	overflow: hidden;
 	text-align: center;
-	transform: scale(0);
-	transition: opacity 200ms 200ms ease-in-out,
-		transform 400ms 200ms ease-in-out;
+	transform: scale(0.9);
+	transition: opacity 200ms 200ms ease,
+		transform 400ms 200ms ease;
 	width: 100%;
 }
 
