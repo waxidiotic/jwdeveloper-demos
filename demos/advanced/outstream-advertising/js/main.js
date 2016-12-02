@@ -73,7 +73,7 @@ playerInstance.on('ready', function() {
 	var isScrollTimeout = false;
 
   // attach scroll event listener to window
-  setEventListener(window, 'scroll', function(e) {
+  setEventListener(window, 'scroll', function() {
 		// skip if we're waiting on a scroll update timeout to finish
 		if (isScrollTimeout) return;
 		// flag that a new timeout will begin
@@ -84,7 +84,7 @@ playerInstance.on('ready', function() {
 		setTimeout(function() {
 			// reset timeout flag to false (no longer waiting)
 			isScrollTimeout = false;
-		}, 80);
+		}, 100);
   });
 });
 
@@ -92,9 +92,8 @@ playerInstance.on('ready', function() {
 playerInstance.on('complete adComplete adError', function() {
 	addClass(adEl, 'jw-ad-complete');
   setTimeout(function() {
-		addClass(adEl, 'jw-ad-hidden');
+		adEl.className += adEl.className + ' jw-ad-visible';
     playerInstance.remove();
     adContainerEl.parentNode.removeChild(adContainerEl);
   }, 400 /* should be the same duration as css transition */);
-
 });
