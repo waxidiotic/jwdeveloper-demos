@@ -1,13 +1,14 @@
 .jw-ad {
 	height: 0px;
 	margin: 0 auto;
+	max-width: 640px;
 	opacity: 0;
 	overflow: hidden;
 	text-align: center;
 	transform: scale(0);
 	transition: opacity 200ms 200ms ease-in-out,
 		transform 400ms 200ms ease-in-out;
-	width: 640px;
+	width: 100%;
 }
 
 .jw-ad::before {
