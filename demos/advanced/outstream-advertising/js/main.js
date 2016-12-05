@@ -65,7 +65,7 @@ playerInstance.setup({
   file: 'http://content.jwplatform.com/videos/mX3zaT5H-Zq6530MP.mp4',
   advertising: {
     client: 'vast',
-    tag: 'https://playertest.longtailvideo.com/vast-30s-ad.xml'
+    tag: 'https://www.adotube.com/php/services/player/OMLService.php?avpid=oRYYzvQ&platform_version=vast20&ad_type=linear&groupbypass=1&HTTPS_REFERER=https://www.longtailvideo.com&video_identifier=longtailvideo.com,test'
   }
 });
 
@@ -107,10 +107,9 @@ playerInstance.on('ready', function() {
 
 // handle when ad is complete or encounters error
 playerInstance.on('complete adComplete adError', function() {
-	addClass(adEl, 'jw-ad-complete');
+	adEl.style.maxHeight = '0px';
   setTimeout(function() {
-		adEl.className += adEl.className + ' jw-ad-visible';
     playerInstance.remove();
     adMediaContainerEl.parentNode.removeChild(adMediaContainerEl);
-  }, 400 /* should be the same duration as css transition */);
+  }, 500 /* should be the same duration as css transition */);
 });
