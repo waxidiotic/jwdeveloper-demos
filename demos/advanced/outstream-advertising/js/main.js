@@ -65,7 +65,7 @@ playerInstance.setup({
   file: 'http://content.jwplatform.com/videos/mX3zaT5H-Zq6530MP.mp4',
   advertising: {
     client: 'vast',
-    tag: 'https://www.adotube.com/php/services/player/OMLService.php?avpid=oRYYzvQ&platform_version=vast20&ad_type=linear&groupbypass=1&HTTPS_REFERER=https://www.longtailvideo.com&video_identifier=longtailvideo.com,test'
+    tag: 'https://playertest.longtailvideo.com/vast-30s-ad.xml'
   }
 });
 
