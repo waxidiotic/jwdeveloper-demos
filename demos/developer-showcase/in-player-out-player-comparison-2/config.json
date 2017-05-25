@@ -1,0 +1,11 @@
+{
+	"title": "In vs. Out-Player Playlists (Out-Player example)",
+	"description": "Two different examples of ways to configure and display a playlist",
+	"license": "Enterprise",
+	"showCode": true,
+	"layout": "vertical",
+	"author": {
+		"name": "Joshua Hatcher",
+		"githubUsername": "joshuahatcher"
+	}
+}
