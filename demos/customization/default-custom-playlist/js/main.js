@@ -23,7 +23,7 @@
         autostart: false,
         playlist: 'https://cdn.jwplayer.com/v2/playlists/' + playlistId,
         width: '100%',
-        aspectratio: '4:3'
+        aspectratio: '16:9'
       });
 
     initPlaylist(playerInstance);
