@@ -1,6 +1,6 @@
 {
   "title": "Chromeless Player",
-  "description": "A demo setup where the video controls are hidden using controls: false.",
+  "description": "Set your own player controls rather than using the built-in controls for a faster experience",
   "license": "Free",
     	"showCode": true,
 	"apiCalls": [],
