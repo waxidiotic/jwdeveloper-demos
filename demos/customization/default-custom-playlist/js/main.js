@@ -1,7 +1,7 @@
 (function() {  
   'use strict';  
 
-  // Start In-Player Playlist Example
+  // Start Playlist Overlay Example
   function initInPlayer(playlistId) {
     jwplayer('in-player-demo').setup({
       displaytitle: true,
@@ -14,11 +14,11 @@
   initInPlayer('6tYY3mSy');
   // End In-Player Playlist Example
 
-  // Start Out-Player Playlist Example
+  // Start Playlist Shelf Example
   function initOutPlayer(playlistId) {
     var playerInstance = jwplayer('out-player-demo')
       .setup({
-        displaytitle: true,
+        displaytitle: false,
         logo: false,
         autostart: false,
         playlist: 'https://cdn.jwplayer.com/v2/playlists/' + playlistId,

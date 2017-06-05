@@ -1,7 +1,7 @@
 (function() {
 'use strict';
 
-  var toggleBtns = $('.toggle-button');
+  var toggleBtns = $('.button-toggle');
 
   function attachEvents() {
     toggleBtns.on('click', toggleDemos);
@@ -14,12 +14,12 @@
     jwplayer('in-player-demo').stop();
     jwplayer('out-player-demo').stop();
 
-    if (target.classList.contains('toggle-button-on')) {
+    if (target.classList.contains('button-toggle-on')) {
       return;
     }
 
-    toggleBtns.removeClass('toggle-button-on');
-    $(target).addClass('toggle-button-on');
+    toggleBtns.removeClass('button-toggle-on');
+    $(target).addClass('button-toggle-on');
 
     $('.player-demo-wrapper')
       .removeClass('demo-toggle-on')
