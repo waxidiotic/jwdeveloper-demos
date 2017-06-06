@@ -12,7 +12,7 @@
   };
 
   initInPlayer('6tYY3mSy');
-  // End In-Player Playlist Example
+  // End Playlist Overlay Example
 
   // Start Playlist Shelf Example
   function initOutPlayer(playlistId) {
@@ -62,6 +62,6 @@
   }
 
   initOutPlayer('6tYY3mSy');
-  // End Out-Player Playlist Example
+  // End Playlist Shelf Example
 
 })();

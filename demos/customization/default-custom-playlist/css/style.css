@@ -30,6 +30,15 @@
 
 .playlist-wrapper {
   overflow: auto;
+  background: black;
+}
+
+.playlist-wrapper > p {
+  padding: 1em 0.5em 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 400;
+  text-align: left;
 }
 
 .playlist {
@@ -38,16 +47,17 @@
   list-style: none;
 }
 
-.playlist li a {
-  height: 100%;
-  color: #0a71dc;
-  padding: 1em 0.5em;
-  display: block;
-  cursor: pointer;
+.playlist li {
+  object-fit: cover;
 }
 
 .playlist li a {
-  background: #DDD;
+  height: 100%;
+  color: white;
+  padding: 1em 0.5em;
+  display: block;
+  cursor: pointer;
+  text-align: left;
 }
 
 .playlist-thumbnail-wrapper {
@@ -68,6 +78,7 @@
   position: absolute;
   top: 40%;
   width: 100%;
+  text-align: center;
   text-transform: uppercase;
   transition: 150ms ease-in-out all;
 }
@@ -78,7 +89,7 @@ a.active .playlist-item-playing {
 }
 
 .playlist-thumbnail {
-  height: 7em;
+  width: 100%;
 }
 
 .demo-layout-vertical .demo-layout-code {
@@ -91,6 +102,12 @@ a.active .playlist-item-playing {
     display: block;
   }
 
+  .playlist-thumbnail-wrapper {
+    width: 50%;
+    min-width: 12em;
+    margin-right: 1em;
+  }
+
   .playlist li a {
     display: flex;
     align-items: center;
@@ -98,8 +115,7 @@ a.active .playlist-item-playing {
   }
 
   .playlist-thumbnail {
-    max-width: 12em;
+    width: 100%;
     height: auto;
-    margin-right: 1em;
   }
 }
