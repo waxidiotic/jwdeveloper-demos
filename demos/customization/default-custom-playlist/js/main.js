@@ -3,8 +3,8 @@ function initInPlayer(playlistId) {
   jwplayer('in-player-demo').setup({
     displaytitle: true,
     logo: false,
-    playlist: 'https://cdn.jwplayer.com/v2/playlists/' + playlistId,
-    visualplaylist: true
+    playlist: 'https://cdn.jwplayer.com/v2/playlists/' + playlistId
+    // By default, the parameter visualplaylist is true.
   });
 };
 
@@ -20,7 +20,8 @@ function initOutPlayer(playlistId) {
       autostart: false,
       playlist: 'https://cdn.jwplayer.com/v2/playlists/' + playlistId,
       width: '100%',
-      aspectratio: '16:9'
+      aspectratio: '16:9',
+      visualplaylist: false
     });
 
   initPlaylist(playerInstance);
