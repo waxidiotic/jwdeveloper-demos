@@ -3,7 +3,7 @@
   "description": "Enable playback rate controls to create slow motion video playback without editing the original media or allow users to control their own playback speed.",
   "license": "Free",
   "showCode": true,
-  "apiCalls": [],
+  "apiCalls": [ "play()", "pause()", "seek()", "setPlaybackRate()" ],
   "author": {
     "name": "Joshua Hatcher",
     "githubUsername": "joshuahatcher"
