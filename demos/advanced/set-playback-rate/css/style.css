@@ -1,0 +1,66 @@
+.button {
+  margin: 0 0 1em;
+}
+
+.button:not(.button-toggle-on) {
+  background: #DFF1FF;
+  color: #0E7EF4;
+}
+
+.button:not(.button-toggle-on):hover {
+  background: #B1DEFF;
+}
+
+.player-wrapper {
+  display: none;
+  position: relative;
+}
+
+.player-wrapper.demo-toggle-on {
+  display: block;
+}
+
+.publisher-player-overlay {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.publisher-player-time {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: white;
+  opacity: 0.8;
+  padding: 0.5em;
+  color: #0E7EF4;
+  font-weight: 400;
+}
+
+.publisher-player-controls {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 50px;
+  height: 50px;
+  background: white;
+  padding: 10px 13px;
+}
+
+.publisher-player-btn {
+  background: url(../assets/controls.png);
+  background-size: 52px;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.play-btn {
+  display: none;
+  background-position: -3px;
+}
+
+.pause-btn {
+  background-position: -28px;
+}

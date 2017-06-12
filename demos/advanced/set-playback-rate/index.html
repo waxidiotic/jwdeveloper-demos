@@ -1,4 +1,30 @@
-<script src="https://content.jwplatform.com/libraries/hkOIVeC7.js"></script>
+<script src="https://content.jwplatform.com/libraries/orXnXEhw.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
 
-<div id="player"></div>
+<button
+  class="button button-sm button-theme-brand-2 button-toggle button-toggle-on"
+  data-toggle="user">
+  User controlled
+</button>
+<button
+  class="button button-sm button-theme-brand-2 button-toggle"
+  data-toggle="publisher">
+  Publisher curated
+</button>
+
+<div class="player-wrapper demo-toggle-on" id="user-wrapper">
+  <div id="user-player"></div>
+</div>
+
+<div class="player-wrapper" id="publisher-wrapper">
+  <div class="publisher-player-overlay">
+    <div class="publisher-player-time">00:00</div>
+    <div class="publisher-player-controls">
+      <button class="publisher-player-btn play-btn"></button>
+      <button class="publisher-player-btn pause-btn"></button>       
+    </div>
+  </div>
+  <div id="publisher-player"></div> 
+</div>
+
+<script src="toggle.js"></script>
