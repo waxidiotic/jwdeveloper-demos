@@ -9,10 +9,11 @@ jwplayer('user-player').setup({
 
 // Start Publisher Curated Example
 var seekComplete, automationComplete;
-var playbackTimes = {
+var SLOW_PLAYBACK_RATE = 0.5;
+var PLAYBACK_TIMES = {
   startEvent: 16,
   endEvent: 19
-}; // Time in seconds of start and end of interesting action in video
+}; // Time in seconds of start and end of an interesting point in video
 
 function initPublisherPlayer(config) {
   var player = jwplayer('publisher-player').setup(config);
@@ -47,7 +48,7 @@ function toggleControls(currentBtn, otherBtn) {
 function automatePlayback(player) {
   var position = Math.floor(player.getPosition());
   var timeBox = document.querySelector('.publisher-player-time');
-  // Demo video is less than one minute long. You may want to install a time formatter
+  // Demo video is less than one minute long; you may want to build/install a time formatter.
   timeBox.innerHTML = '00:' + (position.toString().length > 1 ? '' : '0') + position;
 
   // If automation is complete, do nothing
@@ -67,24 +68,20 @@ function automatePlayback(player) {
 }
 
 function seekVideo(player, currentTime) {
-  var endEvent = playbackTimes.endEvent;
-
-  if (currentTime >= endEvent) {
+  if (currentTime >= PLAYBACK_TIMES.endEvent) {
     seekComplete = true;
 
-    // Rewind video to start of interesting action
-    player.seek(playbackTimes.startEvent);
+    // Rewind video to start of the interesting action
+    player.seek(PLAYBACK_TIMES.startEvent);
 
-    // Slow playback rate on replay of interesting action
-    player.setPlaybackRate(0.5);
+    // Slow playback rate on replay of the interesting action
+    player.setPlaybackRate(SLOW_PLAYBACK_RATE);
   }
 }
 
 function resetPlaybackRate(player, currentTime) {
-  var endEvent = playbackTimes.endEvent;
-
-  if (currentTime >= endEvent) {
-    // We have reached end of interesting event and need to reset the playback to normal
+  if (currentTime >= PLAYBACK_TIMES.endEvent) {
+    // We have reached end of the interesting action and need to reset the playback to normal
     player.setPlaybackRate(1);
     automationComplete = true;
   }
