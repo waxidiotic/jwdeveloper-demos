@@ -8,11 +8,11 @@ jwplayer('user-player').setup({
 // End User Controlled Example
 
 // Start Publisher Curated Example
-var seekActivated, automationComplete;
-var playbackRanges = {
-  startEvent: [ 16, 17 ],
-  endEvent: [ 19, 20 ]
-}; // Rough ranges of start and end of interesting action in video
+var seekComplete, automationComplete;
+var playbackTimes = {
+  startEvent: 16,
+  endEvent: 19
+}; // Time in seconds of start and end of interesting action in video
 
 function initPublisherPlayer(config) {
   var player = jwplayer('publisher-player').setup(config);
@@ -56,7 +56,7 @@ function automatePlayback(player) {
   }
 
   // If seek action hasn't yet occurred, attempt it
-  if (!seekActivated) {
+  if (!seekComplete) {
     seekVideo(player, position);    
     return;
   }
@@ -67,28 +67,25 @@ function automatePlayback(player) {
 }
 
 function seekVideo(player, currentTime) {
-  var range = playbackRanges.endEvent;
+  var endEvent = playbackTimes.endEvent;
 
-  if (currentTime >= range[0] && currentTime <= range[1]) {
-    seekActivated = true;
+  if (currentTime >= endEvent) {
+    seekComplete = true;
 
     // Rewind video to start of interesting action
-    player.seek(playbackRanges.startEvent[0]);
+    player.seek(playbackTimes.startEvent);
 
     // Slow playback rate on replay of interesting action
     player.setPlaybackRate(0.5);
-
-    document.querySelector('.publisher-player-woah').style.display = 'block';
   }
 }
 
 function resetPlaybackRate(player, currentTime) {
-  var range = playbackRanges.endEvent;
+  var endEvent = playbackTimes.endEvent;
 
-  if (currentTime > range[1]) {
+  if (currentTime >= endEvent) {
     // We have reached end of interesting event and need to reset the playback to normal
     player.setPlaybackRate(1);
-    document.querySelector('.publisher-player-woah').style.display = 'none';
     automationComplete = true;
   }
 }
