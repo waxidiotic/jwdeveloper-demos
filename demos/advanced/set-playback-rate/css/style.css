@@ -57,10 +57,10 @@
 }
 
 .play-btn {
-  display: none;
   background-position: -3px;
 }
 
 .pause-btn {
+  display: none;
   background-position: -28px;
 }

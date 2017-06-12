@@ -17,9 +17,7 @@
     }
 
     for (var i = 0; i < playerTypes.length; i++) {
-      if (playerTypes[i] === toggle) {
-        jwplayer(playerTypes[i] + '-player').play(true);
-      } else {
+      if (playerTypes[i] !== toggle) {
         jwplayer(playerTypes[i] + '-player').stop(true);
       }
     }

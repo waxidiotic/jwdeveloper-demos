@@ -4,7 +4,8 @@
     mediaid: 'gaCRFWjn',
     file: '//content.jwplatform.com/videos/gaCRFWjn-Zq6530MP.mp4',
     // Set the available playback rates of your choice
-    playbackRateControls: [0.75, 1, 1.25, 1.5]
+    playbackRateControls: [0.75, 1, 1.25, 1.5],
+    autostart: false
   });
   // End User Controlled Example
 
@@ -13,7 +14,7 @@
   var SLOW_PLAYBACK_RATE = 0.5;
   var PLAYBACK_TIMES = {
     startEvent: 16,
-    endEvent: 19
+    endEvent: 20
   }; // Time in seconds of start and end of an interesting point in video
 
   function initPublisherPlayer(config) {
@@ -40,7 +41,12 @@
       toggleControls(pauseBtn, playBtn);
     });
 
-    player.on('complete', toggleControls.bind(this, pauseBtn, playBtn));
+    player.on('complete', function() {
+      toggleControls(pauseBtn, playBtn);
+
+      // Reset flags in case video is replayed
+      seekComplete = automationComplete = undefined;
+    });
   }
 
   function toggleControls(currentBtn, otherBtn) {
