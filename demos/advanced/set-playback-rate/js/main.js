@@ -39,6 +39,8 @@
       player.pause(true);
       toggleControls(pauseBtn, playBtn);
     });
+
+    player.on('complete', toggleControls.bind(this, pauseBtn, playBtn));
   }
 
   function toggleControls(currentBtn, otherBtn) {
