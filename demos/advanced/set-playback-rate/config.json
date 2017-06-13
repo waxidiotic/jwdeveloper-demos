@@ -4,7 +4,7 @@
   "license": "Free",
   "showCode": true,
   "layout": "vertical",
-  "apiCalls": [ "play()", "pause()", "seek()", "setPlaybackRate()" ],
+  "apiCalls": [ "play()", "pause()", "seek()", "setPlaybackRate()", "getPosition()", "on('time')", "on('complete')"],
   "author": {
     "name": "Joshua Hatcher",
     "githubUsername": "joshuahatcher"
