@@ -22,6 +22,10 @@
       }
     }
   
+    document.querySelector('.play-btn').style.display = 'block';
+    document.querySelector('.pause-btn').style.display = 'none';
+    document.querySelector('.publisher-player-time').innerHTML = '00:00';
+
     toggleBtns.removeClass('button-toggle-on');
     $(target).addClass('button-toggle-on');
 
