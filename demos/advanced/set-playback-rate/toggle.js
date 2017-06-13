@@ -8,6 +8,7 @@
   }
 
   function toggleDemos(e) {
+    var player;
     var target = e.target;
     var toggle = $(target).data('toggle');
     var playerTypes = [ 'user', 'publisher' ];
@@ -18,7 +19,10 @@
 
     for (var i = 0; i < playerTypes.length; i++) {
       if (playerTypes[i] !== toggle) {
-        jwplayer(playerTypes[i] + '-player').stop(true);
+        player = jwplayer(playerTypes[i] + '-player');
+        player.stop(true);
+        resetVideoDefaults(player);
+
       }
     }
   
@@ -35,6 +39,11 @@
         return $(this).attr('id') === toggle + '-wrapper';
       })
       .addClass('demo-toggle-on');
+  }
+
+  function resetVideoDefaults(player) {
+    seekComplete = automationComplete = undefined;
+    player.setPlaybackRate(1);
   }
 
   attachEvents();

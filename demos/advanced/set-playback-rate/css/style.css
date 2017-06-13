@@ -13,11 +13,16 @@
 
 .player-wrapper {
   display: none;
-  position: relative;
+  max-width: 35em;
+  margin: auto;
 }
 
 .player-wrapper.demo-toggle-on {
   display: block;
+}
+
+.publisher-player-container {
+  position: relative;
 }
 
 .publisher-player-overlay {
