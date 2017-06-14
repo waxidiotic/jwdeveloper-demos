@@ -42,22 +42,34 @@
   font-weight: 400;
 }
 
-.publisher-player-controls {
+.custom-controls {
   position: absolute;
   bottom: 5px;
+  background: white;
+  opacity: 0.8;
+  transition: ease-in-out all 250ms;
+}
+
+.custom-controls:hover {
+  opacity: 1;
+}
+
+.custom-play-controls {
   left: 5px;
   width: 50px;
   height: 50px;
-  background: white;
   padding: 10px 13px;
 }
 
-.publisher-player-btn {
-  background: url(../assets/controls.png);
-  background-size: 52px;
+.custom-controls-btn {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+.play-btn, .pause-btn {
+  background: url(../assets/controls.png);
+  background-size: 52px;
 }
 
 .play-btn {
@@ -67,4 +79,29 @@
 .pause-btn {
   display: none;
   background-position: -28px;
+}
+
+.custom-mute-controls {
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  padding: 2px;
+}
+
+.custom-play-controls:hover, .custom-mute-controls:hover {
+  opacity: 1;
+}
+
+.mute-btn {
+  display: none;
+  background: url(../assets/volume.svg) no-repeat;
+}
+
+.unmute-btn {
+  background: url(../assets/mute-on.svg) no-repeat;
+}
+
+.mute-btn, .unmute-btn {
+  background-size: 25px;
+  background-position: 0 2px;
 }

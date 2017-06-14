@@ -29,15 +29,27 @@ function initPublisherPlayer(config) {
 function setupPlayerControls(player) {
   var playBtn = document.querySelector('.play-btn');
   var pauseBtn = document.querySelector('.pause-btn');
+  var unmuteBtn = document.querySelector('.unmute-btn');
+  var muteBtn = document.querySelector('.mute-btn');
 
-  playBtn.addEventListener('click', function(e) {
+  playBtn.addEventListener('click', function() {
     player.play(true);
     toggleControls(playBtn, pauseBtn);
   });
 
-  pauseBtn.addEventListener('click', function(e) {
+  pauseBtn.addEventListener('click', function() {
     player.pause(true);
     toggleControls(pauseBtn, playBtn);
+  });
+
+  unmuteBtn.addEventListener('click', function() {
+    player.setMute(false);
+    toggleControls(unmuteBtn, muteBtn);
+  });
+
+  muteBtn.addEventListener('click', function() {
+    player.setMute(true);
+    toggleControls(muteBtn, unmuteBtn);
   });
 
   player.on('complete', function() {
