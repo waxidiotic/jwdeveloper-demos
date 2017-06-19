@@ -4,7 +4,8 @@ jwplayer('user-player').setup({
   file: '//content.jwplatform.com/manifests/gaCRFWjn.m3u8',
   // Set the available playback rates of your choice
   playbackRateControls: [0.75, 1, 1.25, 1.5],
-  autostart: false
+  autostart: false,
+  mute: false
 });
 // End User Controlled Example
 
@@ -96,6 +97,8 @@ function seekVideo(player, currentTime) {
 
     // Slow playback rate on replay of the interesting action
     player.setPlaybackRate(SLOW_PLAYBACK_RATE);
+
+    document.querySelector('.publisher-player-replay-copy').style.display = 'block'; // For demo purposes only
   }
 }
 
@@ -104,6 +107,8 @@ function resetPlaybackRate(player, currentTime) {
     // We have reached end of the interesting action and need to reset the playback to normal
     player.setPlaybackRate(1);
     automationComplete = true;
+
+    document.querySelector('.publisher-player-replay-copy').style.display = 'none'; // For demo purposes only
   }
 }
 
@@ -111,6 +116,7 @@ initPublisherPlayer({
   mediaid: 'QcK3l9Uv',
   file: '//content.jwplatform.com/videos/QcK3l9Uv-Zq6530MP.mp4',
   controls: false,
-  autostart: false
+  autostart: false,
+  mute: true
 });
 // End Publisher Curated Example

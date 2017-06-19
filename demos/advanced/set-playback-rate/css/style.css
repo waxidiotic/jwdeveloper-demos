@@ -42,6 +42,17 @@
   font-weight: 400;
 }
 
+.publisher-player-replay-copy {
+  display: none;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: white;
+  opacity: 0.8;
+  padding: 0.5em;
+  font-weight: 400;
+}
+
 .custom-controls {
   position: absolute;
   bottom: 5px;
