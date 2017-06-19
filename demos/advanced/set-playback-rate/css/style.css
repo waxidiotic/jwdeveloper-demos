@@ -36,9 +36,11 @@
   position: absolute;
   top: 5px;
   right: 5px;
-  background: white;
+  background: black;
   opacity: 0.8;
   padding: 0.5em;
+  border-radius: 3px;
+  color: #FFB600;
   font-weight: 400;
 }
 
@@ -47,29 +49,30 @@
   position: absolute;
   top: 5px;
   left: 5px;
-  background: white;
+  background: #FFB600;
   opacity: 0.8;
   padding: 0.5em;
+  color: white;
   font-weight: 400;
+  text-transform: uppercase;
 }
 
 .custom-controls {
   position: absolute;
   bottom: 5px;
-  background: white;
-  opacity: 0.8;
+  background: rgba(33,33,33,.8);
   transition: ease-in-out all 250ms;
 }
 
 .custom-controls:hover {
-  opacity: 1;
+  background: black;
 }
 
 .custom-play-controls {
   left: 5px;
   width: 50px;
   height: 50px;
-  padding: 10px 13px;
+  padding: 10px 11px;
 }
 
 .custom-controls-btn {
@@ -78,18 +81,17 @@
   border: none;
 }
 
-.play-btn, .pause-btn {
-  background: url(../assets/controls.png);
-  background-size: 52px;
-}
-
 .play-btn {
-  background-position: -3px;
+  background: url(../assets/play.svg) no-repeat;  
 }
 
 .pause-btn {
   display: none;
-  background-position: -28px;
+  background: url(../assets/pause.svg) no-repeat;
+}
+
+.play-btn, .pause-btn {
+  background-size: 27px;
 }
 
 .custom-mute-controls {
@@ -105,14 +107,13 @@
 
 .mute-btn {
   display: none;
-  background: url(../assets/volume.svg) no-repeat;
+  background: url(../assets/mute-off.svg) no-repeat;
+  background-size: 18px;
+  background-position: 2px 7px;
 }
 
 .unmute-btn {
-  background: url(../assets/mute-on.svg) no-repeat;
-}
-
-.mute-btn, .unmute-btn {
+  background: url(../assets/mute.svg) no-repeat;
   background-size: 25px;
   background-position: 0 2px;
 }
