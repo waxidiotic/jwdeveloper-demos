@@ -2,6 +2,7 @@
 jwplayer('user-player').setup({
   mediaid: 'gaCRFWjn',
   file: '//content.jwplatform.com/manifests/gaCRFWjn.m3u8',
+  image: 'http://content.jwplatform.com/thumbs/gaCRFWjn-720.jpg',
   // Set the available playback rates of your choice
   playbackRateControls: [0.75, 1, 1.25, 1.5],
   autostart: false,
@@ -115,6 +116,7 @@ function resetPlaybackRate(player, currentTime) {
 initPublisherPlayer({
   mediaid: 'QcK3l9Uv',
   file: '//content.jwplatform.com/videos/QcK3l9Uv-Zq6530MP.mp4',
+  image: 'http://content.jwplatform.com/thumbs/QcK3l9Uv-720.jpg',
   controls: false,
   autostart: false,
   mute: true
