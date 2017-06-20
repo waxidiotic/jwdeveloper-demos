@@ -105,14 +105,14 @@
   opacity: 1;
 }
 
-.mute-btn {
-  display: none;
+.unmute-btn {
   background: url(../assets/mute-off.svg) no-repeat;
   background-size: 18px;
   background-position: 2px 7px;
 }
 
-.unmute-btn {
+.mute-btn {
+  display: none;
   background: url(../assets/mute.svg) no-repeat;
   background-size: 25px;
   background-position: 0 2px;
