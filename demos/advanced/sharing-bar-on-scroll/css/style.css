@@ -1,0 +1,24 @@
+#player {
+  margin: 0;
+}
+
+.player-container {
+  float: left;
+  width: 50%;
+  margin: 0.5em 1em;
+}
+
+.banner {
+  transform: translate(0, 100%);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: gray;
+  width: 100%;
+  height: 100px;
+  transition: ease-in-out all 150ms;
+}
+
+.banner.is-visible {
+  transform: translate(0, 0);
+}
