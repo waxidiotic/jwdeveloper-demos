@@ -1,17 +1,27 @@
 (function() {
   'use strict';
 
-  var player = jwplayer('player').setup({
-    file: '//content.jwplatform.com/manifests/gaCRFWjn.m3u8',
-    image: '//content.jwplatform.com/thumbs/gaCRFWjn-720.jpg',
-    autostart: true,
-    mute: true
-  });
-
-  var scrollTimeout, ticking, lastThresholdCrossed, currentThresholdCrossed;
+  var player;
+  var scrollThreshold, scrollTimeout, ticking, lastThresholdCrossed, currentThresholdCrossed;
   var lastScrollHeight = 0;
   // We will want to pause the video when it is only ten percent visible
-  var scrollThreshold = getBottomTenPercentDepth(document.getElementById('player'));
+  var banner = document.querySelector('.footer-banner');
+
+  function init() {
+    player = jwplayer('player').setup({
+      playlist: '//cdn.jwplayer.com/v2/media/ioyt59Zj',
+      autostart: true,
+      mute: true
+    });
+
+    scrollThreshold = getBottomTenPercentDepth(document.getElementById('player'));
+
+    player.on('playlistItem', function(e) {
+      banner.querySelector('.banner-video-title').innerHTML = e.item.title;
+    });
+
+    window.addEventListener('scroll', onScroll, false);
+  }
 
   function onScroll() {
     if (scrollTimeout) {
@@ -40,8 +50,6 @@
   }
 
   function toggleBanner() {
-    var banner = document.querySelector('.banner');
-
     if (lastScrollHeight <= window.pageYOffset) {
       banner.classList.add('is-visible');
     } else {
@@ -71,5 +79,5 @@
     return elementYOffset + ninetyPercentElementHeight;
   }
 
-  window.addEventListener('scroll', onScroll, false);
+  init();
 }());
