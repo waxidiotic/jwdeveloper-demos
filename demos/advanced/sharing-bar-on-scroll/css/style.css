@@ -1,3 +1,7 @@
+p {
+  text-align: left;
+}
+
 small {
   color: gray;
   font-weight: 400;
