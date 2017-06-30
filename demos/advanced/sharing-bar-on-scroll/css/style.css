@@ -114,17 +114,25 @@ small {
     margin: 0 0 1em;
   }
 
+  .banner-column {
+    font-size: 1em;
+  }
+
+  .banner-column-left {
+    width: 70%;
+  }
+
+  .banner-column-right {
+    width: 30%;
+  }
+}
+
+@media (max-width: 530px) {
   .banner-column-left {
     width: 100%;
   }
 
   .banner-column-right {
     display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .banner-column-left {
-    font-size: 1em;
   }
 }
