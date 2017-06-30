@@ -4,7 +4,6 @@
   var player;
   var scrollThreshold, scrollTimeout, ticking, lastThresholdCrossed, currentThresholdCrossed;
   var lastScrollHeight = 0;
-  // We will want to pause the video when it is only ten percent visible
   var banner = document.querySelector('.footer-banner');
 
   function init() {
@@ -14,6 +13,7 @@
       mute: true
     });
 
+    // We will want to pause the video when it is only ten percent visible
     scrollThreshold = getBottomTenPercentDepth(document.getElementById('player'));
 
     attachEvents(player);
