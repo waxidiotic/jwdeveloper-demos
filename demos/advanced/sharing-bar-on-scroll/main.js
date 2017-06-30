@@ -16,11 +16,28 @@
 
     scrollThreshold = getBottomTenPercentDepth(document.getElementById('player'));
 
+    attachEvents(player);
+  }
+
+  function attachEvents(player) {
     player.on('playlistItem', function(e) {
-      banner.querySelector('.banner-video-title').innerHTML = e.item.title;
+      banner.querySelector('.video-title').innerHTML = e.item.title;
     });
 
+    banner.querySelector('.playback-btn').addEventListener('click', togglePlaybackOnClick);
+
+    player.on('pause', togglePlaybackDisplay.bind(null, 'add'));
+    player.on('play', togglePlaybackDisplay.bind(null, 'remove'));
+
     window.addEventListener('scroll', onScroll, false);
+  }
+
+  function togglePlaybackOnClick() {
+    player.play(banner.classList.contains('is-paused'));
+  }
+
+  function togglePlaybackDisplay(method) {
+    banner.classList[method]('is-paused');
   }
 
   function onScroll() {
