@@ -8,12 +8,14 @@
 			    <a href="{{&path.file}}jw-platform/" class="site-secondary-header-dropdown-link">JW Platform</a>
 			    <a href="{{&path.file}}android-sdk/" class="site-secondary-header-dropdown-link">Android SDK</a>
 			    <a href="{{&path.file}}ios-sdk/" class="site-secondary-header-dropdown-link">iOS SDK</a>
+			    <a href="{{&path.file}}tools/" class="site-secondary-header-dropdown-link">Developer Tools</a>
 			  {{/env.dev}}
 			  {{^env.dev}}
 			    <a href="/jw-player/" class="site-secondary-header-dropdown-link is-selected">JW Player</a>
 			    <a href="/jw-platform/" class="site-secondary-header-dropdown-link">JW Platform</a>
 			    <a href="/android-sdk/" class="site-secondary-header-dropdown-link">Android SDK</a>
 			    <a href="/ios-sdk/" class="site-secondary-header-dropdown-link">iOS SDK</a>
+			    <a href="/tools" class="site-secondary-header-dropdown-link">Developer Tools</a>
 			  {{/env.dev}}
       </div>
     </div>
@@ -28,6 +30,11 @@
 			<a href="/jw-player/docs/developer-guide/">Developer Guide</a>
 			<a href="/jw-player/demos">Demos</a>
 			<a href="/jw-player/docs/developer-guide/release_notes/release_notes_7/">Release Notes</a>
+		{{/env.dev}}
+		{{^env.dev}}
+			<a href="/jw-player/demos">JW Player Demos</a>
+			<a href="/android-sdk/demos/">Android Apps</a>
+			<a href="/ios-sdk/demos/">iOS Apps</a>
 		{{/env.dev}}
   </div>
 </div>
