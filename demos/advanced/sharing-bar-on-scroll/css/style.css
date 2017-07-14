@@ -1,5 +1,6 @@
 p {
   text-align: left;
+  margin-bottom: 1.5em;
 }
 
 small {
@@ -15,7 +16,7 @@ small {
 .player-container {
   float: left;
   width: 50%;
-  margin: 0.5em 1em;
+  margin: 0.5em 2em 1.5em 0;
 }
 
 .footer-banner {
@@ -71,10 +72,6 @@ small {
   margin-right: 1em;
 }
 
-.banner-column-right .icon {
-  margin-left: 1em;
-}
-
 .facebook {
   background: url(../assets/facebook.svg) center no-repeat;
 }
@@ -84,27 +81,32 @@ small {
 }
 
 .playback-btn {
-  background: url(../assets/pause.svg) center no-repeat;
-  background-size: 30px;
-  border: 2px solid;
+  background: url(../assets/pause.svg) 50% no-repeat;
+  background-size: 22px;
+  border: 2px solid #0B7EF4;
   border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
 
 .footer-banner.is-paused .playback-btn {
-  background: url(../assets/play.svg) center no-repeat;
-  background-size: 30px;
+  background: url(../assets/play.svg) 55% no-repeat;
+  background-size: 22px;
 }
 
 .video-status::before {
   content: 'Currently Watching: ';
+  color: #475470;
 }
 
 .footer-banner.is-paused .video-status::before {
-  content: 'Continue Watching: '
+  content: 'Continue Watching: ';
+  color: #475470;
 }
 
 .video-title {
-  font-weight: 400;
+  font-weight: 500;
+  color: #000;
 }
 
 @media(max-width: 768px) {
