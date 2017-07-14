@@ -1,6 +1,6 @@
 {
 	"title": "Sharing Playbar on Scroll",
-	"description": "Use JW Player's API to detect and verify when advertising events occur.",
+	"description": "Pause playback when the player is out of view and allow viewers to control playback or share the page via an external playbar on scroll.",
 	"license": "Free",
 	"showCode": true,
 	"apiCalls": [ "play()", "on('play')", "on('pause')", "on('playlistItem')" ],

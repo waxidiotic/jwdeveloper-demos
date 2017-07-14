@@ -8,7 +8,7 @@
 
   function init() {
     player = jwplayer('player').setup({
-      playlist: '//cdn.jwplayer.com/v2/media/ioyt59Zj',
+      playlist: '//cdn.jwplayer.com/v2/media/4yN3Zspm',
       autostart: true,
       mute: true
     });
