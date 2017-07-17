@@ -28,6 +28,7 @@
 
     player.on('pause', togglePlaybackDisplay.bind(null, 'add'));
     player.on('play', togglePlaybackDisplay.bind(null, 'remove'));
+    player.on('complete', togglePlaybackDisplay.bind(null, 'add'));
 
     window.addEventListener('scroll', onScroll, false);
   }
