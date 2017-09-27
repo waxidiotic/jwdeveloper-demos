@@ -18,7 +18,7 @@ player.setup({
 
 player.on('ready', function() {
   var qoe = this.qoe();
-  logs.log('The player setup in:', JSON.stringify(qoe.setupTime),'ms');
+  logs.log('The player set up in', JSON.stringify(qoe.setupTime),'ms.');
 });
 
 player.on('firstFrame', function() {

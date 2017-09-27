@@ -32,18 +32,16 @@
   function onLoad() {
     var playerVersion;
     var libraryRadios = document.querySelectorAll('.version-toggle');
-
     if (window.location.search) {
       playerVersion = window.location.search.split("=")[1];
     } else {
       playerVersion = 8;
     }
-    setLibraryScript(playerVersion);
-
     libraryRadios.forEach(function(radio) {
       radio.addEventListener('click', switchPlayerLibrary);
       radio.checked = radio.value == playerVersion;
     });
+    setLibraryScript(playerVersion);
   }
 
   function setLibraryScript(playerVersion) {
