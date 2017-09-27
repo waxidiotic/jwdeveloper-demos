@@ -30,8 +30,8 @@
 <script>
 
   function onLoad() {
-    let playerVersion;
-    let libraryRadios = document.querySelectorAll('.version-toggle');
+    var playerVersion;
+    var libraryRadios = document.querySelectorAll('.version-toggle');
     if (window.location.search) {
       playerVersion = window.location.search.split("=")[1];
     } else {
@@ -45,13 +45,13 @@
   }
 
   function setLibraryScript(playerVersion) {
-    let script = document.createElement('script');
+    var script = document.createElement('script');
     playerVersion === 8 ? script.src = "https://content.jwplatform.com/libraries/Jq6HIbgz.js" : script.src = "https://content.jwplatform.com/libraries/z3exF2NE.js";
     document.body.appendChild(script);
   }
 
   function switchPlayerLibrary(e) {
-    let version = e.target.value;
+    var version = e.target.value;
     window.location.search = 'playerversion=' + version;
   }
 
