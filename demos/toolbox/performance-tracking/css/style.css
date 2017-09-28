@@ -9,7 +9,7 @@
 #log-container div {
   display: flex;
   text-align: left;
-  align-items: center;
+  align-items: flex-start;
   font-size: 16px;
   max-width: 100%;
   white-space: normal;
