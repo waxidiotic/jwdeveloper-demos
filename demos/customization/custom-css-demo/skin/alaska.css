@@ -3,6 +3,10 @@
 /* Set the idle overlay to transparent white */
 .jwplayer.jw-skin-alaska.jw-state-idle .jw-controls {
   background: rgba(255, 255, 255, .7);
+}
+
+/* Add border to accentuate white controls */
+.jwplayer.jw-skin-alaska .jw-controls {
   border: 1px solid #1E1E1E;
 }
 
@@ -38,16 +42,24 @@
   transition: transform 0.35s;
 }
 
-.jwplayer.jw-skin-alaska.jw-state-idle .jw-display-controls .jw-display-icon-container.shift {
-  -webkit-transform: translate3d(0, -40px, 0);
-  transform: translate3d(0, -40px, 0);
-}
-
 .jwplayer.jw-skin-alaska.jw-state-idle .jw-display-controls .jw-display-icon-container .jw-icon {
   color: #fff;
   height: 40px;
   width: 40px;
   padding: 20px;
+}
+
+/* Shift the play button up on hover */
+.jwplayer.jw-skin-alaska.jw-state-idle .jw-display-controls .jw-display-icon-container.shift {
+  -webkit-transform: translate3d(0, -50px, 0);
+  transform: translate3d(0, -50px, 0);
+}
+
+/* Don't shift the play button on small breakpoint */
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-1 .jw-display-controls .jw-display-icon-container.shift,
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-0 .jw-display-controls .jw-display-icon-container.shift {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 /* Shrink play button on smaller breakpoints */
@@ -89,6 +101,12 @@
 /* Position play icon above title */
 .jwplayer.jw-skin-alaska.jw-state-idle .jw-display {
   height: 50%;
+}
+
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-3 .jw-display,
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-2 .jw-display,
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-1 .jw-display {
+  height: 55%;
 }
 
 .jwplayer.jw-skin-alaska.jw-state-idle .jw-display-container {
@@ -173,17 +191,32 @@
 
 .jwplayer.jw-skin-alaska .jw-title-primary,
 .jwplayer.jw-skin-alaska .jw-title-secondary {
-  -webkit-transform: translate3d(0, 40px, 0);
-  transform: translate3d(0, 40px, 0);
+  -webkit-transform: translate3d(0, 50px, 0);
+  transform: translate3d(0, 50px, 0);
 }
 
+
+/* Don't translate on tiny screens (when the description is hidden) */
 .jwplayer.jw-skin-alaska .jw-title-primary.shift,
 .jwplayer.jw-skin-alaska .jw-title-secondary.shift {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 
+.jwplayer.jw-skin-alaska.jw-breakpoint-1 .jw-title-primary,
+.jwplayer.jw-skin-alaska.jw-breakpoint-0 .jw-title-secondary {
+  -webkit-transform: translate3d(0, 10px, 0);
+  transform: translate3d(0, 10px, 0);
+}
+
 /* Decrease font size on medium-small breakpoints */
+.jwplayer.jw-skin-alaska.jw-breakpoint-3 .jw-title-primary,
+.jwplayer.jw-skin-alaska.jw-breakpoint-2 .jw-title-primary,
+.jwplayer.jw-skin-alaska.jw-breakpoint-1 .jw-title-primary,
+.jwplayer.jw-skin-alaska.jw-breakpoint-0 .jw-title-primary {
+  font-size: 22px;
+}
+
 .jwplayer.jw-skin-alaska.jw-breakpoint-3 .jw-title-secondary,
 .jwplayer.jw-skin-alaska.jw-breakpoint-2 .jw-title-secondary {
   font-size: 14px;
