@@ -2,7 +2,7 @@
     playlist: '//cdn.jwplayer.com/v2/media/jumBvHdL',
     skin: {
       name: 'alaska',
-      url: '/customization/custom-css-demo/skin/alaska.css'
+      url: '/customization/custom-css-demo/assets/alaska.css'
     }
   });
 
