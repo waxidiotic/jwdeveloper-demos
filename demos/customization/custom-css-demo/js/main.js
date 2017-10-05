@@ -17,18 +17,17 @@
     var titleSecondary = playerContainer.querySelector('.jw-title-secondary');
     var previewImage = playerContainer.querySelector('.jw-preview');
     var playIcon = playerContainer.querySelector('.jw-display-icon-display');
+    var animatedItems = [titlePrimary, titleSecondary, previewImage, playIcon];
 
     playerContainer.addEventListener('mouseenter', function() {
-      titlePrimary.classList.add('shift');
-      titleSecondary.classList.add('shift');
-      playIcon.classList.add('shift');
-      previewImage.classList.add('slide');
+      animatedItems.forEach(function(element) {
+        element.classList.add('shift');
+      });
     });
 
     playerContainer.addEventListener('mouseleave', function() {
-      titlePrimary.classList.remove('shift');
-      titleSecondary.classList.remove('shift');
-      playIcon.classList.remove('shift');
-      previewImage.classList.remove('slide');
+      animatedItems.forEach(function(element) {
+        element.classList.remove('shift');
+      });
     });
   });

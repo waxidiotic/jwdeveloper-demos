@@ -131,7 +131,7 @@
   align-items: center;
 }
 
-/* Enlarge preview image & add slide transitions with class 'slide' (applied on mouseenter) */
+/* Enlarge preview image & add shift transitions with class 'slide' (applied on mouseenter) */
 .jwplayer.jw-skin-alaska .jw-preview {
   width: -webkit-calc(100% + 50px);
   width: calc(100% + 50px);
@@ -141,13 +141,13 @@
   transform: translate3d(-40px,0,0);
 }
 
-.jwplayer.jw-skin-alaska .jw-preview.slide {
+.jwplayer.jw-skin-alaska .jw-preview.shift {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
 
 /* Don't slide background on complete state */
-.jwplayer.jw-skin-alaska.jw-state-complete .jw-preview.slide {
+.jwplayer.jw-skin-alaska.jw-state-complete .jw-preview.shift {
   -webkit-transform: translate3d(-40px,0, 0);
   transform: translate3d(-40px,0,0);
 }
