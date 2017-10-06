@@ -1,6 +1,6 @@
 {
   "title": "Click to Play Video Wall",
-  "description": "A tiled wall of thumbnail images that launch separate player instances when clicked.",
+  "description": "A randomized grid wall of thumbnail images that launch separate player instances when clicked.",
   "license": "Premium",
   "showCode": true,
   "layout": "vertical",

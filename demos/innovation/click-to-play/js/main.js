@@ -1,4 +1,4 @@
-  (function getFeed() {
+  (function() {
     var httpRequest = new XMLHttpRequest();
     if (!httpRequest) {
       return false;
@@ -17,7 +17,9 @@
     httpRequest.send();
   })();
 
+
   var thumbs = document.querySelectorAll('.thumb');
+  var player;
 
   function getThumbnails(data) {
     var playlist = data.playlist;
@@ -26,22 +28,39 @@
       thumb.setAttribute('id', video.mediaid + 1);
       thumb.style.backgroundImage = "url('" + video.image + "')";
       thumb.addEventListener('click', function(e) {
-        launchPlayer(e, video);
+        handleActivePlayer(e, video);
+      });
+      thumb.addEventListener('mouseover', function() {
+        thumb.classList.add('hover');
+        var darkTiles = document.querySelectorAll('.thumb:not(.hover)');
+        darkTiles.forEach(function(tile) {
+        })
       })
+      // thumb.addEventListener('mouseleave', function() {
+      //   thumb.style.backgroundImage =  "url('" + video.image + "')";
+      // })
     })
   };
 
-  function launchPlayer(e, video) {
+
+  function handleActivePlayer(e, video) {
+    if (player) {
+      player.remove();
+    }
+
     thumbs.forEach(function(thumb) {
       thumb.classList.remove('active');
     })
 
     var activeDiv = e.target;
     activeDiv.classList.add('active');
-    console.log(video)
-    var player = jwplayer(activeDiv.id).setup({
-      file: '//content.jwplatform.com/manifests/' + video.mediaid + '.m3u8',
-      autostart: true,
-      aspectratio: '16:9'
+
+    player = jwplayer(activeDiv.id).setup({
+      file: '//content.jwplatform.com/manifests/' + video.mediaid + '.m3u8'
+    }).play();
+
+    player.on('complete', function() {
+      player.remove();
+      player = null;
     });
   }
