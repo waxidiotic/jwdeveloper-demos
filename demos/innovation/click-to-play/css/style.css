@@ -1,14 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:500');
+
 @media (min-width: 960px) {
   .demo-layout-content .jwplayer {
     margin-bottom: 0;
 }
 
+.wrapper {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+}
+
 .header-bar {
-  background-color: black;
+  background-color: #000;
   color: #fff;
-  font-family: "Open Sans", sans-serif;
   font-size: 18px;
-  font-weight: 600;
   text-align: left;
   text-transform: uppercase;
   height: 50px;
@@ -20,40 +25,68 @@
 .video-wall {
   display: flex;
   flex-direction: column;
-  background: black;
+  background: #000;
+}
+
+.row-of-six {
+  display: flex;
+}
+
+.row-of-two {
+  display: flex;
+  flex-grow: 1;
 }
 
 .column {
-  width: 50%;
   display: flex;
+  flex: 1;
   flex-direction: column;
-}
-
-.section {
-  width: 100%;
-  display: flex;
-}
-
-.small {
-  display: flex;
-  min-width: 500px;
 }
 
 .thumb {
   min-width: 250px;
   min-height: 140.63px;
+  position: relative;
   opacity: 1;
-  background-size: cover;
+  background-size: calc(100% + 40px);
   background-repeat: no-repeat;
+  transition: background-size .3s ease-in-out;
+  -webkit-transition: background-size .3s ease-in-out;
+  -ms-transition: background-size .3s ease-in;
+  -o-transition: background-size .3s ease-in;
   cursor: pointer;
-  border: 1px solid black;
-}
-
-.thumb.fade {
-  opacity: .7;
+  border: 1px solid #000;
 }
 
 .thumb.large {
   min-width: 500px;
   min-height: 281.25px;
+}
+
+.title-text {
+  color: #fff;
+  text-align: left;
+  font-size: 16px;
+  padding: 10px;
+  position: absolute;
+  bottom: -20px;
+  opacity: 0;
+  transition: all .2s ease-in-out .1s;
+  -webkit-transition: all .2s ease-in-out .1s;
+  -ms-transition: all .2s ease-in-out .1s;
+  -o-transition: all .2s ease-in-out .1s;
+}
+
+.thumb.large .title-text {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.thumb.show-title {
+  background-size: calc(100% + 20px);
+}
+
+.show-title .title-text {
+  opacity: 1;
+  bottom: 0;
 }

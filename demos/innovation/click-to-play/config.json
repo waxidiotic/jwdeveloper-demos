@@ -1,11 +1,10 @@
 {
   "title": "Click to Play Video Wall",
-  "description": "A randomized grid wall of thumbnail images that launch separate player instances when clicked.",
+  "description": "Setup and play a video with a single click on an element, such as a static image.",
   "license": "Premium",
   "showCode": true,
   "layout": "vertical",
   "apiCalls": [
-    ""
   ],
   "author": {
   	"name": "Kim Hart",

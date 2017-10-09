@@ -9,7 +9,7 @@
           var json = JSON.parse(httpRequest.response);
           getThumbnails(json);
         } else {
-          return false;
+          console.log(httpRequest.statusText);
         }
       }
     }
@@ -23,22 +23,27 @@
 
   function getThumbnails(data) {
     var playlist = data.playlist;
+
     thumbs.forEach(function(thumb, i) {
       var video = playlist[i];
+      var titleText = document.createElement('div');
+      titleText.className = 'title-text';
+      titleText.innerHTML = video.title;
+      thumb.appendChild(titleText);
       thumb.setAttribute('id', video.mediaid + 1);
       thumb.style.backgroundImage = "url('" + video.image + "')";
+
       thumb.addEventListener('click', function(e) {
         handleActivePlayer(e, video);
       });
+
       thumb.addEventListener('mouseover', function() {
-        thumb.classList.add('hover');
-        var darkTiles = document.querySelectorAll('.thumb:not(.hover)');
-        darkTiles.forEach(function(tile) {
-        })
+        thumb.classList.add('show-title');
       })
-      // thumb.addEventListener('mouseleave', function() {
-      //   thumb.style.backgroundImage =  "url('" + video.image + "')";
-      // })
+
+      thumb.addEventListener('mouseleave', function() {
+        thumb.classList.remove('show-title');
+      })
     })
   };
 
@@ -47,11 +52,9 @@
     if (player) {
       player.remove();
     }
-
     thumbs.forEach(function(thumb) {
       thumb.classList.remove('active');
     })
-
     var activeDiv = e.target;
     activeDiv.classList.add('active');
 
