@@ -41,7 +41,7 @@
     })
   };
 
-  // On thumbnail click, destroy active player, setup new player in click target div
+  // On click, destroy existing player, setup new player in target div
   function handleActivePlayer(e, video) {
     var activeDiv = e.target;
     if (player) {
@@ -52,12 +52,12 @@
     })
     activeDiv.classList.add('active');
 
-    // Chain .play() onto player setup — rather than using autostart:true — to capture the click-to-play action
+    // Chain .play() onto player setup (rather than autostart: true)
     player = jwplayer(activeDiv.id).setup({
       file: '//content.jwplatform.com/manifests/' + video.mediaid + '.m3u8'
     }).play();
 
-    // Destroy the player and replace with thumbnail on complete
+    // Destroy the player and replace with thumbnail
     player.on('complete', function() {
       player.remove();
       player = null;
