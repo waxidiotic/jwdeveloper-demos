@@ -1,3 +1,4 @@
+  // Request playlist data
   (function() {
     var httpRequest = new XMLHttpRequest();
     if (!httpRequest) {
@@ -17,7 +18,7 @@
     httpRequest.send();
   })();
 
-
+  // Render thumbnails into grid layout
   var thumbs = document.querySelectorAll('.thumb');
   var player;
 
@@ -27,6 +28,7 @@
     thumbs.forEach(function(thumb, i) {
       var video = playlist[i];
       var titleText = document.createElement('div');
+
       titleText.className = 'title-text';
       titleText.innerHTML = video.title;
       thumb.appendChild(titleText);
@@ -36,32 +38,26 @@
       thumb.addEventListener('click', function(e) {
         handleActivePlayer(e, video);
       });
-
-      thumb.addEventListener('mouseover', function() {
-        thumb.classList.add('show-title');
-      })
-
-      thumb.addEventListener('mouseleave', function() {
-        thumb.classList.remove('show-title');
-      })
     })
   };
 
-
+  // On thumbnail click, destroy active player, setup new player in click target div
   function handleActivePlayer(e, video) {
+    var activeDiv = e.target;
     if (player) {
       player.remove();
     }
     thumbs.forEach(function(thumb) {
       thumb.classList.remove('active');
     })
-    var activeDiv = e.target;
     activeDiv.classList.add('active');
 
+    // Chain .play() onto player setup — rather than using autostart:true — to capture the click-to-play action
     player = jwplayer(activeDiv.id).setup({
       file: '//content.jwplatform.com/manifests/' + video.mediaid + '.m3u8'
     }).play();
 
+    // Destroy the player and replace with thumbnail on complete
     player.on('complete', function() {
       player.remove();
       player = null;
