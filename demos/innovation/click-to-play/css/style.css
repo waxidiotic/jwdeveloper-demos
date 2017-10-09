@@ -18,10 +18,10 @@
 .header-bar {
   background-color: #000;
   color: #fff;
-  font-size: 18px;
-  text-align: left;
+  font-size: 24px;
+  justify-content: center;
   text-transform: uppercase;
-  height: 50px;
+  height: 60px;
   display: flex;
   align-items: center;
   padding: 10px 20px;
@@ -170,14 +170,17 @@
     min-width: 400px;
     min-height: 225px;
   }
+  .thumb .title-text,
+  .thumb.large .title-text {
+    opacity: 1;
+    bottom: 0;
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 400px) {
   .video-wall {
     width: 300px;
-  }
-  .header-bar {
-    text-align: center;
   }
   .thumb,
   .thumb.large {
