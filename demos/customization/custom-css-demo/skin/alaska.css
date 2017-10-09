@@ -135,6 +135,7 @@
 .jwplayer.jw-skin-alaska .jw-preview {
   width: -webkit-calc(100% + 50px);
   width: calc(100% + 50px);
+  background-size: calc(100% + 60px);
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
   -webkit-transform: translate3d(-40px,0, 0);
