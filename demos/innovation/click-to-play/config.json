@@ -1,6 +1,6 @@
 {
-  "title": "Click to Play Video Wall",
-  "description": "Setup and play a video with a single click on an element, such as a static image.",
+  "title": "Click-to-Play Video Wall",
+  "description": "Setup and play a video with a single click on a thumbnail within a responsive image grid.",
   "license": "Premium",
   "showCode": true,
   "layout": "vertical",
