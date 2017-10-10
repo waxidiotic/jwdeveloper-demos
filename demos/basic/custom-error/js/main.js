@@ -2,7 +2,7 @@ var player = jwplayer('player');
 
 player.setup({
   file: "rtmp://fms.12E5.edgecastcdn.net/0012E5/videos/Qvxp3Jnv-68183.flv",
-  image: "//jwpcdn.com/thumbs/RxiqSWej-640.jpg"
+  image: "//s.jwpcdn.com/thumbs/RxiqSWej-640.jpg"
 });
 
 player.on('error', function() {
