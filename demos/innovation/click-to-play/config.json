@@ -1,0 +1,13 @@
+{
+  "title": "Click-to-Play Video Wall",
+  "description": "Setup and play a video with a single click on a thumbnail within a responsive image grid.",
+  "license": "Premium",
+  "showCode": true,
+  "layout": "vertical",
+  "apiCalls": [
+  ],
+  "author": {
+  	"name": "Kim Hart",
+  	"githubUsername": "kimhart"
+  }
+}
