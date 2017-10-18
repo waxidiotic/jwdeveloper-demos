@@ -10,37 +10,38 @@
   });
 
   player.on('play',function() {
-    message.innerHTML = 'Play an Ad';
-    message.classList.add('button');
-    message.addEventListener('click', function() {
-      playDynamicAd();
-    });
+    addButton();
   });
 
   player.on('pause',function() {
-    message.classList.remove('button');
-    message.innerHTML = "Un-pause the video to play an ad.";
+    removeButton("Un-pause the video to play an ad.");
   });
 
   player.on('complete', function() {
-    message.classList.remove('button');
-    message.innerHTML = "Restart video to play an ad.";
+    removeButton("Restart video to play an ad.");
   });
 
   player.on('adComplete', function() {
-    message.classList.remove('button');
-    message.innerHTML = "Video playing...";
+    addButton();
   });
 
   player.on('adSkipped', function() {
-    message.classList.remove('button');
-    message.innerHTML = "Video playing...";
+    addButton();
   });
 
   function playDynamicAd() {
-    if (player.getState() === 'playing') {
-      player.playAd(tag);
-      message.classList.remove('button');
-      message.innerHTML = "Ad playing, please wait...";
-    }
+    player.playAd(tag);
+    removeButton("Ad playing, please wait...");
+  };
+
+  function addButton() {
+    message.innerHTML = 'Play an Ad';
+    message.classList.add('button');
+    message.addEventListener('click', playDynamicAd);
+  };
+
+  function removeButton(messageText) {
+    message.innerHTML = messageText;
+    message.classList.remove('button');
+    message.removeEventListener('click', playDynamicAd);
   };
