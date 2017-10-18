@@ -4,7 +4,7 @@
 	"license": "Ads",
 	"showCode": true,
 	"apiCalls": [
-		"on('play')", "on('pause')", "on('complete')", "playAd(tag)", "on('adComplete')"
+		"on('play')", "on('pause')", "on('complete')", "playAd(tag)", "on('adComplete')", "on('adSkipped')"
 	],
 	"author": {
 		"name": "JW Player",

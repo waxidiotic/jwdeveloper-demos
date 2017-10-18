@@ -22,15 +22,20 @@
     message.innerHTML = "Un-pause the video to play an ad.";
   });
 
+  player.on('complete', function() {
+    message.classList.remove('button');
+    message.innerHTML = "Restart video to play an ad.";
+  });
+
   player.on('adComplete', function() {
     message.classList.remove('button');
     message.innerHTML = "Video playing...";
   });
 
-  player.on('complete', function() {
+  player.on('adSkipped', function() {
     message.classList.remove('button');
-    message.innerHTML = "Restart video to play an ad.";
-  })
+    message.innerHTML = "Video playing...";
+  });
 
   function playDynamicAd() {
     if (player.getState() === 'playing') {
