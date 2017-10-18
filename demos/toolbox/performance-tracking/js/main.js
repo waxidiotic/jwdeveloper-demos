@@ -1,12 +1,14 @@
-  var logs = jwTest.makeLogger('container');
-  var player = jwplayer('container');
+function init() {
+  var player, logs;
 
-  function prettify(q, event) {
-    if (!q.item.counts[event] && !q.item.sums[event]) {
-        return event + ' (undefined)';
-    }
-    return event + ' ('+q.item.counts[event]+') ' + q.item.sums[event];
+  // For demo purposes
+  if (typeof jwplayer === 'undefined') {
+    setTimeout(init, 100);
+    return;
   }
+
+  player = jwplayer('container');
+  logs = jwTest.makeLogger('container');
 
   player.setup({
     displaytitle: false,
@@ -24,3 +26,6 @@
     var qoe = this.qoe();
     logs.log('The player took', JSON.stringify(qoe.firstFrame),'ms to get to the first frame of video.');
   });
+}
+
+init();

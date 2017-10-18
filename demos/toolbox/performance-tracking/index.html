@@ -24,35 +24,34 @@
 <script src='testing-utils.js'></script>
 <script type="text/javascript">
 
-  (function onLoad() {
-    var playerVersion;
+  function onLoad() {
     var libraryRadios = document.querySelectorAll('.version-toggle');
-    if (window.location.search) {
-      playerVersion = window.location.search.split("=")[1];
-    } else {
-      playerVersion = 8;
-    }
+    var playerVersion = window.location.search ?
+      window.location.search.split("playerversion=")[1] :
+      '8';
+
     libraryRadios.forEach(function(radio) {
       radio.addEventListener('click', switchPlayerLibrary);
-      radio.checked = radio.value == playerVersion;
+      radio.checked = radio.value === playerVersion;
     });
+
     setLibraryScript(playerVersion);
   })();
 
   function setLibraryScript(playerVersion) {
+    var playerLibraries = {
+      7: 'https://content.jwplatform.com/libraries/z3exF2NE.js',
+      8: 'https://content.jwplatform.com/libraries/Jq6HIbgz.js'
+    };
     var script = document.createElement('script');
-    var library = document.querySelector('library');
 
-    if (playerVersion == 8) {
-      script.src = "//content.jwplatform.com/libraries/Jq6HIbgz.js"
-    } else {
-      script.src = "//content.jwplatform.com/libraries/z3exF2NE.js";
-    }
+    script.src = playerLibraries[playerVersion];
     document.body.appendChild(script);
   };
 
   function switchPlayerLibrary(e) {
     var version = e.target.value;
+
     window.location.search = 'playerversion=' + version;
   };
 
