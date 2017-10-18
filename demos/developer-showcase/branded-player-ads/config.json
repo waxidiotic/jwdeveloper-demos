@@ -1,6 +1,6 @@
 {
   "title": "Branded Player Advertising",
-  "description": "A demo of LogoBar's branded player ads and advanced event tracking capabilities. LogoBar's plugin uses the JW Player CSS Skinning model to insert branding and ad creatives.",
+  "description": "A demo of LogoBar's branded player ads and advanced event tracking capabilities. The LogoBar plugin uses JW Player's CSS Skinning model to insert branding and ad creatives.",
   "license": "Ads",
   "showCode": true,
   "layout": "vertical",
