@@ -2,6 +2,7 @@
     padding: 0;
     display: inline-flex;
   }
+
 #adrectangle {
     width: 300px;
     height: 250px;
@@ -24,4 +25,26 @@
     height: 50px;
     width: 0;
     background: transparent url('../assets/highlight.png') 0 0 no-repeat;
-  }
+}
+
+.message {
+  font-size: 26px;
+  font-weight: 400;
+  color: #000;
+}
+
+.message.button {
+  background-color: #0B7EF4;
+  color: #fff;
+  text-transform: none;
+}
+
+.message.button:hover {
+  background-color: #0F4E90;
+}
+
+.arrow {
+  width: 17px;
+  height: 17px;
+  margin-left: 10px;
+}

@@ -1,31 +1,41 @@
-var btn = document.getElementById("playbutton");
-var ply = false;
-var tag = "assets/preroll.xml"
+  var message = document.querySelector('.message');
+  var tag = 'assets/preroll.xml';
+  var player = jwplayer('player');
 
-var playerInstance = jwplayer("myElement");
-playerInstance.setup({
-  playlist: 'https://cdn.jwplayer.com/v2/media/hWF9vG66',
-  advertising: {
-    client: "vast"
-  },
-});
+  player.setup({
+    playlist: 'https://cdn.jwplayer.com/v2/media/hWF9vG66',
+    advertising: {
+      client: 'vast'
+    }
+  });
 
-playerInstance.on('play',function() {
-  ply = true;
-  btn.innerHTML = "<a href='javascript:playMyAd()'>Play an Ad!</a>";
-});
-playerInstance.on('pause',function() {
-  ply = false;
-  btn.innerHTML = "Please unpause video to play an ad!";
-});
-playerInstance.on('idle',function() {
-  ply = false;
-  btn.innerHTML = "Player idle. Please restart playback.";
-});
-function playMyAd() {
-  if(ply) {
-    playerInstance.playAd(tag);
-    ply = false;
-    btn.innerHTML = "Ad Playing! Please wait...";
-   }
-};
+  player.on('play',function() {
+    message.innerHTML = 'Play an Ad';
+    message.classList.add('button');
+    message.addEventListener('click', function() {
+      playDynamicAd();
+    });
+  });
+
+  player.on('pause',function() {
+    message.classList.remove('button');
+    message.innerHTML = "Un-pause the video to play an ad.";
+  });
+
+  player.on('adComplete', function() {
+    message.classList.remove('button');
+    message.innerHTML = "Video playing...";
+  });
+
+  player.on('complete', function() {
+    message.classList.remove('button');
+    message.innerHTML = "Restart video to play an ad.";
+  })
+
+  function playDynamicAd() {
+    if (player.getState() === 'playing') {
+      player.playAd(tag);
+      message.classList.remove('button');
+      message.innerHTML = "Ad playing, please wait...";
+    }
+  };
