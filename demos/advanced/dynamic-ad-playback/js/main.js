@@ -21,11 +21,19 @@
     hideButton('Restart video to continue.');
   });
 
-  player.on('adComplete', function() {
-    showButton();
+  player.on('adPlay', function() {
+    hideButton('Ad playing, please wait (or skip it)')
+  });
+
+  player.on('adPause', function() {
+    hideButton('Unpause the ad to continue.')
   });
 
   player.on('adSkipped', function() {
+    showButton();
+  });
+
+  player.on('adComplete', function() {
     showButton();
   });
 
