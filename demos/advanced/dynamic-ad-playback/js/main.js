@@ -37,19 +37,18 @@
     showButton();
   });
 
-  function playDynamicAd() {
+  function triggerAd() {
     player.playAd(tag);
-    hideButton('Ad playing, please wait (or skip it)');
   };
 
   function showButton() {
     message.innerHTML = 'Play an Ad';
     message.classList.add('button');
-    message.addEventListener('click', playDynamicAd);
+    message.addEventListener('click', triggerAd);
   };
 
   function hideButton(messageText) {
     message.innerHTML = messageText;
     message.classList.remove('button');
-    message.removeEventListener('click', playDynamicAd);
+    message.removeEventListener('click', triggerAd);
   };
