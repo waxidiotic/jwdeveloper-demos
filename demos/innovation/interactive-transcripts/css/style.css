@@ -30,11 +30,12 @@
 .searchbox {
    margin: 10px 20px;
    display: block;
+   position: relative;
 }
 
 .searchbox input {
   line-height: 20px;
-  font-size: 13px;
+  font-size: 16px;
   color: #000;
   width: 100%;
   padding: 5px 20px 5px 30px;
@@ -44,8 +45,11 @@
 }
 
 .searchbox .match {
+  position: absolute;
+  right: 10px;
+  top: 5px;
   line-height: 20px;
-  font-size: 13px;
+  font-size: 14px;
   color: #000;
 }
 
@@ -98,9 +102,10 @@
 }
 
 .caption-copy {
-  width: 640px;
+  max-width: 640px;
   margin: 20px auto;
   text-align: left;
+  padding: 10px;
 }
 
 .caption-copy div,
