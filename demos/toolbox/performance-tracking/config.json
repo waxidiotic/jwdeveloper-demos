@@ -7,6 +7,10 @@
 		".on('ready')",
 		".on('firstFrame')"
 	],
+	"playerVersion": [
+		"7",
+		"8"
+	],
 	"author": {
 		"name": "JW Player",
 		"githubUsername": "jwplayer"
