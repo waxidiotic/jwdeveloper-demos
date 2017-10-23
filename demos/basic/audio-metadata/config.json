@@ -1,6 +1,6 @@
 {
   "title": "Audio Streaming + Metadata",
-  "description": "Extract timed metadata from an audio stream and use it to display information such as title, artist, and poster image.",
+  "description": " Extract timed metadata from a live audio stream and use it to display information such as title, artist, and poster image.",
   "license": "Premium",
   "showCode": true,
   "apiCalls": [
