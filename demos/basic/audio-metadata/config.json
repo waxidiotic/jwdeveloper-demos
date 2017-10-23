@@ -4,7 +4,7 @@
   "license": "Premium",
   "showCode": true,
   "apiCalls": [
-	  "on('meta')"
+	  "on('meta')", "on('error')"
   ],
   "author": {
 	"name": "JW Player",
