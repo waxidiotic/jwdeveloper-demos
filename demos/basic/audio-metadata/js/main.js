@@ -2,8 +2,6 @@
   var artistDiv = document.getElementById('artist');
   var imageDiv = document.getElementById('image');
   var player = jwplayer('player');
-  var playerContainer = player.getContainer();
-
 
   // Set up the player with an HLS stream that includes timed metadata
   player.setup({
@@ -19,10 +17,15 @@
 
       title ? titleDiv.innerHTML = title : titleDiv.innerHTML = 'Unknown';
       artist ? artistDiv.innerHTML = artist : artistDiv.innerHTML = 'Unknown';
-      imageUrl ? imageDiv.src = imageUrl : null;
-    }
+      imageUrl ? imageDiv.src = imageUrl : imageDiv.src = 'assets/jwlogo.png';
+    };
   });
 
-  player.on('complete', function() {
-    console.log('complete')
+  // Handle reset of player at end of content
+  player.on('error', function(e) {
+    if (e.message === 'The live stream is either down or has ended') {
+      player.load({
+        file: 'assets/index.m3u8'
+      });
+    }
   });
