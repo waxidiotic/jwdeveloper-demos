@@ -4,7 +4,7 @@
 	"license": "Free",
 	"showCode": false,
 	"apiCalls": [
-		"addButton", "on('ready')", "on('time')"
+		"addButton", "on('time')"
 	],
 	"author": {
 		"name": "JW Player",
