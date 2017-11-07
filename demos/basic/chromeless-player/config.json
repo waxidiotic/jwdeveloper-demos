@@ -1,7 +1,7 @@
 {
   "title": "Chromeless Player",
   "description": "Hide the default player UI and build a custom interface using the JW Player API. Chromeless playback increases speed by eliminating load time for JW Player skins and controls.",
-  "license": "Free",
+  "license": "All",
     	"showCode": true,
 	"apiCalls": [ "play()", "pause()" ],
 	"author": {
