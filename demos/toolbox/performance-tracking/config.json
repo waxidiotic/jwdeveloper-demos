@@ -1,7 +1,7 @@
 {
 	"title": "Performance Tracking",
 	"description": "This demo measures key QoE metrics using the JW Player JavaScript API, including setup time and time to first frame.",
-	"license": "Free",
+	"license": "All",
 	"showCode": true,
 	"apiCalls": [
 		".on('ready')",
