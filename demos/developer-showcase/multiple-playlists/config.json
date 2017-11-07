@@ -1,7 +1,7 @@
 {
 	"title": "Loading Multiple Playlists",
 	"description": "Load and toggle between multiple playlists to control the player state",
-	"license": "Free",
+	"license": "All",
 	"showCode": true,
 	"layout": "vertical",
 	"apiCalls": [

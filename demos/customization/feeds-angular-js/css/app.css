@@ -3,6 +3,10 @@
   display: flex;
 }
 
+.jw-state-error > .jw-title {
+	display: none !important;
+}
+
 .jw-demo {
   flex: 1;
   display: flex;

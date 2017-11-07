@@ -1,6 +1,5 @@
-.jw-main {
-  height: 46vw;
-  display: flex;
+.jw-state-error > .jw-title {
+	display: none !important;
 }
 
 .jw-demo {
@@ -34,12 +33,10 @@
   padding: 0;
   text-align: left;
 }
-
 .jw-option {
   border-bottom: 1px solid #2d333e;
   cursor: pointer;
   list-style: none;
-  display: table;
   text-align: left;
 }
 

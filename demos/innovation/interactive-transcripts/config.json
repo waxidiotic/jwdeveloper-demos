@@ -1,7 +1,7 @@
 {
 	"title": "Interactive Transcripts",
 	"description": "This demo showcases an interactive, searchable transcript for our HTML5 Video Webinar.",
-	"license": "Free",
+	"license": "All",
 	"showCode": false,
 	"apiCalls": [
 		"addButton", "on('time')"

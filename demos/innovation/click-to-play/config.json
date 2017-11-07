@@ -1,7 +1,7 @@
 {
   "title": "Click-to-Play Video Wall",
   "description": "Setup and play a video with a single click on a thumbnail within a responsive image grid.",
-  "license": "Premium",
+  "license": "All",
   "showCode": true,
   "layout": "vertical",
   "apiCalls": [
