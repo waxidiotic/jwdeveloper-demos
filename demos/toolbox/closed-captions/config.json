@@ -1,7 +1,7 @@
 {
 	"title": "Closed Captions",
 	"description": "This demo shows a player rendering closed captions in video display.",
-	"license": "Free",
+	"license": "All",
 	"showCode": true,
 	"apiCalls": [
 		""
