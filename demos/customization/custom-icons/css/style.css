@@ -1,0 +1,152 @@
+.jw-state-idle .jw-svg-icon-play path {	
+	display: none;
+}
+.jw-state-idle .jw-svg-icon-play {
+	background-image: url('../assets/play-idle.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.jw-state-paused .jw-svg-icon-play path {	
+	display: none;
+}
+.jw-state-paused .jw-svg-icon-play {
+	background-image: url('../assets/play.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.jw-svg-icon-buffer path {
+	display: none;
+}
+
+.jw-svg-icon-buffer {
+	background-image: url('../assets/buffer.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.jw-svg-icon-replay path {	
+	display: none;
+}
+
+.jw-svg-icon-replay {
+	background-image: url('../assets/replay.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.jw-svg-icon-pause path {	
+	display: none;
+}
+
+.jw-svg-icon-pause {
+	background-image: url('../assets/pause.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.jw-svg-icon-rewind path {	
+	display: none;
+}
+
+.jw-svg-icon-rewind {
+	background-image: url('../assets/rewind.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.jw-svg-icon-next path {	
+	display: none;
+}
+
+.jw-svg-icon-next {
+	background-image: url('../assets/next.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.jw-svg-icon-volume-100 path {	
+	display: none;
+}
+
+.jw-svg-icon-volume-100 {
+	background-image: url('../assets/volume-on.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.jw-svg-icon-volume-0 path {	
+	display: none;
+}
+
+.jw-svg-icon-volume-0 {
+	background-image: url('../assets/volume-off.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.jw-svg-icon-cc-off path {	
+	display: none;
+}
+
+.jw-svg-icon-cc-off {
+	background-image: url('../assets/captions.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.jw-svg-icon-playlist path {	
+	display: none;
+}
+
+.jw-svg-icon-playlist {
+	background-image: url('../assets/playlist.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.jw-svg-icon-settings path {	
+	display: none;
+}
+
+.jw-svg-icon-settings {
+	background-image: url('../assets/settings.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.jw-svg-icon-quality-100 path {	
+	display: none;
+}
+
+.jw-svg-icon-quality-100 {
+	background-image: url('../assets/quality.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.jw-svg-icon-close path {	
+	display: none;
+}
+
+.jw-svg-icon-close {
+	background-image: url('../assets/close.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.jw-svg-icon-fullscreen-on path {	
+	display: none;
+}
+
+.jw-svg-icon-fullscreen-on {
+	background-image: url('../assets/fullscreen-on.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.jw-svg-icon-fullscreen-off path {	
+	display: none;
+}
+
+.jw-svg-icon-fullscreen-off {
+	background-image: url('../assets/fullscreen-off.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+
