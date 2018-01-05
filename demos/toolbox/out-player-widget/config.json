@@ -12,19 +12,5 @@
 	"author": {
 		"name": "JW Player",
 		"githubUsername": "jwplayer"
-	},
-	"widgets": [
-	{
-	  "widgetDivId": "jw-widget-demo",
-	  "playlist": "//cdn.jwplayer.com/v2/playlists/tQv85ru3?related_media_id=8cyIGV0w",
-	  "videoPlayerId": "widget-video-player",
-	  "header": "More Videos",
-	  "textColor": "#fff",
-	  "backgroundColor": "#000",
-	  "iconColor": "#fff",
-	  "widgetLayout": "spotlight",
-	  "widgetSize": "large"
 	}
-  ]
 }
-

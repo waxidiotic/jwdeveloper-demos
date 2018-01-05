@@ -12,7 +12,7 @@
       }
     }
   };
-  request.open('GET', 'config.json', true);
+  request.open('GET', '../widget-config.json', true);
   request.send();
 })();
 
