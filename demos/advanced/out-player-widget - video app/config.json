@@ -1,6 +1,6 @@
 {
-	"title": "Out-Player Widget - Single Page Video Site",
-	"description": "A javascript based widget to embed a feed of videos hosted in the JW Player platform.",
+	"title": "Out-Player Widget on a Single Page Video Site",
+	"description": "Build a single page video site using this JavaScript-based widget to embed multiple JW Platform-hosted video feeds.",
 	"license": "All",
 	"showCode": false,
 	"apiCalls": [

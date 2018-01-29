@@ -1,6 +1,6 @@
 {
-	"title": "Out-Player Widget - Article Embed",
-	"description": "A javascript based widget to embed a feed of videos hosted in the JW Player platform.",
+	"title": "Out-Player Widget on an Article",
+	"description": "Embed a feed of JW Platform-hosted videos on an article to drive user engagement using this JavaScript-based widget.",
 	"license": "All",
 	"showCode": false,
 	"apiCalls": [
