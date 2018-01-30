@@ -67,3 +67,14 @@ h3 strong {
 	display: inline-block;
 	margin-left: 20px;
 }
+
+@media (max-width: 480px) {
+	#ads-video-player {
+		display: block;
+		margin: 0 0 20px 0;
+	}
+	.demo-container .flex-wrap {
+		display: block;
+	}
+
+}
