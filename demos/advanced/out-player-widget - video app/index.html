@@ -86,3 +86,15 @@
   </div>
 </div>
 <script type="text/javascript" src="jw-widget/js/jw-widget-min.js"></script>
+<script>
+  $(document).ready(function(){
+    if ($(window).width() < 1024) {
+      $('.jw-widget').removeClass('large');
+      $('.jw-widget').addClass('medium');
+    }
+    if ($(window).width() < 640) {
+      $('.jw-widget').removeClass('large');
+      $('.jw-widget').addClass('small');
+    }
+});
+</script>
