@@ -1,0 +1,14 @@
+{
+	"title": "Player Bidding",
+	"description": "Use JW Player for player bidding with SpotXchange.",
+	"license": "Enterprise",
+	"showCode": true,
+    "layout": "horizontal",
+ 	"apiCalls": [
+		"on('adImpression')", "on('adBidRequest')", "on('adBidResponse')"
+	],
+	"author": {
+		"name": "JW Player",
+		"githubUsername": "jwplayer"
+	}
+}
