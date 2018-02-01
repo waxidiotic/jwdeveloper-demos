@@ -56,6 +56,7 @@ header h3 {
 }
 
 .horizontal-rule {
+	width: 100%;
 	margin: 0 1px 0 1px;
 	height: 4px;
 	background: -moz-linear-gradient(45deg, rgba(255,70,100,1) 0%, rgba(255,182,0,1) 100%);
@@ -70,7 +71,8 @@ header h3 {
 #multiple-widgets {
 	text-align: center;
 	margin: 0 auto;
-	width: 1030px;
+	width: 100%;
+	max-width: 1030px;
 	margin-top: 30px;
 }
 
@@ -86,4 +88,45 @@ header h3 {
 	-webkit-box-shadow: 0px 0px 3px 0px rgba(47, 53, 66, 0.6);
 	-moz-box-shadow:    0px 0px 3px 0px rgba(47, 53, 66, 0.6);
 	box-shadow:         0px 0px 3px 0px rgba(47, 53, 66, 0.6);
+}
+
+section {
+	margin: 40px 0;
+}
+
+.promo {
+	padding: 20px;
+	border-radius: 6px;
+	text-align: left;
+	background: -moz-linear-gradient(45deg, rgba(120,100,255,1) 0%, rgba(43,190,207,1) 100%);
+	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(120,100,255,1)), color-stop(100%, rgba(43,190,207,1)));
+	background: -webkit-linear-gradient(45deg, rgba(120,100,255,1) 0%, rgba(43,190,207,1) 100%);
+	background: -o-linear-gradient(45deg, rgba(120,100,255,1) 0%, rgba(43,190,207,1) 100%);
+	background: -ms-linear-gradient(45deg, rgba(120,100,255,1) 0%, rgba(43,190,207,1) 100%);
+	background: linear-gradient(45deg, rgba(120,100,255,1) 0%, rgba(43,190,207,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7864ff', endColorstr='#2bbecf', GradientType=1 );
+}
+
+.promo:hover {
+	text-decoration: none;
+}
+
+.promo img {
+	width: 30px;
+	position: relative;
+	top: 8px;
+	opacity: .85;
+}
+
+.promo:hover img {
+	opacity: 1;
+}
+
+.promo h2 {
+	color: #fff;
+	display: inline;
+	font-weight: 400;
+	font-size: 19px;
+	text-align: left;
+	margin-left: 5px;
 }
