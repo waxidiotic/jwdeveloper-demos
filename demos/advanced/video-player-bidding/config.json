@@ -8,7 +8,7 @@
 		"on('adImpression')", "on('adBidRequest')", "on('adBidResponse')"
 	],
 	"author": {
-		"name": "JW Player",
-		"githubUsername": "jwplayer"
+		"name": "Ian Boynton",
+		"githubUsername": "boyntoni"
 	}
 }
