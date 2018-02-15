@@ -34,67 +34,58 @@
         </div>
     </div>
     <h1 id="title">Code Example</h1>
-        <pre>
-            <code id="dfp">
-            var playerInstance = jwplayer("myElement")
-            playerInstance.setup({
-                "file": "https://content.jwplatform.com/videos/1g8jjku3-cIp6U8lV.mp4",
-                "advertising": {
-                    "client": "googima",
-                    "schedule": {
-                        "adBreak": {
-                            "tag": "//pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=sample_ct%3Dskippablelinear&correlator=",
-                            "offset": "pre"
-                        }
-                    },
-                    "bids": {
-                        "settings": {
-                            "mediationLayerAdServer": "dfp",
-                            "floorPriceCents": 2,
-                            "floorPriceCurrency": "usd",
-                            "bidTimeout": 1000
-                        },
-                        "bidders": [
-                            {
-                                "name": "SpotX",
-                                "id": "218150"
-                            }
-                        ]
-                    }
+        <pre><code id="dfp">var playerInstance = jwplayer("myElement")
+playerInstance.setup({
+    "file": "https://content.jwplatform.com/videos/1g8jjku3-cIp6U8lV.mp4",
+    "advertising": {
+        "client": "googima",
+        "schedule": {
+            "adBreak": {
+                "tag": "//pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=sample_ct%3Dskippablelinear&correlator=",
+                "offset": "pre"
+            }
+        },
+        "bids": {
+            "settings": {
+                "mediationLayerAdServer": "dfp",
+                "floorPriceCents": 2,
+                "floorPriceCurrency": "usd",
+                "bidTimeout": 1000
+            },
+            "bidders": [
+                {
+                    "name": "SpotX",
+                    "id": "218150"
                 }
-            });
-            </code>
-            <code id="jwp">
-                    var playerInstance = jwplayer("myElement")
-                    playerInstance.setup({
-                        "file": "https://content.jwplatform.com/videos/1g8jjku3-cIp6U8lV.mp4",
-                        "advertising": {
-                            "client": "googima",
-                            "schedule": {
-                                "adBreak": {
-                                    "tag": "//pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=sample_ct%3Dskippablelinear&correlator=",
-                                    "offset": "pre"
-                                }
-                            },
-                            "bids": {
-                                "settings": {
-                                    "mediationLayerAdServer": "jwp",
-                                    "floorPriceCents": 2,
-                                    "floorPriceCurrency": "usd",
-                                    "bidTimeout": 1000
-                                },
-                                "bidders": [
-                                    {
-                                        "name": "SpotX",
-                                        "id": "218150"
-                                    }
-                                ]
-                            }
-                        }
-                    });
-            </code>
-        </pre>
+            ]
+        }
+    }
+});</code><code id="jwp">var playerInstance = jwplayer("myElement")
+playerInstance.setup({
+    "file": "https://content.jwplatform.com/videos/1g8jjku3-cIp6U8lV.mp4",
+    "advertising": {
+        "client": "googima",
+        "schedule": {
+            "adBreak": {
+                "tag": "//pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=sample_ct%3Dskippablelinear&correlator=",
+                "offset": "pre"
+            }
+        },
+        "bids": {
+            "settings": {
+                "mediationLayerAdServer": "jwp",
+                "floorPriceCents": 2,
+                "floorPriceCurrency": "usd",
+                "bidTimeout": 1000
+            },
+            "bidders": [
+                {
+                    "name": "SpotX",
+                    "id": "218150"
+                }
+            ]
+        }
+    }
+});</code></pre>
 </div>
-<div class="pageDescription">
-    <p>This page demonstrates JW Player's new SpotX bidding integration. This is placeholder text for now to see what this looks like.</p>
-</div>
+
