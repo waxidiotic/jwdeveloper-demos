@@ -1,0 +1,14 @@
+{
+	"title": "Video Player Bidding",
+	"description": "Use JW Player for player bidding with SpotXchange.",
+	"license": "Enterprise",
+	"showCode": false,
+    "layout": "vertical",
+ 	"apiCalls": [
+		"on('adImpression')", "on('adBidRequest')", "on('adBidResponse')"
+	],
+	"author": {
+		"name": "Ian Boynton",
+		"githubUsername": "boyntoni"
+	}
+}
