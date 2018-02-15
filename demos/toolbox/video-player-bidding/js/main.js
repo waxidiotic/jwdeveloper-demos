@@ -4,6 +4,7 @@ let mediationLayer = "dfp"
 const configs = {
     "jwp": {
             "file": "https://content.jwplatform.com/videos/1g8jjku3-cIp6U8lV.mp4",
+            "image": "http://d3el35u4qe4frz.cloudfront.net/bkaovAYt-480.jpg",
             "advertising": {
                 "client": "googima",
                 "schedule": {
@@ -30,6 +31,7 @@ const configs = {
         },
     "dfp": {
         "file": "https://content.jwplatform.com/videos/1g8jjku3-cIp6U8lV.mp4",
+        "image": "http://d3el35u4qe4frz.cloudfront.net/bkaovAYt-480.jpg",
         "advertising": {
             "client": "googima",
             "schedule": {
@@ -61,15 +63,15 @@ function setupPlayer() {
 
     
     playerInstance.on("adImpression",function(event){
-        setElement("impression", "The ad impression was fired. SpotX did " + (winner(event)? ' ' : 'NOT') + " win the bidding.");
+        setElement("impression", "The ad impression was fired. SpotX did " + (winner(event)? ' ' : 'NOT') + " win the bidding.", "#090");
     });
 
     playerInstance.on("adBidRequest",function(event){
-        setElement("bid-request", "The ad Bid Request was fired.");
+        setElement("bid-request", "The ad Bid Request was fired.", "#090");
     });
 
     playerInstance.on("adBidResponse",function(event){
-        setElement("bid-response", "The ad Bid Response was fired.");
+        setElement("bid-response", "The ad Bid Response was fired.", "#090");
     });
 }
 
@@ -78,10 +80,10 @@ function setupListeners() {
     select.addEventListener("change", swapCodeBlocks, false);
 }
 
-function setElement(element,message){
+function setElement(element,message, color){
     var div = document.getElementById(element);
     div.innerHTML = message;
-    div.style.color = "#090";
+    div.style.color = color;
 }
 
 function winner(event){
@@ -92,11 +94,17 @@ function winner(event){
     return false;
 }
 
+function clearLogs() {
+    setElement("impression", "(no ad impression yet)", "#000")
+    setElement("bid-request", "(no ad bid request yet)", "#000");
+    setElement("bid-response", "(no ad bid response yet)", "#000");
+}
+
 function swapCodeBlocks(event) {
     oldMediationLayer = mediationLayer;
     mediationLayer = event.target.value;
-    let setupBlock;
-
+    
+    clearLogs();
     setupPlayer();
 
     document.getElementById(mediationLayer).style.display = "block";
