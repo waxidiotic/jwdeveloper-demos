@@ -23,7 +23,7 @@ const configs = {
                     "bidders": [
                         {
                             "name": "SpotX",
-                            "id": "218150"
+                            "id": "85394"
                         }
                     ]
                 }
@@ -50,7 +50,7 @@ const configs = {
                 "bidders": [
                     {
                         "name": "SpotX",
-                        "id": "218150"
+                        "id": "85394"
                     }
                 ]
             }
@@ -63,7 +63,8 @@ function setupPlayer() {
 
     
     playerInstance.on("adImpression",function(event){
-        setElement("impression", "The ad impression was fired. SpotX did " + (winner(event)? ' ' : 'NOT') + " win the bidding.", "#090");
+        console.log(winner(event));
+        setElement("impression", "The ad impression was fired. SpotX did " + (winner(event) ?  '' : 'NOT') + " win the bidding.", "#090");
     });
 
     playerInstance.on("adBidRequest",function(event){
@@ -87,11 +88,21 @@ function setElement(element,message, color){
 }
 
 function winner(event){
+    let isWinner = false;
     if(!event.bidders) return false;
-    event.bidders.forEach((bidder) => {
-        if (bidder === "SpotX" && bidder.winner) return true;
-    });
-    return false;
+    if (event.mediationLayerAdServer === "dfp") {
+        if (event.adsystem === "SpotXchange") {
+            isWinner = true;
+        }
+        return isWinner;
+    } else { 
+        event.bidders.forEach((bidder) => {
+            if (bidder.name === "SpotX" && bidder.winner) {
+                isWinner = true;
+            }
+        });
+        return isWinner;
+    }
 }
 
 function clearLogs() {
