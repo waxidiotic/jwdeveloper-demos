@@ -33,7 +33,7 @@
 
 			<ol>
 				<h4>Player Config</h4>
-				<li>You must already be using JW Player <span id="player-version"></span> with the Premium Edition license, or get it <a href="https://www.jwplayer.com/pricing/">here.</a></li>
+				<li>You must already be using JW Player <span id="player-version"></span> or get it <a href="https://www.jwplayer.com/pricing/">here.</a></li>
 				<li>Follow our JW Player developer documentation for <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#setup">setting up</a> your JW Player.</li>
 				<li>
 					Set the stereomode property on the playlist item in your player setup configuration:
@@ -41,7 +41,6 @@
 			</ol>
 		</div>
 		<pre><code class="html">var player = jwplayer('container').setup({
-	hlshtml: true,
 	playlist: [{
 		title: 'Caminandes VR',
 		mediaid: 'AgqYcfAT',
