@@ -28,3 +28,7 @@ Below are examples for how to customize the player skin
 #setupPlayerButton {
 	cursor: pointer;
 }
+
+.ad-rules-link {
+	margin-top: 35px;
+}
