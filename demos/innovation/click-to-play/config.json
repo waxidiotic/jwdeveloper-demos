@@ -4,8 +4,7 @@
   "license": "All",
   "showCode": true,
   "layout": "vertical",
-  "apiCalls": [
-  ],
+  "apiCalls": ["play()", "on('complete')", "remove()"],
   "author": {
   	"name": "Kim Hart",
   	"githubUsername": "kimhart"
