@@ -45,7 +45,7 @@ function swapCodeBlocks(event) {
     setupPlayer();
 
     document.getElementById(streamType).style.display = "block";
-    document.getElementById(oldMediationLayer).style.display = "none";
+    document.getElementById(oldStreamType).style.display = "none";
 }
 
 

@@ -1,6 +1,6 @@
 {
-	"title": "Dynamic Ad Insertion (DAI)",
-	"description": "Examples of DAI configurations for VOD and Live streams",
+	"title": "Google Dynamic Ad Insertion (DAI)",
+	"description": "Examples of Google DAI configurations for VOD and Live streams",
 	"license": "Enterprise",
 	"showCode": false,
     "layout": "vertical",
