@@ -8,9 +8,9 @@ playerInstance.setup({
     client: 'freewheel',
     freewheel: {
       networkid: 90750,
-      serverid: 'https://demo.v.fwmrm.net/ad/g/1',
-      profileid: '90750:jw_html5_test',
-      sectionid: 'jw_test_site_section'
+      serverid: "https://demo.v.fwmrm.net/ad/g/1",
+      profileid: "90750:jw_html5_test",
+      sectionid: "jw_test_site_section"
     },
     adscheduleid: '12345',
     schedule: {
