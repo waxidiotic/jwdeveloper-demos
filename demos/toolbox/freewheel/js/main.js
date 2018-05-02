@@ -2,7 +2,7 @@ const playerInstance = jwplayer('player');
 
 playerInstance.setup({
   file: '//content.jwplatform.com/videos/3XnJSIm4-injeKYZS.mp4',
-  fwassetid: 'jw_test_asset_h',
+  fwassetid: 'jw_test_asset_g',
   duration: 500,
   advertising: {
     client: 'freewheel',
