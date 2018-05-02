@@ -8,6 +8,9 @@ playerInstance.setup({
     client: 'freewheel',
     freewheel: {
       networkid: 90750,
+      // The 'adManagerUrl' specified below should
+      // be the URL you receive from Freewheel.
+      adManagerUrl: "https://mssl.fwmrm.net/p/jw_html5_test/AdManager.js",
       serverid: "https://demo.v.fwmrm.net/ad/g/1",
       profileid: "90750:jw_html5_test",
       sectionid: "jw_test_site_section"
