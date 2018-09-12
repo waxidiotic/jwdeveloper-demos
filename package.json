@@ -13,5 +13,8 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-mustache-render": "^1.9.0",
     "load-grunt-tasks": "^3.5.0"
+  },
+  "dependencies": {
+    "highlight.js": "^9.12.0"
   }
 }

@@ -271,7 +271,9 @@ module.exports = function (grunt) {
     grunt.config('copy', {
       build: {
         files: [
-          copy
+          copy,
+          {expand: true, src: ['js/*'], dest: 'build/', filter: 'isFile'},
+          {expand: true, cwd: 'jw-design-system/components/', src: ['components.js'], dest: 'build/js', filter: 'isFile'}
         ]
       }
     });
