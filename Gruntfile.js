@@ -55,7 +55,7 @@ module.exports = function (grunt) {
       mustacheRender = [],
       path = {
         file: '//developer.jwplayer.com/',
-        href: '/demos/'
+        href: '/',
       };
 
     // sort array/object alphabetically on the `directory` property
@@ -225,7 +225,7 @@ module.exports = function (grunt) {
         indexType: 'all',
         title: 'JW Player Demos &amp; Code Examples',
         description: 'Explore demos and code examples extending JW Player feature functionality.',
-        path: path,
+        path: path.file,
         directory: '',
         categories: function() {
           var cats = [];
