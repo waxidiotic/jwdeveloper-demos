@@ -93,7 +93,7 @@ module.exports = function (grunt) {
         if (filename == 'config.json') {
           // define demo-specific directory shortcuts
           var srcDir = 'demos/' + cat.directory + '/' + subDir + '/';
-          var buildDir = 'build/' + srcDir;
+          var buildDir = 'build/' + cat.directory + '/' + subDir + '/';
           // get demo config json
           var demo = grunt.file.readJSON(srcDir + filename);
           // if demo has apiCalls key, filter empty array values
@@ -265,6 +265,8 @@ module.exports = function (grunt) {
       src: 'data.json',
       dest: 'build'
     });
+
+
     // set copy config
     grunt.config('copy', {
       build: {
