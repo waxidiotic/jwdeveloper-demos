@@ -13,7 +13,7 @@ module.exports = function (grunt) {
         options: {
           hostname: '127.0.0.1',
           port: 8000,
-          base: 'build/demos',
+          base: 'build',
           useAvailablePort: true,
           open: true,
           liveReload: true
@@ -26,7 +26,7 @@ module.exports = function (grunt) {
           paths: ['less']
         },
         files: {
-          'build/demos/_css/jw-demos.css': 'less/build.less',
+          'build/_css/jw-demos.css': 'less/build.less',
         }
       }
     },
@@ -63,26 +63,7 @@ module.exports = function (grunt) {
         file: '//developer.jwplayer.com/',
         href: '/'
       };
-    // if a `local-config.json` file exists, override configurable data
-    if (grunt.file.exists('local-config.json')) {
-      var local = grunt.file.readJSON('local-config.json');
-      path.file = local.path.file ? local.path.file : path.file;
-      path.href = local.path.href ? local.path.href : path.href;
-    }
-    // if a `--deploy-*` option was passed to specify build type
-    if (grunt.option('deploy-production') || grunt.option('deploy-staging')) {
-      path.file = '/';
-      path.href = '/jw-player/demos/';
-      if (grunt.option('deploy-production')) {
-        env.dev = false;
-        env.prod = true;
-        path.host = 'developer.jwplayer.com';
-      } else {
-        env.dev = false;
-        env.staging = true;
-        path.host = 'staging-developer.jwplayer.com';
-      }
-    }
+
     // sort array/object alphabetically on the `directory` property
     function sortABC(a, b) {
       var prop = 'directory';
@@ -216,7 +197,7 @@ module.exports = function (grunt) {
           }
         },
         template: '_templates/index.mustache',
-        dest: 'build/demos/' + cat.directory + '/index.html'
+        dest: 'build/' + cat.directory + '/index.html'
       });
     }
     // sort complete list of demos
@@ -244,7 +225,7 @@ module.exports = function (grunt) {
         }
       },
       template: '_templates/search.mustache',
-      dest: 'build/demos/search/index.html'
+      dest: 'build/search/index.html'
     });
     // mustache config for complete demo index
     mustacheRender.push({
@@ -273,7 +254,7 @@ module.exports = function (grunt) {
         demos: demos.all
       },
       template: '_templates/index.mustache',
-      dest: 'build/demos/index.html'
+      dest: 'build/index.html'
     });
     // create JSON file from demos data
     grunt.file.write('tmp/demos/data.json', JSON.stringify(demos['all'], null, 2));
