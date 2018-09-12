@@ -20,6 +20,16 @@ module.exports = function (grunt) {
         }
       }
     },
+    less: {
+      compile: {
+        options: {
+          paths: ['less']
+        },
+        files: {
+          'build/demos/_css/jw-demos.css': 'less/build.less',
+        }
+      }
+    },
     watch: {
       config: {
         files: [
@@ -301,7 +311,8 @@ module.exports = function (grunt) {
       'copy',
       'concat',
       'mustache_render',
-      'clean:tmp'
+      'clean:tmp',
+      'less:compile'
     ]);
   });
   // build and serve locally

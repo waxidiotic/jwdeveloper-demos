@@ -24,16 +24,9 @@
 
 
   {{/env.dev}}
-  <link rel="shortcut icon" href="{{&path.file}}img/favicon.ico" type="image/x-icon" />
-	{{#env.dev}}
-  <link rel="stylesheet" href="{{&path.file}}css/developer.css">
-	{{/env.dev}}
-	{{^env.dev}}
-	<link rel="stylesheet" href="{{&path.file}}css/developer.min.css">
-	{{/env.dev}}
-  {{#css}}
-    <link rel="stylesheet" href="css/build.css">
-  {{/css}}
+    <link rel="shortcut icon" href="{{&path.file}}img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="_css/jw-demos.css">
+
   {{#env.prod}}
     <link rel="canonical" href="//{{&path.host}}" />
     <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MBF9PW"
