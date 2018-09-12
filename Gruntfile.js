@@ -55,7 +55,7 @@ module.exports = function (grunt) {
       mustacheRender = [],
       path = {
         file: '//developer.jwplayer.com/',
-        href: '/',
+        href: '../../',
       };
 
     // sort array/object alphabetically on the `directory` property
