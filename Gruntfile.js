@@ -53,11 +53,6 @@ module.exports = function (grunt) {
       copy = [],
       concat = {},
       mustacheRender = [],
-      env = {
-        dev: true,
-        staging: false,
-        prod: false
-      },
       path = {
         host: 'developer.jwplayer.com',
         file: '//developer.jwplayer.com/',
@@ -124,7 +119,6 @@ module.exports = function (grunt) {
           // mustache config for demo detail page
           mustacheRender.push({
             data: {
-              env: env,
               path: path,
               html: '<%= grunt.file.read("' + srcDir + 'index.html") %>',
               js: '\r\r<%= grunt.file.read("' + buildDir + 'js/build.js") %>\r',
@@ -162,7 +156,7 @@ module.exports = function (grunt) {
       // mustache config for category demo index
       mustacheRender.push({
         data: {
-          env: env,
+
           indexType: 'category',
           title: 'JW Player Demos &amp; Code Examples',
           description: categories[i].description,
@@ -205,7 +199,6 @@ module.exports = function (grunt) {
     // mustache config for search index
     mustacheRender.push({
       data: {
-        env: env,
         indexType: 'search-results',
         title: 'JW Player Demos &amp; Code Examples',
         description: 'Explore demos and code examples extending JW Player feature functionality.',
@@ -230,7 +223,6 @@ module.exports = function (grunt) {
     // mustache config for complete demo index
     mustacheRender.push({
       data: {
-        env: env,
         indexType: 'all',
         title: 'JW Player Demos &amp; Code Examples',
         description: 'Explore demos and code examples extending JW Player feature functionality.',
