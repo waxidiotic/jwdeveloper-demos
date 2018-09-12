@@ -257,13 +257,13 @@ module.exports = function (grunt) {
       dest: 'build/index.html'
     });
     // create JSON file from demos data
-    grunt.file.write('tmp/demos/data.json', JSON.stringify(demos['all'], null, 2));
+    grunt.file.write('tmp/data.json', JSON.stringify(demos['all'], null, 2));
     // add demos JSON data file to copy task
     copy.push({
       expand: true,
-      cwd: 'tmp/demos',
+      cwd: 'tmp',
       src: 'data.json',
-      dest: 'build/demos'
+      dest: 'build'
     });
     // set copy config
     grunt.config('copy', {
