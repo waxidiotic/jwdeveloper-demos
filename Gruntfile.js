@@ -272,7 +272,7 @@ module.exports = function (grunt) {
       build: {
         files: [
           copy,
-          {expand: true, src: ['jw-design-system/components/*'], dest: 'build/'},
+          {expand: true, src: ['jw-design-system/*'], dest: 'build/'},
         ]
       }
     });
