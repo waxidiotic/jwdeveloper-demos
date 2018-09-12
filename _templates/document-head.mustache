@@ -42,10 +42,5 @@
     })(window,document,'script','dataLayer','GTM-MBF9PW');</script>
   {{/env.prod}}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	{{#env.dev}}
-  <script src="{{&path.file}}js/developer.js"></script>
-	{{/env.dev}}
-	{{^env.dev}}
-	<script src="{{&path.file}}js/developer.min.js"></script>
-	{{/env.dev}}
+  <script src="jw-design-system/components/components.js"></script>
 </head>

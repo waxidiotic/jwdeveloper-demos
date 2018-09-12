@@ -270,7 +270,10 @@ module.exports = function (grunt) {
     // set copy config
     grunt.config('copy', {
       build: {
-        files: copy
+        files: [
+          copy,
+          {expand: true, src: ['jw-design-system/components/*'], dest: 'build/'},
+        ]
       }
     });
     // set concat config
@@ -295,7 +298,7 @@ module.exports = function (grunt) {
       'concat',
       'mustache_render',
       'clean:tmp',
-      'less:compile'
+      'less:compile',
     ]);
   });
   // build and serve locally
