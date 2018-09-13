@@ -26,7 +26,7 @@ module.exports = function (grunt) {
           paths: ['less']
         },
         files: {
-          'build/_css/jw-demos.css': 'less/build.less',
+          'build/template-css/jw-demos.css': 'less/build.less',
         }
       }
     },
