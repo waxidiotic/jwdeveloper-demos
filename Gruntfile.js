@@ -145,7 +145,7 @@ module.exports = function (grunt) {
                 return demo.layout || 'horizontal';
               }
             },
-            template: '_templates/single.mustache',
+            template: '_new/single.mustache',
             dest: buildDir + 'index.html'
           });
         }
@@ -189,7 +189,7 @@ module.exports = function (grunt) {
             return catDemos;
           }
         },
-        template: '_templates/index.mustache',
+        template: '_new/index.mustache',
         dest: 'build/' + cat.directory + '/index.html'
       });
     }
@@ -216,7 +216,7 @@ module.exports = function (grunt) {
           return cats;
         }
       },
-      template: '_templates/search.mustache',
+      template: '_new/search.mustache',
       dest: 'build/search/index.html'
     });
     // mustache config for complete demo index
@@ -244,7 +244,7 @@ module.exports = function (grunt) {
         },
         demos: demos.all
       },
-      template: '_templates/index.mustache',
+      template: '_new/index.mustache',
       dest: 'build/index.html'
     });
     // create JSON file from demos data
@@ -277,12 +277,13 @@ module.exports = function (grunt) {
     // set mustache config
     grunt.config('mustache_render', {
       options: {
-        directory: '_templates'
+        directory: '_new'
       },
       build: {
         files: mustacheRender
       }
     });
+
     // run the task list
     grunt.task.run([
       'clean:build',
