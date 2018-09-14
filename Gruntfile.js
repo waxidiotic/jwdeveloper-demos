@@ -145,7 +145,7 @@ module.exports = function (grunt) {
                 return demo.layout || 'horizontal';
               }
             },
-            template: '_new/single.mustache',
+            template: '_templates/single.mustache',
             dest: buildDir + 'index.html'
           });
         }
@@ -189,7 +189,7 @@ module.exports = function (grunt) {
             return catDemos;
           }
         },
-        template: '_new/index.mustache',
+        template: '_templates/index.mustache',
         dest: 'build/' + cat.directory + '/index.html'
       });
     }
@@ -216,7 +216,7 @@ module.exports = function (grunt) {
           return cats;
         }
       },
-      template: '_new/search.mustache',
+      template: '_templates/search.mustache',
       dest: 'build/search/index.html'
     });
     // mustache config for complete demo index
@@ -244,7 +244,7 @@ module.exports = function (grunt) {
         },
         demos: demos.all
       },
-      template: '_new/index.mustache',
+      template: '_templates/index.mustache',
       dest: 'build/index.html'
     });
     // create JSON file from demos data
@@ -263,9 +263,7 @@ module.exports = function (grunt) {
       build: {
         files: [
           copy,
-          {expand: true, src: ['js/*'], dest: 'build/', filter: 'isFile'},
-          {expand: true, cwd: 'jw-design-system/components/', src: ['components.js'], dest: 'build/js', filter: 'isFile'}
-        ]
+          {expand: true, src: ['js/*'], dest: 'build/', filter: 'isFile'}        ]
       }
     });
     // set concat config
@@ -277,7 +275,7 @@ module.exports = function (grunt) {
     // set mustache config
     grunt.config('mustache_render', {
       options: {
-        directory: '_new'
+        directory: '_templates'
       },
       build: {
         files: mustacheRender
