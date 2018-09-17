@@ -1601,10 +1601,6 @@ img.search-icon:hover {
 .pagination.prev-next span + span {
   float: right;
 }
-body {
-  color: #AAB4C8;
-  background-color: #AAB4C8;
-}
 .demos {
   color: #000;
   background-color: #fff;
@@ -1612,7 +1608,7 @@ body {
 }
 .demos-index-header,
 .demos-single-header {
-  background-color: #AAB4C8;
+  background-color: #0B7EF4;
   color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   position: relative;
