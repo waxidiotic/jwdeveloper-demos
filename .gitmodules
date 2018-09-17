@@ -1,0 +1,3 @@
+[submodule "jw-design-system"]
+	path = jw-design-system
+	url = git@github.com:jwplayer/jw-design-system.git
