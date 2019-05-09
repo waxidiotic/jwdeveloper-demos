@@ -2,7 +2,6 @@
 /bower_components
 /node_modules
 /npm-debug.log
-/build
 /local-config.json
 demos/customization/feeds-js/node_modules
 /_deprecated

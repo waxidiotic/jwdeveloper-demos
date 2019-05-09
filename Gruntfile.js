@@ -13,10 +13,20 @@ module.exports = function (grunt) {
         options: {
           hostname: '127.0.0.1',
           port: 8000,
-          base: 'build/demos',
+          base: 'build',
           useAvailablePort: true,
           open: true,
           liveReload: true
+        }
+      }
+    },
+    less: {
+      compile: {
+        options: {
+          paths: ['less']
+        },
+        files: {
+          'build/template-css/jw-demos.css': 'less/build.less',
         }
       }
     },
@@ -43,36 +53,11 @@ module.exports = function (grunt) {
       copy = [],
       concat = {},
       mustacheRender = [],
-      env = {
-        dev: true,
-        staging: false,
-        prod: false
-      },
       path = {
-        host: 'developer.jwplayer.com',
         file: '//developer.jwplayer.com/',
-        href: '/'
+        href: '../../',
       };
-    // if a `local-config.json` file exists, override configurable data
-    if (grunt.file.exists('local-config.json')) {
-      var local = grunt.file.readJSON('local-config.json');
-      path.file = local.path.file ? local.path.file : path.file;
-      path.href = local.path.href ? local.path.href : path.href;
-    }
-    // if a `--deploy-*` option was passed to specify build type
-    if (grunt.option('deploy-production') || grunt.option('deploy-staging')) {
-      path.file = '/';
-      path.href = '/jw-player/demos/';
-      if (grunt.option('deploy-production')) {
-        env.dev = false;
-        env.prod = true;
-        path.host = 'developer.jwplayer.com';
-      } else {
-        env.dev = false;
-        env.staging = true;
-        path.host = 'staging-developer.jwplayer.com';
-      }
-    }
+
     // sort array/object alphabetically on the `directory` property
     function sortABC(a, b) {
       var prop = 'directory';
@@ -102,7 +87,7 @@ module.exports = function (grunt) {
         if (filename == 'config.json') {
           // define demo-specific directory shortcuts
           var srcDir = 'demos/' + cat.directory + '/' + subDir + '/';
-          var buildDir = 'build/' + srcDir;
+          var buildDir = 'build/' + cat.directory + '/' + subDir + '/';
           // get demo config json
           var demo = grunt.file.readJSON(srcDir + filename);
           // if demo has apiCalls key, filter empty array values
@@ -133,7 +118,6 @@ module.exports = function (grunt) {
           // mustache config for demo detail page
           mustacheRender.push({
             data: {
-              env: env,
               path: path,
               html: '<%= grunt.file.read("' + srcDir + 'index.html") %>',
               js: '\r\r<%= grunt.file.read("' + buildDir + 'js/build.js") %>\r',
@@ -171,7 +155,7 @@ module.exports = function (grunt) {
       // mustache config for category demo index
       mustacheRender.push({
         data: {
-          env: env,
+
           indexType: 'category',
           title: 'JW Player Demos &amp; Code Examples',
           description: categories[i].description,
@@ -206,7 +190,7 @@ module.exports = function (grunt) {
           }
         },
         template: '_templates/index.mustache',
-        dest: 'build/demos/' + cat.directory + '/index.html'
+        dest: 'build/' + cat.directory + '/index.html'
       });
     }
     // sort complete list of demos
@@ -214,7 +198,6 @@ module.exports = function (grunt) {
     // mustache config for search index
     mustacheRender.push({
       data: {
-        env: env,
         indexType: 'search-results',
         title: 'JW Player Demos &amp; Code Examples',
         description: 'Explore demos and code examples extending JW Player feature functionality.',
@@ -234,16 +217,15 @@ module.exports = function (grunt) {
         }
       },
       template: '_templates/search.mustache',
-      dest: 'build/demos/search/index.html'
+      dest: 'build/search/index.html'
     });
     // mustache config for complete demo index
     mustacheRender.push({
       data: {
-        env: env,
         indexType: 'all',
         title: 'JW Player Demos &amp; Code Examples',
         description: 'Explore demos and code examples extending JW Player feature functionality.',
-        path: path,
+        path: path.file,
         directory: '',
         categories: function() {
           var cats = [];
@@ -263,21 +245,25 @@ module.exports = function (grunt) {
         demos: demos.all
       },
       template: '_templates/index.mustache',
-      dest: 'build/demos/index.html'
+      dest: 'build/index.html'
     });
     // create JSON file from demos data
-    grunt.file.write('tmp/demos/data.json', JSON.stringify(demos['all'], null, 2));
+    grunt.file.write('tmp/data.json', JSON.stringify(demos['all'], null, 2));
     // add demos JSON data file to copy task
     copy.push({
       expand: true,
-      cwd: 'tmp/demos',
+      cwd: 'tmp',
       src: 'data.json',
-      dest: 'build/demos'
+      dest: 'build'
     });
+
+
     // set copy config
     grunt.config('copy', {
       build: {
-        files: copy
+        files: [
+          copy,
+          {expand: true, src: ['js/*'], dest: 'build/', filter: 'isFile'}        ]
       }
     });
     // set concat config
@@ -295,13 +281,15 @@ module.exports = function (grunt) {
         files: mustacheRender
       }
     });
+
     // run the task list
     grunt.task.run([
       'clean:build',
       'copy',
       'concat',
       'mustache_render',
-      'clean:tmp'
+      'clean:tmp',
+      'less:compile',
     ]);
   });
   // build and serve locally
